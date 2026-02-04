@@ -162,13 +162,33 @@ const SplitText: React.FC<SplitTextProps> = ({
       willChange: 'transform, opacity'
     };
     const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
-    const Tag = (tag || 'p') as React.ElementType;
+    const Tag = tag || 'p';
 
-    return (
-      <Tag ref={ref} style={style} className={classes}>
-        {text}
-      </Tag>
-    );
+    const commonProps = {
+      ref,
+      style,
+      className: classes,
+      children: text,
+    };
+
+    switch (Tag) {
+      case 'h1':
+        return <h1 {...commonProps} />;
+      case 'h2':
+        return <h2 {...commonProps} />;
+      case 'h3':
+        return <h3 {...commonProps} />;
+      case 'h4':
+        return <h4 {...commonProps} />;
+      case 'h5':
+        return <h5 {...commonProps} />;
+      case 'h6':
+        return <h6 {...commonProps} />;
+      case 'span':
+        return <span {...commonProps} />;
+      default:
+        return <p {...commonProps} />;
+    }
   };
 
   return renderTag();

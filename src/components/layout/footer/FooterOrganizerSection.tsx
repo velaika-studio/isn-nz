@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { FooterSectionHeader, ContactItem } from "./FooterShared";
 
 const fadeUpVariant = {
-  visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   hidden: { y: 20, opacity: 0 },
 };
 
