@@ -83,7 +83,7 @@ export const nearbyHotels: Record<"luxury" | "midRange" | "budget", HotelCategor
       {
         id: "fairfield-marriott-dehradun",
         name: "Fairfield by Marriott Dehradun",
-        image: "/images/tsd.png",
+        image: "/images/fairfield.png",
         priceRange: {
           min: 8500,
           max: 11000,
