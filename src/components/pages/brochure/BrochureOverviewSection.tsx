@@ -27,26 +27,26 @@ export const BrochureOverviewSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="py-20 md:py-28 bg-gradient-to-bl from-primary/10 via-transparent to-primary/5 flex items-center justify-center w-screen"
+      className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent flex items-center justify-center"
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="max-w-xl">
-            <div className="mb-4 h-1.5 w-16 bg-primary rounded-full" />
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+            <div className="mb-4 h-1.5 w-16 bg-primary/20 rounded-full" />
+            <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               About The Conference
             </h2>
-            <p className="mt-2 text-lg text-primary">
+            <p className="mt-4 text-base font-semibold text-primary md:text-lg">
               Comprehensive Nephrology Education, Expert-Led Sessions, and
               Clinical Excellence
             </p>
-            <p className="mt-6 text-muted-foreground">
-              NZ-ISNCON 2026 is a premier nephrology conference
-              bringing together leading experts from across the Indian Society
-              of Nephrology - North Zone. This three-day event features
+            <p className="mt-6 text-base text-muted-foreground md:text-lg">
+              NZ-ISNCON 2026 is a premier nephrology conference bringing
+              together leading experts from across the Indian Society of
+              Nephrology - North Zone. This three-day event features
               comprehensive sessions on Clinical Nephrology, Dialysis
-              Innovations, Kidney Transplantation, Critical Care Nephrology,
-              and specialized pediatric and geriatric care.
+              Innovations, Kidney Transplantation, Critical Care Nephrology, and
+              specialized pediatric and geriatric care.
             </p>
           </div>
           <div className="space-y-8">
@@ -59,7 +59,7 @@ export const BrochureOverviewSection = () => {
                   className="flex items-start gap-4"
                 >
                   <div className="flex-shrink-0 mt-1">
-                    <div className="bg-background border p-3 rounded-full">
+                    <div className="bg-primary/5 border border-primary/20 p-3 rounded-xl shadow-sm">
                       <Icon className="size-6 text-primary" />
                     </div>
                   </div>

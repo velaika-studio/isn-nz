@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronRight, Home } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { REGISTRATION_LINK } from "@/lib/constants/registrationData";
 
@@ -12,7 +12,7 @@ const IMAGE_PATH = "/images/registeration-page.svg";
 /**
  * A visually engaging hero section for the Registration page, consistent with the site's style.
  */
-export const RegisterationHeroSection = () => {
+export const RegistrationHeroSection = () => {
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -32,7 +32,7 @@ export const RegisterationHeroSection = () => {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
-      <div className="container relative z-10 mx-auto px-4 text-white">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6 text-white">
         <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-300">
           <Link
             href="/"
@@ -44,7 +44,7 @@ export const RegisterationHeroSection = () => {
           <span className="font-medium text-white">Registration</span>
         </nav>
 
-        <h1 className="text-4xl font-extrabold tracking-tighter md:text-6xl">
+        <h1 className="font-serif text-4xl font-bold tracking-tight md:text-6xl">
           Register for <span className="text-primary">NZ-ISNCON 2026</span>
         </h1>
         <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-300">

@@ -1,6 +1,6 @@
 // components/layout/FooterShared.tsx
 
-import { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 
 export const FooterSectionHeader = ({

@@ -529,7 +529,10 @@ class Media {
   onResize({
     screen,
     viewport,
-  }: { screen?: ScreenSize; viewport?: Viewport } = {}) {
+  }: {
+    screen?: ScreenSize;
+    viewport?: Viewport;
+  } = {}) {
     if (screen) this.screen = screen;
     if (viewport) {
       this.viewport = viewport;

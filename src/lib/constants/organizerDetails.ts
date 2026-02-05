@@ -1,10 +1,10 @@
-import { OrganizerProps } from "../types";
+import type { OrganizerPropsType } from "@/types";
 import {
-  getAllOrganizingCommittee,
+  getAllAdvisors,
   getAllInternationalFaculty,
   getAllNationalFaculty,
+  getAllOrganizingCommittee,
   getAllPatrons,
-  getAllAdvisors,
   getAllScientificCommittee,
 } from "./facultyDatabase";
 
@@ -12,11 +12,12 @@ import {
  * Organizing Committee Members
  * These are the key organizers responsible for planning and executing NZ-ISNCON 2026
  */
-export const patronsData: OrganizerProps[] = getAllPatrons();
-export const advisorsData: OrganizerProps[] = getAllAdvisors();
-export const organizersData: OrganizerProps[] = getAllOrganizingCommittee();
-export const scientificCommitteeData: OrganizerProps[] =
+export const patronsData: OrganizerPropsType[] = getAllPatrons();
+export const advisorsData: OrganizerPropsType[] = getAllAdvisors();
+export const organizersData: OrganizerPropsType[] = getAllOrganizingCommittee();
+export const scientificCommitteeData: OrganizerPropsType[] =
   getAllScientificCommittee();
-export const internationalFacultyData: OrganizerProps[] =
+export const internationalFacultyData: OrganizerPropsType[] =
   getAllInternationalFaculty();
-export const nationalFacultyData: OrganizerProps[] = getAllNationalFaculty();
+export const nationalFacultyData: OrganizerPropsType[] =
+  getAllNationalFaculty();

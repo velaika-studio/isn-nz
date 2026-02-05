@@ -1,14 +1,14 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
-import { InfoCardProps } from "@/lib/types";
+import Link from "next/link";
+import type React from "react";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import { informationCardsData } from "@/lib/constants/informationCards";
+import { cn } from "@/lib/utils";
+import type { InfoCardPropsType } from "@/types";
 
 // --- Main Section Component ---
 
@@ -21,10 +21,10 @@ export const ImportantInformationSection = () => (
     whileInView="visible"
     viewport={{ once: true, amount: 0.1 }}
     variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-    className="relative w-full overflow-hidden py-20 md:py-28 bg-gradient-to-bl from-primary/10 via-transparent to-primary/5"
+    className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
     aria-labelledby="info-section-title"
   >
-    <div className="container relative z-10 mx-auto max-w-6xl px-4">
+    <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
       <InformationHeader />
       <InformationGrid />
     </div>
@@ -42,14 +42,14 @@ const itemVariants = {
  * ✨ A cleaner header that puts the focus on the cards below.
  */
 const InformationHeader = () => (
-  <motion.div variants={itemVariants} className="mb-16 text-center">
+  <motion.div variants={itemVariants} className="mb-12 text-center">
     <h2
       id="info-section-title"
-      className="text-4xl font-extrabold tracking-tighter sm:text-5xl"
+      className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
     >
       Conference Information
     </h2>
-    <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground md:text-xl">
+    <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
       Everything you need to know about NZ-ISNCON 2026 and how to make the most
       of your participation.
     </p>
@@ -70,7 +70,13 @@ const InformationGrid = () => (
 /**
  * ✨ A redesigned, fully-clickable info card with a clean hover effect.
  */
-const InfoCard = ({ card, index }: { card: InfoCardProps; index: number }) => {
+const InfoCard = ({
+  card,
+  index,
+}: {
+  card: InfoCardPropsType;
+  index: number;
+}) => {
   const { title, description, icon, href, disabled } = card;
 
   const CardContentWrapper = ({ children }: { children: React.ReactNode }) => (

@@ -1,10 +1,10 @@
 import {
-  Stethoscope,
+  BookOpen,
+  FlaskConical,
   Heart,
+  Stethoscope,
   TestTube,
   Users,
-  FlaskConical,
-  BookOpen,
 } from "lucide-react";
 
 export const conferenceHighlightsData = [

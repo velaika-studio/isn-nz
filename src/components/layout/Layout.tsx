@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils";
-import { Footer } from "./footer/Footer";
 import GoToTopButton from "@/components/shared/GoToTopButton";
+import { cn } from "@/lib/utils";
+import type { LayoutPropsType } from "@/types/ui";
+import { Footer } from "./footer/Footer";
 import { NavbarComponent } from "./navbar/Navbar";
-import { LayoutPropsType } from "@/types/ui";
 
 /**
  * Provides a consistent page structure with a header, main content area, and footer.

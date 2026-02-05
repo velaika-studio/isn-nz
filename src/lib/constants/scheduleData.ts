@@ -5,12 +5,12 @@ export interface ScheduleSession {
   chairperson?: string;
   additionalSpeakers?: string[];
   type?:
-  | "inauguration"
-  | "session"
-  | "slide-seminar"
-  | "lunch"
-  | "tea-break"
-  | "poster-review";
+    | "inauguration"
+    | "session"
+    | "slide-seminar"
+    | "lunch"
+    | "tea-break"
+    | "poster-review";
 }
 
 export interface DaySchedule {
@@ -137,9 +137,7 @@ export const conferenceSchedule: DaySchedule[] = [
 ];
 
 // Key speakers list
-export const keynoteSpeakers = [
-  { name: "TBA", affiliation: "" },
-];
+export const keynoteSpeakers = [{ name: "TBA", affiliation: "" }];
 
 // Session highlights for quick overview
 export const sessionHighlights = [

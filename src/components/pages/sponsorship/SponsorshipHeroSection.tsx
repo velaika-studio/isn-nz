@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Home } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const IMAGE_PATH = "/images/sponsorship-page.svg";
@@ -31,7 +31,7 @@ export const SponsorshipHeroSection = () => {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
-      <div className="container relative z-10 mx-auto px-4 text-white">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6 text-white">
         <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-300">
           <Link
             href="/"
@@ -43,7 +43,7 @@ export const SponsorshipHeroSection = () => {
           <span className="font-medium text-white">Sponsorship</span>
         </nav>
 
-        <h1 className="text-4xl font-extrabold tracking-tighter md:text-6xl">
+        <h1 className="font-serif text-4xl font-bold tracking-tight md:text-6xl">
           Partnership <span className="text-primary">Opportunities</span>
         </h1>
         <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-300">

@@ -1,19 +1,19 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Calendar,
+  Car,
   ExternalLink,
+  Globe,
   MapPin,
+  MapPinIcon,
+  Phone,
   Plane,
   Train,
-  Car,
-  Phone,
-  Globe,
-  MapPinIcon,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
@@ -25,12 +25,12 @@ import {
   CONFERENCE_END_DATE,
 } from "@/lib/constants/conferenceDetails";
 import {
+  nearbyHotels,
   tabsContent,
   venueDetails,
   venueImages,
-  nearbyHotels
 } from "@/lib/constants/venueDetails";
-import { Hotel, HotelCategory } from "@/types/information";
+import type { Hotel, HotelCategory } from "@/types/information";
 
 // --- Main Section Component ---
 
@@ -44,11 +44,11 @@ export const VenueSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      className="relative w-full overflow-hidden py-20 md:py-28"
+      className="relative w-full overflow-hidden py-16 md:py-24"
       id="venue"
       aria-labelledby="venue-heading"
     >
-      <div className="container relative z-10 mx-auto max-w-6xl px-4">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <VenueHeader />
         <VenueContent />
       </div>
@@ -67,11 +67,11 @@ const VenueHeader = () => (
   <motion.div variants={itemVariants} className="mb-12 text-center">
     <h2
       id="venue-heading"
-      className="text-4xl font-bold tracking-tight sm:text-5xl"
+      className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
     >
       Conference Venue
     </h2>
-    <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+    <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
       Join us at the prestigious Hotel Hyatt Centric in the heart of Dehradun
     </p>
   </motion.div>
@@ -132,11 +132,15 @@ const VenueContent = () => {
                     <MapPin className="size-6" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-primary/80">Location</h4>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-primary/80">
+                      Location
+                    </h4>
                     <p className="text-base leading-relaxed text-foreground">
                       {venueDetails.address.line1}, {venueDetails.address.line2}
                       <br />
-                      <span className="text-muted-foreground">{venueDetails.address.line3}</span>
+                      <span className="text-muted-foreground">
+                        {venueDetails.address.line3}
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -146,14 +150,22 @@ const VenueContent = () => {
                     <Calendar className="size-6" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-primary/80">Conference Dates</h4>
-                    <p className="text-base font-medium text-foreground">{formatConferenceDates()}</p>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-primary/80">
+                      Conference Dates
+                    </h4>
+                    <p className="text-base font-medium text-foreground">
+                      {formatConferenceDates()}
+                    </p>
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col gap-4 pt-4 sm:flex-row">
-                <Button asChild size="lg" className="h-12 flex-1 gap-2 rounded-xl shadow-lg shadow-primary/20 lg:flex-none lg:px-8">
+                <Button
+                  asChild
+                  size="lg"
+                  className="h-12 flex-1 gap-2 rounded-xl shadow-lg shadow-primary/20 lg:flex-none lg:px-8"
+                >
                   <Link
                     href={venueDetails.websiteUrl}
                     target="_blank"
@@ -163,12 +175,13 @@ const VenueContent = () => {
                     <ExternalLink className="size-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="h-12 flex-1 hover:text-white rounded-xl backdrop-blur-sm lg:flex-none lg:px-8">
-                  <Link
-                    href="#tourist-attractions"
-                  >
-                    View Surroundings
-                  </Link>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="h-12 flex-1 hover:text-white rounded-xl backdrop-blur-sm lg:flex-none lg:px-8"
+                >
+                  <Link href="#tourist-attractions">View Surroundings</Link>
                 </Button>
               </div>
             </div>
@@ -189,7 +202,9 @@ const VenueContent = () => {
             <CardContent className="p-6">
               <div className="prose prose-sm max-w-none text-muted-foreground">
                 {tabsContent.info.mainContent.map((paragraph, index) => (
-                  <p key={index} className="mb-4 last:mb-0">{paragraph}</p>
+                  <p key={index} className="mb-4 last:mb-0">
+                    {paragraph}
+                  </p>
                 ))}
               </div>
             </CardContent>
@@ -225,9 +240,9 @@ const VenueContent = () => {
                   By Air
                 </h4>
                 <p className="text-sm text-muted-foreground">
-                  Jolly Grant Airport (DED) is approximately 28 km from the venue.
-                  Travel time is 45-60 minutes by taxi. Pre-paid taxis are available
-                  at the airport.
+                  Jolly Grant Airport (DED) is approximately 28 km from the
+                  venue. Travel time is 45-60 minutes by taxi. Pre-paid taxis
+                  are available at the airport.
                 </p>
               </CardContent>
             </Card>
@@ -239,9 +254,9 @@ const VenueContent = () => {
                   By Rail
                 </h4>
                 <p className="text-sm text-muted-foreground">
-                  Dehradun Railway Station is 6 km from the venue. Regular trains
-                  connect Dehradun to Delhi, Mumbai, and other major cities.
-                  Auto-rickshaws and taxis are readily available.
+                  Dehradun Railway Station is 6 km from the venue. Regular
+                  trains connect Dehradun to Delhi, Mumbai, and other major
+                  cities. Auto-rickshaws and taxis are readily available.
                 </p>
               </CardContent>
             </Card>
@@ -253,9 +268,10 @@ const VenueContent = () => {
                   By Road
                 </h4>
                 <p className="text-sm text-muted-foreground">
-                  Dehradun is well-connected by road via the Delhi-Dehradun Expressway.
-                  The drive from Delhi takes approximately 4-5 hours. The venue is
-                  located on Rajpur Road, easily accessible from the city center.
+                  Dehradun is well-connected by road via the Delhi-Dehradun
+                  Expressway. The drive from Delhi takes approximately 4-5
+                  hours. The venue is located on Rajpur Road, easily accessible
+                  from the city center.
                 </p>
               </CardContent>
             </Card>
@@ -300,7 +316,9 @@ const HotelCategorySection = ({ category }: { category: HotelCategory }) => {
             <HotelCard key={hotel.id} hotel={hotel} />
           ))
         ) : (
-          <p className="col-span-full text-center text-muted-foreground">No hotels available in this category.</p>
+          <p className="col-span-full text-center text-muted-foreground">
+            No hotels available in this category.
+          </p>
         )}
       </div>
     </div>
@@ -320,11 +338,14 @@ const HotelCard = ({ hotel }: { hotel: Hotel }) => {
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
-          
+
           {/* Price Badge */}
           <div className="absolute top-4 right-4">
             <Badge className="bg-black/70 text-white backdrop-blur-sm border-none px-3 py-1.5 text-sm font-semibold">
-              {hotel.priceRange.currency} {hotel.priceRange.min.toLocaleString()} - {hotel.priceRange.currency}{hotel.priceRange.max.toLocaleString()}
+              {hotel.priceRange.currency}{" "}
+              {hotel.priceRange.min.toLocaleString()} -{" "}
+              {hotel.priceRange.currency}
+              {hotel.priceRange.max.toLocaleString()}
             </Badge>
           </div>
 

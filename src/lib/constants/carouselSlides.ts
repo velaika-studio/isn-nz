@@ -1,4 +1,4 @@
-import { CarouselSlideType } from "@/lib/types";
+import type { CarouselSlideType } from "@/types";
 
 export const carouselSlides: CarouselSlideType[] = [
   {

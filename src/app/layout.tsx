@@ -1,7 +1,6 @@
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { DemoWatermark } from "@/components/demo-watermark";
 import type { Metadata } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 const sansFont = Montserrat({
@@ -18,7 +17,8 @@ const serifFont = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "ISN-NZ | Indian Society of Nephrology - North Zone",
-  description: "Promoting excellence in nephrology care and education in North India.",
+  description:
+    "Promoting excellence in nephrology care and education in North India.",
 };
 
 export default function RootLayout({
@@ -37,7 +37,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <DemoWatermark /> */}
           {children}
         </ThemeProvider>
       </body>

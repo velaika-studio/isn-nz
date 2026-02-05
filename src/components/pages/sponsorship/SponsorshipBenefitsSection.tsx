@@ -1,10 +1,10 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 import { allBenefits } from "@/lib/constants/sponsorshipDetails";
+import { cn } from "@/lib/utils";
 
 // Animation variants for the content in the display card
 const cardContentVariants = {
@@ -25,14 +25,14 @@ export const SponsorshipBenefitsSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-gradient-to-bl from-primary/10 via-transparent to-primary/5 py-20 md:py-28"
+      className="w-full bg-gradient-to-b from-primary/5 via-transparent to-transparent py-16 md:py-24"
     >
-      <div className="container mx-auto max-w-6xl px-4">
-        <div className="mb-16 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+      <div className="container mx-auto max-w-6xl px-4 md:px-6">
+        <div className="mb-12 text-center">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Benefits at a Glance
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 max-w-2xl mx-auto text-base text-muted-foreground md:text-lg">
             A detailed breakdown of what each sponsorship tier offers.
           </p>
         </div>
@@ -60,7 +60,7 @@ export const SponsorshipBenefitsSection = () => {
 
           {/* Right Column: Animated Display Card */}
           <div className="lg:col-span-2">
-            <Card className="flex min-h-[24rem] items-center justify-center overflow-hidden p-8">
+            <Card className="flex min-h-[24rem] items-center justify-center overflow-hidden border-border/50 bg-card/60 p-8 backdrop-blur-sm shadow-xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={selectedBenefit.name}

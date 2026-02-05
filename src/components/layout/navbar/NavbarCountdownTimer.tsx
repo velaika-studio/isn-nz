@@ -1,10 +1,10 @@
 "use client";
 
-import { Clock, ArrowRight, Sparkles } from "lucide-react";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { ArrowRight, Clock, Sparkles } from "lucide-react";
+import Link from "next/link";
 import { useConferenceStatus } from "@/hooks/useConferenceStatus";
+import { cn } from "@/lib/utils";
 
 /**
  * Redesigned announcement banner with proper theming support

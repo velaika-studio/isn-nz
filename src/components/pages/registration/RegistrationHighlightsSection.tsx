@@ -6,16 +6,16 @@ import { conferenceHighlights } from "@/lib/constants/registrationData";
 /**
  * A section highlighting the key benefits of attending the conference.
  */
-export const RegisterationHighlightsSection = () => {
+export const RegistrationHighlightsSection = () => {
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="relative flex w-full items-center justify-center overflow-hidden py-20 md:py-28 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"
+      className="relative flex w-full items-center justify-center overflow-hidden py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
     >
-      <div className="relative z-10 mx-auto max-w-4xl px-4">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,10 +23,10 @@ export const RegisterationHighlightsSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             An Unparalleled Experience
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 max-w-2xl mx-auto text-base text-muted-foreground md:text-lg">
             Join us for an event designed to inspire, educate, and connect.
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ export const RegisterationHighlightsSection = () => {
                     </div>
                   </div>
 
-                  <div className="w-full overflow-hidden rounded-xl border border-primary/10 bg-card/50 p-6 shadow-lg backdrop-blur-sm transition-all hover:border-primary/20 hover:shadow-xl">
+                  <div className="w-full overflow-hidden rounded-2xl border border-border/50 bg-card/60 p-6 shadow-lg backdrop-blur-sm transition-all hover:border-primary/20 hover:shadow-xl">
                     <h3 className="text-xl font-bold text-foreground">
                       {highlight.title}
                     </h3>

@@ -1,6 +1,6 @@
-import { OrganizerProps } from "@/lib/types";
-import { LucideIcon, LucideProps } from "lucide-react";
-import { ReactNode } from "react";
+import type { LucideIcon, LucideProps } from "lucide-react";
+import type { ReactNode } from "react";
+import type { OrganizerPropsType } from "./common";
 
 export interface LayoutPropsType {
   /** Optional class names to apply to the main layout container. */
@@ -68,7 +68,7 @@ export interface TabConfig {
 export interface CommitteeTabsProps {
   activeTab: CommitteeType;
   setActiveTab: (tab: CommitteeType) => void;
-  committeeDataMap: Record<CommitteeType, OrganizerProps[]>;
+  committeeDataMap: Record<CommitteeType, OrganizerPropsType[]>;
 }
 
 export interface Detail {

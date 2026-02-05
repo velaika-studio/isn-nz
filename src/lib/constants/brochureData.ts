@@ -1,5 +1,3 @@
-import { ResourceItem } from "@/types/information";
-import { ConferenceHighlight, OverviewItem } from "@/types/ui";
 import {
   Award,
   Calendar,
@@ -11,6 +9,8 @@ import {
   Users,
   Video,
 } from "lucide-react";
+import type { ResourceItem } from "@/types/information";
+import type { ConferenceHighlight, OverviewItem } from "@/types/ui";
 
 /**
  * Key highlights of the scientific program.

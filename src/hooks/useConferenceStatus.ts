@@ -1,9 +1,9 @@
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   CONFERENCE_DATE,
   CONFERENCE_END_DATE,
 } from "@/lib/constants/conferenceDetails";
-import { ConferenceStateType } from "@/types/ui";
+import type { ConferenceStateType } from "@/types/ui";
 
 /**
  * A custom hook to calculate and track the current status of the conference.

@@ -1,18 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { ArrowRight, Calendar, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Calendar,
-  ArrowRight,
-  Heart,
-  ExternalLink,
-} from "lucide-react";
-import { ConferenceDetails, OrganizerContactData } from "@/lib/constants/contact";
+  ConferenceDetails,
+  OrganizerContactData,
+} from "@/lib/constants/contact";
 
 const fadeUpVariant = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
@@ -75,7 +70,10 @@ export const Footer = () => {
           className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-16 lg:py-20"
         >
           {/* Brand Section */}
-          <motion.div variants={fadeUpVariant} className="space-y-7 lg:col-span-1">
+          <motion.div
+            variants={fadeUpVariant}
+            className="space-y-7 lg:col-span-1"
+          >
             {/* Main Conference Logos - NZ-ISNCON and ISN */}
             <div className="space-y-4">
               <div className="flex items-center gap-4">
@@ -109,7 +107,9 @@ export const Footer = () => {
                 <h3 className="font-serif text-xl font-bold leading-tight text-foreground">
                   {ConferenceDetails.title}
                 </h3>
-                <p className="mt-1 text-xs font-medium text-muted-foreground">Dehradun, India</p>
+                <p className="mt-1 text-xs font-medium text-muted-foreground">
+                  Dehradun, India
+                </p>
               </div>
             </div>
 
@@ -140,7 +140,12 @@ export const Footer = () => {
                 In Association With
               </p>
               <div className="group/logo relative size-12 overflow-hidden rounded-xl border border-border/50 bg-background p-2 shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10">
-                <Image src="/dna-logo.png" alt="DNA Logo" fill className="object-contain" />
+                <Image
+                  src="/dna-logo.png"
+                  alt="DNA Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
             </div>
           </motion.div>
@@ -158,7 +163,9 @@ export const Footer = () => {
                     className="group flex items-center gap-2.5 text-sm text-muted-foreground transition-all duration-200 hover:translate-x-1.5 hover:text-foreground"
                   >
                     <ArrowRight className="size-4 text-primary opacity-0 transition-all duration-200 group-hover:opacity-100" />
-                    <span className="transition-all duration-200 group-hover:font-semibold">{link.label}</span>
+                    <span className="transition-all duration-200 group-hover:font-semibold">
+                      {link.label}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -178,7 +185,9 @@ export const Footer = () => {
                     className="group flex items-center gap-2.5 text-sm text-muted-foreground transition-all duration-200 hover:translate-x-1.5 hover:text-foreground"
                   >
                     <ArrowRight className="size-4 text-primary opacity-0 transition-all duration-200 group-hover:opacity-100" />
-                    <span className="transition-all duration-200 group-hover:font-semibold">{link.label}</span>
+                    <span className="transition-all duration-200 group-hover:font-semibold">
+                      {link.label}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -190,7 +199,7 @@ export const Footer = () => {
             <h4 className="text-sm font-bold uppercase tracking-widest text-foreground">
               Get in Touch
             </h4>
-            
+
             <div className="space-y-2.5">
               <a
                 href={ConferenceDetails.contact.emailHref}
@@ -200,7 +209,9 @@ export const Footer = () => {
                   <Mail className="size-4" />
                 </div>
                 <div className="min-w-0 flex-1 pt-0.5">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Email</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    Email
+                  </p>
                   <p className="mt-0.5 truncate text-sm font-medium text-foreground transition-colors group-hover:text-primary">
                     {ConferenceDetails.contact.email}
                   </p>
@@ -215,7 +226,9 @@ export const Footer = () => {
                   <Phone className="size-4" />
                 </div>
                 <div className="min-w-0 flex-1 pt-0.5">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Phone</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    Phone
+                  </p>
                   <p className="mt-0.5 text-sm font-medium text-foreground transition-colors group-hover:text-primary">
                     {ConferenceDetails.contact.phone}
                   </p>
@@ -227,9 +240,12 @@ export const Footer = () => {
                   <MapPin className="size-4" />
                 </div>
                 <div className="min-w-0 flex-1 pt-0.5">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Location</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    Location
+                  </p>
                   <p className="mt-0.5 text-sm leading-relaxed text-foreground">
-                    {ConferenceDetails.address.line1}, {ConferenceDetails.address.line2}
+                    {ConferenceDetails.address.line1},{" "}
+                    {ConferenceDetails.address.line2}
                     <br />
                     {ConferenceDetails.address.line3}
                   </p>
@@ -267,19 +283,27 @@ export const Footer = () => {
                   </p>
                   <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground md:justify-start">
                     <a
-                      href={OrganizerContactData.conferenceManager.contact.emailHref}
+                      href={
+                        OrganizerContactData.conferenceManager.contact.emailHref
+                      }
                       className="group flex items-center gap-1.5 transition-colors hover:text-primary"
                     >
                       <Mail className="size-3.5 transition-transform group-hover:scale-110" />
-                      <span className="font-medium">{OrganizerContactData.conferenceManager.contact.email}</span>
+                      <span className="font-medium">
+                        {OrganizerContactData.conferenceManager.contact.email}
+                      </span>
                     </a>
                     <span className="text-border">•</span>
                     <a
-                      href={OrganizerContactData.conferenceManager.contact.phoneHref}
+                      href={
+                        OrganizerContactData.conferenceManager.contact.phoneHref
+                      }
                       className="group flex items-center gap-1.5 transition-colors hover:text-primary"
                     >
                       <Phone className="size-3.5 transition-transform group-hover:scale-110" />
-                      <span className="font-medium">{OrganizerContactData.conferenceManager.contact.phone}</span>
+                      <span className="font-medium">
+                        {OrganizerContactData.conferenceManager.contact.phone}
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -290,8 +314,12 @@ export const Footer = () => {
               <p className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Organized under the aegis of
               </p>
-              <p className="text-sm font-bold text-foreground">Indian Society of Nephrology</p>
-              <p className="text-sm font-medium text-foreground/80">North Zone</p>
+              <p className="text-sm font-bold text-foreground">
+                Indian Society of Nephrology
+              </p>
+              <p className="text-sm font-medium text-foreground/80">
+                North Zone
+              </p>
             </div>
           </div>
         </motion.div>
@@ -308,20 +336,6 @@ export const Footer = () => {
             <p className="text-sm text-muted-foreground">
               © {currentYear} {ConferenceDetails.title}. All rights reserved.
             </p>
-            {/* <div className="flex items-center gap-2 text-sm">
-              <span className="text-muted-foreground">Designed & Developed with</span>
-              <Heart className="size-4 fill-red-500 text-red-500 animate-pulse" />
-              <span className="text-muted-foreground">by</span>
-              <Link
-                href="https://abhisheksan.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1 font-semibold text-foreground transition-colors hover:text-primary"
-              >
-                Abhishek Sharma
-                <ExternalLink className="size-3 opacity-0 transition-all duration-200 group-hover:opacity-100" />
-              </Link>
-            </div> */}
           </div>
         </motion.div>
       </div>

@@ -1,28 +1,28 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  Send,
-  CheckCircle,
-  Award,
-  Sparkles,
-  FileText,
   ArrowRight,
-  UserCheck,
+  Award,
+  CheckCircle,
   ClipboardCheck,
+  FileText,
+  Send,
+  Sparkles,
+  UserCheck,
 } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import {
-  guidelines,
   ABSTRACT_SUBMISSION_FORM_LINK,
+  guidelines,
   SUBMISSION_PROCESS_STEPS,
 } from "@/lib/constants/abstractData";
 

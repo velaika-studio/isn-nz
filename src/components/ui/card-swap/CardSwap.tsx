@@ -1,16 +1,16 @@
+import gsap from "gsap";
 import React, {
   Children,
   cloneElement,
   forwardRef,
   isValidElement,
-  ReactElement,
-  ReactNode,
-  RefObject,
+  type ReactElement,
+  type ReactNode,
+  type RefObject,
   useEffect,
   useMemo,
   useRef,
 } from "react";
-import gsap from "gsap";
 import "./CardSwap.css";
 
 export interface CardSwapProps {

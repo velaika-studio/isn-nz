@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Microscope, Users, MessageSquare } from "lucide-react";
+import { ArrowRight, MessageSquare, Microscope, Users } from "lucide-react";
+import Link from "next/link";
+import type React from "react";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -104,8 +104,7 @@ const KeyFeatures = () => (
     initial={{ opacity: 0, y: 15 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{
-      delay: 0.3
-
+      delay: 0.3,
     }}
   >
     <div className="flex gap-6">
@@ -123,7 +122,11 @@ const FeatureCard = ({
   feature,
   index,
 }: {
-  feature: { label: string; icon: React.ComponentType<{ className?: string }>; description: string };
+  feature: {
+    label: string;
+    icon: React.ComponentType<{ className?: string }>;
+    description: string;
+  };
   index: number;
 }) => {
   const Icon = feature.icon;

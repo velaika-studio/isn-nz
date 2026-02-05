@@ -1,14 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { sessionHighlights } from "@/lib/constants/scheduleData";
 import { CheckCircle } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { sessionHighlights } from "@/lib/constants/scheduleData";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },

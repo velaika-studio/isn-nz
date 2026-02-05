@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, CalendarClock } from "lucide-react";
+import Link from "next/link";
+import React, { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import {
   CONFERENCE_DATE,
   CONFERENCE_END_DATE,
 } from "@/lib/constants/conferenceDetails";
+import { cn } from "@/lib/utils";
 
 // --- Types ---
 type ConferenceStatus = "countdown" | "ongoing" | "ended" | "loading";

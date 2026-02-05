@@ -1,18 +1,16 @@
 "use client";
-import {
-  forwardRef,
-  useImperativeHandle,
-  useEffect,
-  useRef,
-  useMemo,
-  FC,
-  ReactNode,
-} from "react";
-
-import * as THREE from "three";
-
-import { Canvas, useFrame } from "@react-three/fiber";
 import { PerspectiveCamera } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import {
+  type FC,
+  forwardRef,
+  type ReactNode,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from "react";
+import * as THREE from "three";
 import { degToRad } from "three/src/math/MathUtils.js";
 
 type UniformValue = THREE.IUniform<unknown> | unknown;

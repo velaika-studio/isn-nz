@@ -1,8 +1,8 @@
-import { InfoCardProps } from "../types";
-import { UserPlus, FileText, FileDown, Download } from "lucide-react";
+import { Download, FileDown, FileText, UserPlus } from "lucide-react";
 import React from "react";
+import type { InfoCardPropsType } from "@/types";
 
-export const informationCardsData: InfoCardProps[] = [
+export const informationCardsData: InfoCardPropsType[] = [
   {
     title: "Registration Details",
     description:

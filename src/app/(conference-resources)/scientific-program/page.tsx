@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Bell, ArrowRight, Clock, MapPin } from "lucide-react";
+import { ArrowRight, Bell, Calendar, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
 
 /**
  * Scientific Program page - Coming Soon
@@ -50,8 +50,9 @@ export default function ScientificProgramPage() {
 
           {/* Description */}
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">
-            The detailed scientific programme for NZ-ISNCON 2026 is being finalized.
-            Stay tuned for an exciting lineup of sessions, workshops, and expert discussions.
+            The detailed scientific programme for NZ-ISNCON 2026 is being
+            finalized. Stay tuned for an exciting lineup of sessions, workshops,
+            and expert discussions.
           </p>
 
           {/* Event Info */}

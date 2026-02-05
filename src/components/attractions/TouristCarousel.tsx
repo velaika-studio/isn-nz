@@ -1,20 +1,21 @@
 "use client";
 
-import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, ExternalLink, MapPin } from "lucide-react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, MapPin, ExternalLink } from "lucide-react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
-  type CarouselApi,
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
+import { itemVariants, staggerContainer } from "@/lib/animations";
 import { attractionsData } from "@/lib/constants/touristAttractions";
-import { TouristAttraction } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import type { TouristAttractionType } from "@/types";
 
 // --- Main Section Component ---
 
@@ -26,7 +27,7 @@ export function TouristAttractionsSection() {
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
   const [selectedAttraction, setSelectedAttraction] =
-    React.useState<TouristAttraction | null>(null);
+    React.useState<TouristAttractionType | null>(null);
 
   React.useEffect(() => {
     if (!api) return;
@@ -40,13 +41,13 @@ export function TouristAttractionsSection() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
-      variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+      variants={staggerContainer}
       id="tourist-attractions"
-      className="relative w-full overflow-hidden py-20 md:py-28"
+      className="relative w-full overflow-hidden py-16 md:py-24"
       aria-labelledby="attractions-heading"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
-      <div className="container relative z-10 mx-auto max-w-7xl px-4">
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <AttractionsHeader />
 
         <motion.div variants={itemVariants}>
@@ -84,20 +85,15 @@ export function TouristAttractionsSection() {
 
 // --- Sub-components ---
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
 const AttractionsHeader = () => (
-  <motion.div variants={itemVariants} className="mb-16 text-center">
+  <motion.div variants={itemVariants} className="mb-12 text-center">
     <h2
       id="attractions-heading"
-      className="text-4xl font-extrabold tracking-tighter sm:text-5xl"
+      className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl"
     >
       Explore Dehradun
     </h2>
-    <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground md:text-xl">
+    <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
       Take some time to explore these beautiful attractions in and around
       Dehradun during your visit for NZ-ISNCON 2026.
     </p>
@@ -108,7 +104,7 @@ const AttractionCard = ({
   attraction,
   onSelect,
 }: {
-  attraction: TouristAttraction;
+  attraction: TouristAttractionType;
   onSelect: () => void;
 }) => (
   <motion.div
@@ -199,7 +195,7 @@ const AttractionDetailsDialog = ({
   attraction,
   onClose,
 }: {
-  attraction: TouristAttraction;
+  attraction: TouristAttractionType;
   onClose: () => void;
 }) => (
   <Dialog open onOpenChange={(open) => !open && onClose()}>

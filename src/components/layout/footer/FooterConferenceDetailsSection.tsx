@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Calendar, Clock, Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import { ConferenceDetails } from "@/lib/constants/contact";
-import { FooterSectionHeader, ContactItem } from "./FooterShared";
+import { ContactItem, FooterSectionHeader } from "./FooterShared";
 
 const fadeUpVariant = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },

@@ -1,5 +1,5 @@
-import { Benefit, SponsorshipPackage, SponsorshipTier } from "@/types/ui";
-import { Megaphone, Tv, Users, Building, Star } from "lucide-react";
+import { Building, Megaphone, Star, Tv, Users } from "lucide-react";
+import type { Benefit, SponsorshipPackage, SponsorshipTier } from "@/types/ui";
 
 /**
  * Defines the different sponsorship tiers available.

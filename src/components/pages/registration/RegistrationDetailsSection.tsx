@@ -1,17 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { conferenceDetails } from "@/lib/constants/registrationData";
 
 /**
  * A section displaying key details about the conference in a unified info bar.
  */
-export const RegisterationDetailsSection = () => {
+export const RegistrationDetailsSection = () => {
   // Get only the first three items to display
   const displayedDetails = conferenceDetails.slice(0, 3);
 
@@ -21,9 +21,9 @@ export const RegisterationDetailsSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="relative w-full overflow-hidden py-20 md:py-28 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"
+      className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
     >
-      <div className="container relative z-10 mx-auto max-w-5xl px-4">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,10 +31,10 @@ export const RegisterationDetailsSection = () => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Event at a Glance
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 max-w-2xl mx-auto text-base text-muted-foreground md:text-lg">
             All the essential information you need to plan your participation.
           </p>
         </motion.div>
@@ -45,7 +45,7 @@ export const RegisterationDetailsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Card className="overflow-hidden border-primary/20 bg-card/50 backdrop-blur-sm shadow-xl">
+          <Card className="overflow-hidden border-border/50 bg-card/60 backdrop-blur-sm shadow-xl">
             <CardContent className="p-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                 {displayedDetails.map((detail, index) => {

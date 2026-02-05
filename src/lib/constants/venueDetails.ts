@@ -1,6 +1,6 @@
 // Contains all the text and data related to the venue
 
-import { HotelCategory } from "@/types/information";
+import type { HotelCategory } from "@/types/information";
 
 export const venueDetails = {
   name: "Hotel Hyatt Centric, Dehradun",
@@ -15,7 +15,8 @@ export const venueDetails = {
     phone: "+91 135-614-1234",
   },
   conferenceDates: "10-12 April 2026",
-  websiteUrl: "https://www.hyatt.com/hyatt-centric/en-US/dedzd-hyatt-centric-rajpur-road-dehradun",
+  websiteUrl:
+    "https://www.hyatt.com/hyatt-centric/en-US/dedzd-hyatt-centric-rajpur-road-dehradun",
   mapDirectionsUrl: "https://maps.app.goo.gl/DfXGro7HfUcZ4ztD9",
   mapEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.492077161735!2d78.06762371200075!3d30.365381974658362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3908d760d9a85bc1%3A0xc15c4fb2aac68aee!2sHyatt%20Centric%20Dehradun!5e0!3m2!1sen!2sin!4v1770225204297!5m2!1sen!2sin",
@@ -52,7 +53,10 @@ export const tabsContent = {
   },
 };
 
-export const nearbyHotels: Record<"luxury" | "midRange" | "budget", HotelCategory> = {
+export const nearbyHotels: Record<
+  "luxury" | "midRange" | "budget",
+  HotelCategory
+> = {
   luxury: {
     title: "Luxury Hotels",
     subtitle: "Premium accommodations with world-class amenities",
@@ -60,7 +64,7 @@ export const nearbyHotels: Record<"luxury" | "midRange" | "budget", HotelCategor
       {
         id: "hyatt-regency-dehradun",
         name: "Hyatt Regency Dehradun Resort and Spa",
-        image: "/images/hyatt-regency.png", 
+        image: "/images/hyatt-regency.png",
         priceRange: {
           min: 16000,
           max: 22000,
@@ -75,7 +79,8 @@ export const nearbyHotels: Record<"luxury" | "midRange" | "budget", HotelCategor
         ],
         contact: {
           phone: "+91 135 617 1234",
-          website: "https://www.hyatt.com/hyatt-regency/en-US/delrh-hyatt-regency-dehradun",
+          website:
+            "https://www.hyatt.com/hyatt-regency/en-US/delrh-hyatt-regency-dehradun",
         },
         rating: 4.8,
         location: "Mussoorie Road",
@@ -98,7 +103,8 @@ export const nearbyHotels: Record<"luxury" | "midRange" | "budget", HotelCategor
         ],
         contact: {
           phone: "+91 135-6620222",
-          website: "https://www.marriott.com/en-us/hotels/dedfi-fairfield-dehradun",
+          website:
+            "https://www.marriott.com/en-us/hotels/dedfi-fairfield-dehradun",
         },
         rating: 4.5,
         location: "Malsi, Mussoorie Road",
@@ -121,7 +127,8 @@ export const nearbyHotels: Record<"luxury" | "midRange" | "budget", HotelCategor
         ],
         contact: {
           phone: "+91 135 273 7000",
-          website: "https://www.lemontreehotels.com/lemon-tree-hotel/dehradun/hotel-dehradun",
+          website:
+            "https://www.lemontreehotels.com/lemon-tree-hotel/dehradun/hotel-dehradun",
         },
         rating: 4.3,
         location: "Rajpur Road (Pacific Mall)",

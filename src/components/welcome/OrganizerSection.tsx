@@ -1,14 +1,14 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { organizersData } from "@/lib/constants/organizerDetails";
-import { OrganizerProps } from "@/lib/types";
+import type { OrganizerPropsType } from "@/types";
 
 /**
  * Redesigned organizing committee section with balanced 2x2 grid
@@ -19,9 +19,9 @@ export const OrganizerSection = () => (
     whileInView={{ opacity: 1 }}
     viewport={{ once: true, amount: 0.1 }}
     transition={{ duration: 0.8 }}
-    className="relative w-full overflow-hidden py-20 md:py-28"
+    className="relative w-full overflow-hidden py-16 md:py-24"
   >
-    <div className="container relative z-10 mx-auto max-w-5xl px-4">
+    <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -43,10 +43,10 @@ const itemVariants = {
 
 const OrganizerHeader = () => (
   <motion.div variants={itemVariants} className="mb-12 text-center">
-    <h2 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl">
+    <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
       Organizing Committee
     </h2>
-    <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+    <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
       Meet the distinguished faculty leading NZ-ISNCON 2026
     </p>
   </motion.div>
@@ -70,7 +70,7 @@ const OrganizerCard = ({
   organizer,
   index,
 }: {
-  organizer: OrganizerProps;
+  organizer: OrganizerPropsType;
   index: number;
 }) => {
   const initials = organizer.name
@@ -85,7 +85,10 @@ const OrganizerCard = ({
     >
       <Card className="group overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg">
         <CardContent className="flex items-center gap-4 p-6">
-          <motion.div whileHover={{ scale: 1.05 }} className="relative shrink-0">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="relative shrink-0"
+          >
             <Avatar className="size-20 border-2 border-border shadow-md">
               <AvatarImage
                 src={organizer.image}
@@ -118,7 +121,12 @@ const OrganizerCard = ({
 
 const OrganizerCTA = () => (
   <motion.div variants={itemVariants} className="flex justify-center">
-    <Button asChild variant="outline" size="lg" className="gap-2 hover:text-white">
+    <Button
+      asChild
+      variant="outline"
+      size="lg"
+      className="gap-2 hover:text-white"
+    >
       <Link href="/committee">
         View Full Committee
         <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

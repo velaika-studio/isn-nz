@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
+import type React from "react";
 import {
   Card,
   CardContent,
@@ -62,8 +62,8 @@ const HighlightsHeader = () => (
       Conference Highlights
     </h2>
     <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-      Join us for a comprehensive program designed to advance nephrology practice
-      and share the latest clinical insights.
+      Join us for a comprehensive program designed to advance nephrology
+      practice and share the latest clinical insights.
     </p>
   </motion.div>
 );
@@ -101,7 +101,9 @@ const HighlightCard = ({
           <CardTitle className="text-lg font-semibold">{title}</CardTitle>
         </CardHeader>
         <CardContent className="pt-0">
-          <CardDescription className="leading-relaxed">{description}</CardDescription>
+          <CardDescription className="leading-relaxed">
+            {description}
+          </CardDescription>
         </CardContent>
       </Card>
     </motion.div>

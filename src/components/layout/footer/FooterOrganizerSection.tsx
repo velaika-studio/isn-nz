@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
+import { ArrowUpRight, Globe, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Globe, ArrowUpRight, Phone, Mail } from "lucide-react";
-import { OrganizerContactData } from "@/lib/constants/contact";
 import { Button } from "@/components/ui/button";
-import { FooterSectionHeader, ContactItem } from "./FooterShared";
+import { OrganizerContactData } from "@/lib/constants/contact";
+import { ContactItem, FooterSectionHeader } from "./FooterShared";
 
 const fadeUpVariant = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },

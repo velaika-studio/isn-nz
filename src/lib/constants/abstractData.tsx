@@ -1,17 +1,17 @@
 import {
+  Award,
+  BookOpen,
+  Calendar,
+  CheckCircle,
+  FileText,
+  Mail,
+  Users,
+} from "lucide-react";
+import type {
   FormatRequirement,
   Guideline,
   SubmissionCategory,
 } from "@/types/information";
-import {
-  BookOpen,
-  CheckCircle,
-  Users,
-  Calendar,
-  Award,
-  FileText,
-  Mail,
-} from "lucide-react";
 
 export const ABSTRACT_SUBMISSION_FORM_LINK =
   "https://docs.google.com/forms/d/e/1FAIpQLSck6rmfSKDY47bUXlyC64d_74YUMUDS5Tew1pJFyw__5gJINA/viewform";

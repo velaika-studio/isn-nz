@@ -1,5 +1,5 @@
-import { Detail, Highlight, PricingOption } from "@/types/ui";
-import { CalendarClock, MapPin, Users, Mail, Sparkles } from "lucide-react";
+import { CalendarClock, Mail, MapPin, Sparkles, Users } from "lucide-react";
+import type { Detail, Highlight, PricingOption } from "@/types/ui";
 import { ConferenceDetails } from "./contact";
 
 // Conference details for NZ-ISNCON 2026
@@ -13,7 +13,8 @@ export const conferenceDetails: Detail[] = [
   {
     icon: MapPin,
     title: "Venue",
-    content: ConferenceDetails.address.line2 + ", " + ConferenceDetails.address.line3,
+    content:
+      ConferenceDetails.address.line2 + ", " + ConferenceDetails.address.line3,
     subtitle: "Hotel Hyatt Centric, Rajpur Road, Dehradun",
   },
   {

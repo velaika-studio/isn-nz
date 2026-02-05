@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Phone } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -15,14 +15,14 @@ export const CommitteeCtaSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
-      className="w-full py-24 md:py-32 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"
+      className="w-full py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
     >
       <div className="container mx-auto px-4 text-center">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Engage with the Experts
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-base text-muted-foreground md:text-lg">
             Be part of an exceptional conference and connect with our
             distinguished committee members and faculty.
           </p>

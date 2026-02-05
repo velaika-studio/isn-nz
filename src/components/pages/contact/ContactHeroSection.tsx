@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { CalendarDays, ChevronRight, Home, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ConferenceDetails } from "@/lib/constants/contact";
-import { Badge } from "@/components/ui/badge";
 
 const IMAGE_PATH = "/images/contact-page.svg";
 
@@ -33,7 +33,7 @@ export const ContactHeroSection = () => {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
-      <div className="container relative z-10 mx-auto px-4 text-white">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6 text-white">
         <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-300">
           <Link
             href="/"
@@ -46,7 +46,7 @@ export const ContactHeroSection = () => {
         </nav>
 
         {/* ✨ Content is now directly on the video overlay */}
-        <h1 className="text-4xl font-extrabold tracking-tighter md:text-6xl">
+        <h1 className="font-serif text-4xl font-bold tracking-tight md:text-6xl">
           Get in <span className="text-primary">Touch</span>
         </h1>
         <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-300">
@@ -76,7 +76,9 @@ export const ContactHeroSection = () => {
             className="gap-2 border-white/20 bg-white/10 text-sm font-medium backdrop-blur-sm text-white"
           >
             <MapPin className="size-4 text-primary" />
-            {ConferenceDetails.address.line2 + ", " + ConferenceDetails.address.line3}
+            {ConferenceDetails.address.line2 +
+              ", " +
+              ConferenceDetails.address.line3}
           </Badge>
         </div>
       </div>

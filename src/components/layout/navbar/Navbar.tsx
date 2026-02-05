@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 import { mainNavItems } from "@/lib/constants/navigation";
-import { ContactInfoBar } from "./NavbarContactInfoBar";
+import { cn } from "@/lib/utils";
 import { DesktopNavigation } from "./DesktopNavbar";
 import { MobileNavigation } from "./MobileNavbar";
+import { ContactInfoBar } from "./NavbarContactInfoBar";
 import AnnouncementBanner from "./NavbarCountdownTimer";
 import { NavbarLogo } from "./NavbarLogo";
 

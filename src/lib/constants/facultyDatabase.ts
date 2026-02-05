@@ -1,4 +1,4 @@
-import { OrganizerProps } from "../types";
+import type { OrganizerPropsType } from "@/types";
 
 /**
  * Comprehensive database of all faculty members for NZ-ISNCON 2026
@@ -6,7 +6,7 @@ import { OrganizerProps } from "../types";
 
 // ==================== INTERNATIONAL FACULTY ====================
 
-export const internationalFaculty: Record<string, OrganizerProps> = {
+export const internationalFaculty: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "International Faculty",
@@ -17,7 +17,7 @@ export const internationalFaculty: Record<string, OrganizerProps> = {
 
 // ==================== NATIONAL FACULTY ====================
 
-export const nationalFaculty: Record<string, OrganizerProps> = {
+export const nationalFaculty: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "National Faculty",
@@ -28,7 +28,7 @@ export const nationalFaculty: Record<string, OrganizerProps> = {
 
 // ==================== PATRONS & ADVISORS ====================
 
-export const patrons: Record<string, OrganizerProps> = {
+export const patrons: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "Patron",
@@ -37,7 +37,7 @@ export const patrons: Record<string, OrganizerProps> = {
   },
 };
 
-export const advisors: Record<string, OrganizerProps> = {
+export const advisors: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "Advisor",
@@ -48,7 +48,7 @@ export const advisors: Record<string, OrganizerProps> = {
 
 // ==================== SCIENTIFIC COMMITTEE ====================
 
-export const scientificCommittee: Record<string, OrganizerProps> = {
+export const scientificCommittee: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "Scientific Committee",
@@ -59,7 +59,7 @@ export const scientificCommittee: Record<string, OrganizerProps> = {
 
 // ==================== ORGANIZING COMMITTEE ====================
 
-export const organizingCommittee: Record<string, OrganizerProps> = {
+export const organizingCommittee: Record<string, OrganizerPropsType> = {
   sanjayDCruz: {
     name: "Dr. Sanjay D Cruz",
     role: "Organizing Chairman (ISN-NZ)",
@@ -89,32 +89,32 @@ export const organizingCommittee: Record<string, OrganizerProps> = {
 // ==================== HELPER FUNCTIONS ====================
 
 export function getFacultyByKeys(
-  database: Record<string, OrganizerProps>,
+  database: Record<string, OrganizerPropsType>,
   keys: string[],
-): OrganizerProps[] {
+): OrganizerPropsType[] {
   return keys.map((key) => database[key]).filter(Boolean);
 }
 
-export function getAllInternationalFaculty(): OrganizerProps[] {
+export function getAllInternationalFaculty(): OrganizerPropsType[] {
   return Object.values(internationalFaculty);
 }
 
-export function getAllNationalFaculty(): OrganizerProps[] {
+export function getAllNationalFaculty(): OrganizerPropsType[] {
   return Object.values(nationalFaculty);
 }
 
-export function getAllScientificCommittee(): OrganizerProps[] {
+export function getAllScientificCommittee(): OrganizerPropsType[] {
   return Object.values(scientificCommittee);
 }
 
-export function getAllOrganizingCommittee(): OrganizerProps[] {
+export function getAllOrganizingCommittee(): OrganizerPropsType[] {
   return Object.values(organizingCommittee);
 }
 
-export function getAllPatrons(): OrganizerProps[] {
+export function getAllPatrons(): OrganizerPropsType[] {
   return Object.values(patrons);
 }
 
-export function getAllAdvisors(): OrganizerProps[] {
+export function getAllAdvisors(): OrganizerPropsType[] {
   return Object.values(advisors);
 }

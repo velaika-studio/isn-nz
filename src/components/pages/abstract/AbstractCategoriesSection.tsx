@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { submissionCategories } from "@/lib/constants/abstractData";
 import CardSwap, { Card } from "@/components/ui/card-swap/CardSwap";
+import { submissionCategories } from "@/lib/constants/abstractData";
 
 /**
  * A responsive section displaying submission categories with an animated card swapping effect.

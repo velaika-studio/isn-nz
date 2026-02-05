@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
 /**
  * Premium navbar logo with sleek styling
@@ -75,7 +75,6 @@ export const NavbarLogo = () => {
         </p>
       </div>
 
-      
       <div className="ml-2 hidden h-12 w-px bg-linear-to-b from-transparent via-border to-transparent lg:block" />
 
       <div className="hidden items-center gap-4 lg:flex">

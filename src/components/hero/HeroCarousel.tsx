@@ -1,20 +1,20 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
+  Calendar,
   ChevronLeft,
   ChevronRight,
-  Calendar,
   MapPin,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import { carouselSlides } from "@/lib/constants/carouselSlides";
+import { cn } from "@/lib/utils";
 
 const AUTOPLAY_DURATION = 7000;
 
@@ -29,7 +29,7 @@ export const HeroCarousel = () => {
     (newDirection: number) => {
       setPage([
         (currentIndex + newDirection + carouselSlides.length) %
-        carouselSlides.length,
+          carouselSlides.length,
         newDirection,
       ]);
     },
@@ -95,7 +95,10 @@ export const HeroCarousel = () => {
                   className="space-y-6"
                 >
                   {/* Conference Badge */}
-                  <Badge variant="outline" className="border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm">
+                  <Badge
+                    variant="outline"
+                    className="border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm"
+                  >
                     30th Annual Conference of ISN-NZ
                   </Badge>
 
@@ -134,7 +137,11 @@ export const HeroCarousel = () => {
 
                   {/* CTA Buttons */}
                   <div className="flex flex-wrap gap-4 pt-4">
-                    <Button size="lg" className="group gap-2 rounded-full px-8 shadow-lg" asChild>
+                    <Button
+                      size="lg"
+                      className="group gap-2 rounded-full px-8 shadow-lg"
+                      asChild
+                    >
                       <Link href="/registration">
                         Register Now
                         <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -146,9 +153,7 @@ export const HeroCarousel = () => {
                       className="rounded-full px-8 backdrop-blur-sm hover:bg-primary hover:text-white"
                       asChild
                     >
-                      <Link href="/conference-brochure">
-                        View Brochure
-                      </Link>
+                      <Link href="/conference-brochure">View Brochure</Link>
                     </Button>
                   </div>
                 </motion.div>

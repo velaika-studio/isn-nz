@@ -1,5 +1,17 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ChevronDown,
+  ExternalLink,
+  Mail,
+  Menu,
+  Phone,
+  Sparkles,
+  X,
+} from "lucide-react";
+import Link from "next/link";
+import React from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,22 +22,10 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ConferenceDetails } from "@/lib/constants/contact";
-import { NavItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import {
-  ChevronDown,
-  Mail,
-  Menu,
-  Phone,
-  Sparkles,
-  X,
-  ExternalLink,
-} from "lucide-react";
-import Link from "next/link";
-import React from "react";
+import type { NavItemType } from "@/types";
 
-export const MobileNavigation = ({ items }: { items: NavItem[] }) => {
+export const MobileNavigation = ({ items }: { items: NavItemType[] }) => {
   return (
     <div className="flex items-center xl:hidden">
       <Sheet>
@@ -115,7 +115,7 @@ const MobileNavHeader = () => {
   );
 };
 
-const MobileNavAccordion = ({ items }: { items: NavItem[] }) => {
+const MobileNavAccordion = ({ items }: { items: NavItemType[] }) => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
 
   return (
@@ -139,7 +139,7 @@ const MobileNavAccordion = ({ items }: { items: NavItem[] }) => {
                     ? "text-primary bg-primary/5"
                     : "text-foreground hover:text-primary",
                   item.featured &&
-                  "bg-gradient-to-r from-primary/10 to-accent/10 text-primary",
+                    "bg-gradient-to-r from-primary/10 to-accent/10 text-primary",
                 )}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -219,7 +219,7 @@ const MobileNavAccordion = ({ items }: { items: NavItem[] }) => {
                 "bg-card/30 backdrop-blur-sm border border-border/40 hover:border-primary/40",
                 "hover:bg-primary/10 hover:shadow-md shadow-sm",
                 item.featured &&
-                "bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/30",
+                  "bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/30",
               )}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

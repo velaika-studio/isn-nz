@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Handshake, Mail } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -15,21 +15,21 @@ export const SponsorshipCtaSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
-      className="relative w-full overflow-hidden bg-background py-24 md:py-32"
+      className="relative w-full overflow-hidden bg-background py-16 md:py-24"
     >
       {/* ✨ 1. Rich gradient background and decorative elements */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
       <Handshake className="absolute -left-16 top-1/2 -z-10 size-96 -translate-y-1/2 -rotate-12 text-primary/5" />
 
-      <div className="container relative z-10 mx-auto px-4 text-center">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6 text-center">
         <div className="mx-auto flex max-w-3xl flex-col items-center">
-          <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-primary/10">
+          <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl border-2 border-primary bg-primary/10">
             <Handshake className="size-8 text-primary" />
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Ready to Partner with Us?
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
             Contact our team to discuss sponsorship packages and secure your
             partnership for NZ-ISNCON 2026. We look forward to collaborating
             with you.

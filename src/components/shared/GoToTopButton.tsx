@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 /**
  * A floating button that appears on scroll and returns the user to the top of the page.

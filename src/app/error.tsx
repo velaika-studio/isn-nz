@@ -1,12 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Home, RefreshCw } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, Home } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 /**

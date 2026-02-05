@@ -1,7 +1,7 @@
-import { NavItem } from "@/lib/types";
+import type { NavItemType } from "@/types";
 
 // Main navigation items
-export const mainNavItems: NavItem[] = [
+export const mainNavItems: NavItemType[] = [
   { href: "/", label: "Home", featured: false },
   {
     href: "#",

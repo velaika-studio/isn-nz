@@ -1,8 +1,8 @@
 import Layout from "@/components/layout/Layout";
 import { BrochureCtaSection } from "@/components/pages/brochure/BrochureCtaSection";
-import { BrochurePageHeroSection } from "@/components/pages/brochure/BrochurePageHeroSection";
 import { BrochureHighlightsSection } from "@/components/pages/brochure/BrochureHighlightsSection";
 import { BrochureOverviewSection } from "@/components/pages/brochure/BrochureOverviewSection";
+import { BrochurePageHeroSection } from "@/components/pages/brochure/BrochurePageHeroSection";
 import { BrochureResourcesSection } from "@/components/pages/brochure/BrochureResourcesSection";
 
 /**

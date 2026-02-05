@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { conferenceHighlights } from "@/lib/constants/brochureData";
-import { ConferenceHighlight } from "@/types/ui";
+import type { ConferenceHighlight } from "@/types/ui";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -25,14 +25,14 @@ export const BrochureHighlightsSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={sectionVariants}
-      className="w-full py-20 md:py-28 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"
+      className="w-full py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-6xl px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Scientific Program Highlights
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-base text-muted-foreground md:text-lg">
             Explore a comprehensive program designed to advance your knowledge
             in Nephrology.
           </p>
@@ -55,9 +55,9 @@ const HighlightCard = ({ highlight }: { highlight: ConferenceHighlight }) => {
   const Icon = highlight.icon;
   return (
     <motion.div variants={cardVariants} className="h-full">
-      <Card className="group h-full bg-card p-6 transition-all duration-300 ease-in-out hover:bg-muted/60 hover:shadow-lg hover:-translate-y-1.5">
+      <Card className="group h-full border-border/50 bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-card hover:shadow-xl hover:-translate-y-1.5">
         {/* Animated Icon Container */}
-        <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-transparent transition-colors duration-300 group-hover:bg-primary">
+        <div className="flex h-16 w-16 items-center justify-center rounded-xl border-2 border-primary bg-primary/5 transition-colors duration-300 group-hover:bg-primary">
           <Icon className="size-7 text-primary transition-colors duration-300 group-hover:text-primary-foreground" />
         </div>
 

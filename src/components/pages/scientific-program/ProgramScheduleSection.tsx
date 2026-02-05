@@ -1,20 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { conferenceSchedule } from "@/lib/constants/scheduleData";
 import {
   Calendar,
   Clock,
+  Coffee,
+  Microscope,
+  Presentation,
   User,
   Users,
-  Coffee,
   Utensils,
-  Presentation,
-  Microscope,
 } from "lucide-react";
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { conferenceSchedule } from "@/lib/constants/scheduleData";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },

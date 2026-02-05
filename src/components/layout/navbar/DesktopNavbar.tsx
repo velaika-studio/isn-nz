@@ -1,15 +1,15 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { ChevronDown, ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { NavItem } from "@/lib/types";
-import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import type { NavItemType } from "@/types";
 
-export const DesktopNavigation = ({ items }: { items: NavItem[] }) => {
+export const DesktopNavigation = ({ items }: { items: NavItemType[] }) => {
   return (
     <div className="hidden xl:flex lg:items-center lg:gap-x-2">
       <nav className="flex items-center">
@@ -39,7 +39,7 @@ export const DesktopNavigation = ({ items }: { items: NavItem[] }) => {
   );
 };
 
-const DesktopNavItem = ({ item }: { item: NavItem }) => {
+const DesktopNavItem = ({ item }: { item: NavItemType }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   if (item.children) {

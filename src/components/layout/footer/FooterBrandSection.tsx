@@ -48,8 +48,12 @@ export const FooterBrandSection = () => (
           <span className="text-lg">🏥</span>
         </div>
         <div>
-          <p className="text-sm font-semibold text-foreground">ISN - North Zone</p>
-          <p className="text-xs text-muted-foreground">& Dehradun Nephrology Association</p>
+          <p className="text-sm font-semibold text-foreground">
+            ISN - North Zone
+          </p>
+          <p className="text-xs text-muted-foreground">
+            & Dehradun Nephrology Association
+          </p>
         </div>
       </div>
     </div>

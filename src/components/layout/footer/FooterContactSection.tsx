@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, User } from "lucide-react";
 import { ConferenceDetails } from "@/lib/constants/contact";
-import { FooterSectionHeader, ContactItem } from "./FooterShared";
+import { ContactItem, FooterSectionHeader } from "./FooterShared";
 
 const fadeUpVariant = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },

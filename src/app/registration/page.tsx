@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Layout from "@/components/layout/Layout";
-import { RegisterationHeroSection } from "@/components/pages/registration/RegisterationHeroSection";
-import { RegisterationDetailsSection } from "@/components/pages/registration/RegisterationDetailsSection";
-import { RegisterationFeesSection } from "@/components/pages/registration/RegisterationFeesSection";
-import { RegisterationHighlightsSection } from "@/components/pages/registration/RegisterationHighlightsSection";
+import { RegistrationDetailsSection } from "@/components/pages/registration/RegistrationDetailsSection";
+import { RegistrationFeesSection } from "@/components/pages/registration/RegistrationFeesSection";
+import { RegistrationHeroSection } from "@/components/pages/registration/RegistrationHeroSection";
+import { RegistrationHighlightsSection } from "@/components/pages/registration/RegistrationHighlightsSection";
 
 /**
  * Renders the conference registration page.
@@ -22,10 +22,10 @@ export default function RegistrationPage() {
 
   return (
     <Layout>
-      <RegisterationHeroSection />
-      <RegisterationDetailsSection />
-      <RegisterationFeesSection isEarlyBird={isEarlyBird} />
-      <RegisterationHighlightsSection />
+      <RegistrationHeroSection />
+      <RegistrationDetailsSection />
+      <RegistrationFeesSection isEarlyBird={isEarlyBird} />
+      <RegistrationHighlightsSection />
     </Layout>
   );
 }

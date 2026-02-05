@@ -1,14 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Clock, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
+import { Clock, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  OrganizerContactData,
   ConferenceDetails,
+  OrganizerContactData,
 } from "@/lib/constants/contact";
 import { venueDetails } from "@/lib/constants/venueDetails";
 
@@ -22,9 +22,9 @@ export const ContactDetails = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-gradient-to-bl from-primary/10 via-transparent to-primary/5 py-20 md:py-28"
+      className="w-full bg-gradient-to-b from-primary/5 via-transparent to-transparent py-16 md:py-24"
     >
-      <div className="container mx-auto max-w-6xl px-4">
+      <div className="container mx-auto max-w-6xl px-4 md:px-6">
         <Tabs defaultValue="secretariat" className="w-full">
           <TabsList className="mx-auto grid h-auto max-w-lg grid-cols-2">
             <TabsTrigger value="secretariat">Conference Venue</TabsTrigger>
@@ -33,7 +33,7 @@ export const ContactDetails = () => {
 
           {/* ✨ 1. Redesigned Secretariat Tab */}
           <TabsContent value="secretariat" className="mt-10">
-            <Card className="overflow-hidden py-0">
+            <Card className="overflow-hidden py-0 border-border/50 bg-card/60 backdrop-blur-sm">
               <div className="relative h-64 w-full md:h-96">
                 <iframe
                   src={venueDetails.mapEmbedUrl}
@@ -128,11 +128,13 @@ const ContactInfoItem = ({
   children: React.ReactNode;
 }) => (
   <div>
-    <div className="flex items-center gap-3">
-      <Icon className="size-5 text-primary" />
+    <div className="flex items-center gap-4">
+      <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10">
+        <Icon className="size-5 text-primary" />
+      </div>
       <h4 className="font-semibold">{title}</h4>
     </div>
-    <div className="pl-8 pt-1 text-sm text-muted-foreground">{children}</div>
+    <div className="pl-14 pt-1 text-sm text-muted-foreground">{children}</div>
   </div>
 );
 
@@ -144,7 +146,7 @@ const OrganizationCard = ({
   title: string;
   data: { logoSrc: string; logoAlt: string; name: string };
 }) => (
-  <Card className="h-full">
+  <Card className="h-full border-border/50 bg-card/60 backdrop-blur-sm">
     <CardContent className="flex h-full flex-col items-center justify-between p-6 text-center">
       <div className="text-sm font-semibold text-muted-foreground">{title}</div>
       <div className="my-6">
@@ -169,10 +171,10 @@ const ManagerCard = ({
   title: string;
   data: { phone: string; phoneHref: string; email: string; emailHref: string };
 }) => (
-  <Card className="h-full">
+  <Card className="h-full border-border/50 bg-card/60 backdrop-blur-sm">
     <CardContent className="flex h-full flex-col items-center justify-between p-6 text-center">
       <div className="text-sm font-semibold text-muted-foreground">{title}</div>
-      <div className="my-6 flex h-24 w-24 items-center justify-center rounded-full bg-primary/10">
+      <div className="my-6 flex h-20 w-20 items-center justify-center rounded-xl bg-primary/10">
         <Phone className="size-10 text-primary" />
       </div>
       <div className="space-y-1">

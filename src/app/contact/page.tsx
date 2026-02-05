@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout";
-import { ContactDetails } from "@/components/pages/contact/ContactDetails";
 import { ContactCtaSection } from "@/components/pages/contact/ContactCtaSection";
+import { ContactDetails } from "@/components/pages/contact/ContactDetails";
 import { ContactHeroSection } from "@/components/pages/contact/ContactHeroSection";
 
 /**

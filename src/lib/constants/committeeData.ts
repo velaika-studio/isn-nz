@@ -1,5 +1,5 @@
-import { TabConfig } from "@/types/ui";
 import { Users } from "lucide-react";
+import type { TabConfig } from "@/types/ui";
 
 export const TABS: TabConfig[] = [
   {

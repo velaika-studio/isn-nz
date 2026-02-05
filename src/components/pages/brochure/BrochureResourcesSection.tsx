@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { resourceItems } from "@/lib/constants/brochureData";
-import { ResourceItem } from "@/types/information";
+import type { ResourceItem } from "@/types/information";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -27,14 +27,14 @@ export const BrochureResourcesSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={sectionVariants}
-      className="w-full py-20 md:py-28 bg-gradient-to-bl from-primary/10 via-transparent to-primary/5"
+      className="w-full py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-6xl px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Important Resources
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-base text-muted-foreground md:text-lg">
             Quick access to all essential conference information and forms.
           </p>
         </div>
@@ -61,14 +61,14 @@ const ResourceCard = ({ resource }: { resource: ResourceItem }) => {
         target={resource.isExternal ? "_blank" : undefined}
         className="h-full w-full"
       >
-        <Card className="group relative h-full bg-card p-6 transition-all duration-300 ease-in-out hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1.5">
+        <Card className="group relative h-full border-border/50 bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 ease-in-out hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1.5">
           {/* Animated Arrow Icon */}
           <ArrowUpRight className="absolute right-4 top-4 size-5 text-muted-foreground transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-primary" />
 
           {/* Content */}
           <div className="flex items-start gap-4">
             <div className="mt-1 flex-shrink-0">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg border bg-background">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/5">
                 <Icon className="size-6 text-primary" />
               </div>
             </div>

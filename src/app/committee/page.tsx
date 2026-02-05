@@ -2,18 +2,18 @@
 
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
-import {
-  organizersData,
-  internationalFacultyData,
-  nationalFacultyData,
-  patronsData,
-  advisorsData,
-  scientificCommitteeData,
-} from "@/lib/constants/organizerDetails";
-import { CommitteeType } from "@/types/ui";
+import { CommitteeCtaSection } from "@/components/pages/committee/CommitteeCtaSection";
 import { CommitteeHeroSection } from "@/components/pages/committee/CommitteeHeroSection";
 import { CommitteeTabs } from "@/components/pages/committee/CommitteeTabs";
-import { CommitteeCtaSection } from "@/components/pages/committee/CommitteeCtaSection";
+import {
+  advisorsData,
+  internationalFacultyData,
+  nationalFacultyData,
+  organizersData,
+  patronsData,
+  scientificCommitteeData,
+} from "@/lib/constants/organizerDetails";
+import type { CommitteeType } from "@/types/ui";
 
 /**
  * Displays the conference committee members, organized into tabs.

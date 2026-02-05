@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, Bell, ArrowRight } from "lucide-react";
+import { ArrowRight, Bell, FileText } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
 
 /**
  * Abstract Guidelines page - Coming Soon
@@ -52,8 +52,9 @@ export default function AbstractGuidelinesPage() {
 
           {/* Description */}
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">
-            We are currently finalizing the abstract submission guidelines for NZ-ISNCON 2026.
-            Please check back soon for detailed instructions on how to submit your research work.
+            We are currently finalizing the abstract submission guidelines for
+            NZ-ISNCON 2026. Please check back soon for detailed instructions on
+            how to submit your research work.
           </p>
 
           {/* Info Cards */}
@@ -64,7 +65,9 @@ export default function AbstractGuidelinesPage() {
             className="mx-auto mb-10 grid max-w-2xl gap-4 sm:grid-cols-2"
           >
             <div className="rounded-xl border border-border/50 bg-card/50 p-6 text-left backdrop-blur-sm">
-              <h3 className="mb-2 font-semibold text-foreground">Submission Portal</h3>
+              <h3 className="mb-2 font-semibold text-foreground">
+                Submission Portal
+              </h3>
               <p className="text-sm text-muted-foreground">
                 The online abstract submission portal will be available shortly.
               </p>

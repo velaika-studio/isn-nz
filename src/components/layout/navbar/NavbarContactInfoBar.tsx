@@ -1,8 +1,8 @@
+import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ConferenceDetails } from "@/lib/constants/contact";
-import { ContactInfoLinkPropsType } from "@/types/ui";
+import type { ContactInfoLinkPropsType } from "@/types/ui";
 
 const contactLinks: ContactInfoLinkPropsType[] = [
   {
@@ -36,7 +36,8 @@ export const ContactInfoBar = () => {
               <MapPin className="size-3 text-primary" />
             </div>
             <span className="font-medium">
-              {ConferenceDetails.address.line1}, {ConferenceDetails.address.line2}
+              {ConferenceDetails.address.line1},{" "}
+              {ConferenceDetails.address.line2}
             </span>
           </div>
         </div>

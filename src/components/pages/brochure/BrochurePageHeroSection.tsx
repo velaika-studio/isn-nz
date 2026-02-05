@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -11,6 +9,8 @@ import {
   Home,
   MapPin,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ConferenceDetails } from "@/lib/constants/contact";
 
@@ -39,7 +39,7 @@ export const BrochurePageHeroSection = () => {
       variants={sectionVariants}
       initial="hidden"
       animate="visible"
-      className="relative w-full overflow-hidden py-24 md:py-32"
+      className="relative w-full overflow-hidden py-24 text-center md:py-32"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
         <Image
@@ -52,7 +52,7 @@ export const BrochurePageHeroSection = () => {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
-      <div className="container relative z-10 mx-auto flex flex-col items-center px-4 text-center text-white">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6 flex flex-col items-center text-center text-white">
         <motion.nav
           variants={itemVariants}
           className="mb-8 flex items-center justify-center gap-2 text-sm text-gray-300"
@@ -70,7 +70,7 @@ export const BrochurePageHeroSection = () => {
           variants={itemVariants}
           className="mb-6 flex flex-col items-center"
         >
-          <p className="mb-4 text-sm font-medium text-muted-foreground">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-primary">
             Organized by the Indian Society of Nephrology - North Zone (ISN-NZ)
           </p>
           <div className="flex items-center justify-center gap-6">
@@ -82,13 +82,13 @@ export const BrochurePageHeroSection = () => {
 
         <motion.h1
           variants={itemVariants}
-          className="text-4xl font-extrabold tracking-tighter md:text-6xl uppercase"
+          className="font-serif text-4xl font-bold tracking-tight md:text-6xl uppercase"
         >
           NZ-ISNCON 2026
         </motion.h1>
         <motion.h2
           variants={itemVariants}
-          className="mt-2 text-2xl font-semibold text-primary md:text-3xl"
+          className="mt-2 text-xl font-medium text-primary md:text-2xl lg:text-3xl"
         >
           Advancing Nephrology Through Innovation and Clinical Excellence
         </motion.h2>
@@ -97,33 +97,39 @@ export const BrochurePageHeroSection = () => {
           variants={itemVariants}
           className="mx-auto mt-6 max-w-3xl text-lg text-gray-300"
         >
-          A premier nephrology conference featuring comprehensive
-          sessions on Clinical Nephrology, Dialysis Innovations,
-          Kidney Transplantation, and Critical Care Nephrology
-          with renowned national and international faculty.
+          A premier nephrology conference featuring comprehensive sessions on
+          Clinical Nephrology, Dialysis Innovations, Kidney Transplantation, and
+          Critical Care Nephrology with renowned national and international
+          faculty.
         </motion.p>
 
         {/* ✨ 3. Updated event details and action buttons */}
         <motion.div
           variants={itemVariants}
-          className="mt-10 w-full max-w-lg rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+          className="mt-10 w-full max-w-lg rounded-2xl border border-border/50 bg-background/5 p-6 backdrop-blur-sm shadow-2xl"
         >
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
             <div className="flex items-center gap-2">
               <Calendar className="size-4 text-primary" />
-              <span className="font-medium">
+              <span className="font-semibold">
                 {ConferenceDetails.eventDetails.dates}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="size-4 text-primary" />
-              <span className="font-medium">
-                {ConferenceDetails.address.line2 + ", " + ConferenceDetails.address.line3}
+              <span className="font-semibold">
+                {ConferenceDetails.address.line2 +
+                  ", " +
+                  ConferenceDetails.address.line3}
               </span>
             </div>
           </div>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <Button size="lg" asChild>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Button
+              size="lg"
+              asChild
+              className="rounded-xl shadow-lg shadow-primary/20"
+            >
               <Link href="/registration">
                 Register Now <ArrowUpRight className="ml-2 size-5" />
               </Link>
@@ -131,7 +137,7 @@ export const BrochurePageHeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-black dark:text-white hover:bg-white/10"
+              className="rounded-xl border-white/20 bg-transparent text-white hover:bg-white/10"
               asChild
             >
               <Link

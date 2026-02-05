@@ -1,21 +1,20 @@
 "use client";
 
-import { OrganizerSection } from "./OrganizerSection";
-import { SurgicalFeatures } from "./NephrologyFeatures";
-import { WelcomeMessage } from "./WelcomeMessage";
 import Beams from "../backgrounds/Beams";
 import { CountdownSection } from "../shared/CountdownTimer";
+import { SurgicalFeatures } from "./NephrologyFeatures";
+import { OrganizerSection } from "./OrganizerSection";
+import { WelcomeMessage } from "./WelcomeMessage";
 
 export default function WelcomePage() {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <WelcomeSection />
-      <div className="py-12 bg-primary/5">
-        <div className="container mx-auto px-6">
+      <div className="py-8 md:py-12 bg-primary/5">
+        <div className="container mx-auto max-w-6xl px-4 md:px-6">
           <CountdownSection />
         </div>
       </div>
-      {/* <FeaturesSection /> */}
       <CommitteeSection />
     </div>
   );

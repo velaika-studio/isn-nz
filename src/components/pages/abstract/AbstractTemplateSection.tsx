@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Award, FileText, Sparkles, Stethoscope } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { FileText, Stethoscope, Award, Sparkles } from "lucide-react";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -63,8 +63,8 @@ export const AbstractTemplateSection = () => {
               </h3>
 
               <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-                An exciting opportunity to have your research recognized! The top
-                presentations will receive awards and recognition from the
+                An exciting opportunity to have your research recognized! The
+                top presentations will receive awards and recognition from the
                 Indian Society of Nephrology - North Zone.
               </p>
 
@@ -302,9 +302,7 @@ export const AbstractTemplateSection = () => {
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1 text-primary">•</span>
-              <span>
-                Last date for abstract submission: 1st March, 2026
-              </span>
+              <span>Last date for abstract submission: 1st March, 2026</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1 text-primary">•</span>

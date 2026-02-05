@@ -1,8 +1,8 @@
 // components/layout/FooterQuickLinksSection.tsx
 
 import { motion } from "framer-motion";
-import { FooterSectionHeader, FooterLink } from "./FooterShared";
 import { LinkIcon } from "lucide-react";
+import { FooterLink, FooterSectionHeader } from "./FooterShared";
 
 const links = [
   { name: "Registration", href: "/registration" },

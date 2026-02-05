@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { CalendarDays, ChevronRight, Home, MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { ConferenceDetails } from "@/lib/constants/contact";
 
@@ -30,7 +30,7 @@ export const CommitteeHeroSection = () => {
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
-      <div className="container relative z-10 mx-auto px-4 text-white">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6 text-white">
         <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-300">
           <Link
             href="/"
@@ -42,13 +42,12 @@ export const CommitteeHeroSection = () => {
           <span className="font-medium text-white">Committee</span>
         </nav>
 
-        <h1 className="text-4xl font-extrabold tracking-tighter md:text-6xl">
+        <h1 className="font-serif text-4xl font-bold tracking-tight md:text-6xl">
           Conference Committee
         </h1>
         <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-300">
           Meet the dedicated team of experts behind NZ-ISNCON 2026, working
-          collaboratively to advance nephrology care and professional
-          growth.
+          collaboratively to advance nephrology care and professional growth.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -64,7 +63,9 @@ export const CommitteeHeroSection = () => {
             className="gap-2 border-white/20 bg-white/10 text-sm font-medium text-white backdrop-blur-sm"
           >
             <MapPin className="size-4 text-primary" />
-            {ConferenceDetails.address.line2 + ", " + ConferenceDetails.address.line3}
+            {ConferenceDetails.address.line2 +
+              ", " +
+              ConferenceDetails.address.line3}
           </Badge>
         </div>
       </div>

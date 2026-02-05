@@ -1,26 +1,25 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import {
+  ArrowRight,
   BookOpen,
   Calendar,
   ChevronRight,
   Download,
   FileText,
   Handshake,
+  type LucideIcon,
   MapPin,
   ScrollText,
   UserPlus,
-  ArrowRight,
-  LucideIcon,
 } from "lucide-react";
-
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   eventDetails as eventDetailsData,
   resourceLinks as resourceLinksData,
@@ -71,18 +70,17 @@ export const WelcomeMessage = () => (
     whileInView="visible"
     viewport={{ once: true, amount: 0.1 }}
     variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-    className="relative w-full overflow-hidden py-24 md:py-32"
+    className="relative w-full overflow-hidden py-16 md:py-24"
     id="welcome-message"
   >
     {/* Background decorations */}
     <div className="absolute inset-0 pointer-events-none">
       <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-radial from-primary/5 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-radial from-accent/5 to-transparent" />
     </div>
 
-    <div className="container relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
       <WelcomeHeader />
-      <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
         <WelcomeContent />
         <WelcomeSidebar />
       </div>
@@ -98,22 +96,22 @@ const itemVariants = {
 };
 
 const WelcomeHeader = React.memo(() => (
-  <motion.div variants={itemVariants} className="mb-20 text-center">
+  <motion.div variants={itemVariants} className="mb-12 text-center">
     <motion.div
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ delay: 0.2, type: "spring" }}
-      className="mx-auto mb-6 flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 shadow-lg shadow-primary/25"
+      className="mx-auto mb-6 flex size-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/70 shadow-lg shadow-primary/25"
     >
-      <span className="text-3xl">🏔️</span>
+      <span className="text-2xl">🏔️</span>
     </motion.div>
-    <h2 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+    <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
       Welcome to{" "}
       <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
         NZ-ISNCON 2026
       </span>
     </h2>
-    <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+    <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
       Bridging Science, Innovation, and Clinical Practice in Nephrology
     </p>
   </motion.div>

@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Send, Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight, Send, Sparkles } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ABSTRACT_SUBMISSION_FORM_LINK } from "@/lib/constants/abstractData";
 

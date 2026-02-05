@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -12,9 +13,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { sponsorshipTiers } from "@/lib/constants/sponsorshipDetails";
+import { cn } from "@/lib/utils";
 
 /**
  * Displays the different sponsorship tiers with a visually distinct featured tier.
@@ -27,14 +27,14 @@ export const SponsorshipTiersSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="w-full scroll-mt-20 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 py-20 md:py-28"
+      className="w-full scroll-mt-20 bg-gradient-to-b from-primary/5 via-transparent to-transparent py-16 md:py-24"
     >
-      <div className="container mx-auto max-w-7xl px-4">
-        <div className="mb-16 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+      <div className="container mx-auto max-w-6xl px-4 md:px-6">
+        <div className="mb-12 text-center">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Sponsorship Packages
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 max-w-2xl mx-auto text-base text-muted-foreground md:text-lg">
             Choose the partnership level that best aligns with your marketing
             goals.
           </p>
@@ -59,7 +59,7 @@ export const SponsorshipTiersSection = () => {
               />
               <Card
                 className={cn(
-                  "relative flex h-full flex-col bg-card/80 backdrop-blur-md", // ✨ 2. Glassmorphic effect for all cards
+                  "relative flex h-full flex-col border-border/50 bg-card/60 backdrop-blur-sm",
                   tier.featured && "bg-background",
                 )}
               >

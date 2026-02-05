@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { CommitteeTabsProps } from "@/types/ui";
-import { TABS } from "@/lib/constants/committeeData";
 import CircularGallery from "@/components/ui/circular-gallery/CircularGallery";
+import { TABS } from "@/lib/constants/committeeData";
+import type { CommitteeTabsProps } from "@/types/ui";
 
 const FALLBACK_AVATAR_URL = "/images/avatar-fallback.png";
 
@@ -31,13 +31,13 @@ export const CommitteeTabs = ({
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-gradient-to-bl from-primary/10 via-transparent to-primary/5 text-foreground"
+      className="w-full bg-gradient-to-b from-primary/5 via-transparent to-transparent text-foreground"
     >
-      <div className="container mx-auto px-4 py-20 md:py-28 text-center">
-        <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+      <div className="container mx-auto max-w-6xl px-4 md:px-6 py-16 md:py-24 text-center">
+        <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
           Meet The Committee
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+        <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
           Our conference is shaped by a dedicated team of leading experts and
           professionals. Select a committee to view its members.
         </p>
