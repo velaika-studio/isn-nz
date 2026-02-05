@@ -28,10 +28,10 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const VIDEO_PATH = "/videos/brochure-page.mp4";
+const IMAGE_PATH = "/images/brochure-page.svg";
 
 /**
- * The main hero section for the conference brochure page, featuring a video background.
+ * The main hero section for the conference brochure page, featuring an image background.
  */
 export const BrochurePageHeroSection = () => {
   return (
@@ -41,18 +41,16 @@ export const BrochurePageHeroSection = () => {
       animate="visible"
       className="relative w-full overflow-hidden py-24 md:py-32"
     >
-      <video
-        className="absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src={VIDEO_PATH} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+        <Image
+          src={IMAGE_PATH}
+          alt="Conference Brochure Background"
+          fill
+          className="object-contain opacity-20"
+          priority
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
       <div className="container relative z-10 mx-auto flex flex-col items-center px-4 text-center text-white">
         <motion.nav

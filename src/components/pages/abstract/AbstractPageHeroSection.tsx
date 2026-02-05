@@ -1,18 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { CalendarDays, ChevronRight, Home, MapPin, Send } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  BACKGROUND_VIDEO_PATH,
-  ABSTRACT_SUBMISSION_FORM_LINK,
-} from "@/lib/constants/abstractData";
+import { ABSTRACT_SUBMISSION_FORM_LINK } from "@/lib/constants/abstractData";
 import { ConferenceDetails } from "@/lib/constants/contact";
 
+const IMAGE_PATH = "/images/abstract-page.svg";
+
 /**
- * Hero section for the Abstract Guidelines page with a video background.
+ * Hero section for the Abstract Guidelines page with an image background.
  */
 export const AbstractPageHeroSection = () => (
   <motion.section
@@ -21,21 +21,19 @@ export const AbstractPageHeroSection = () => (
     transition={{ duration: 0.5 }}
     className="relative w-full overflow-hidden py-24 md:py-32"
   >
-    {/* Video Background */}
-    <video
-      className="absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="auto"
-    >
-      <source src={BACKGROUND_VIDEO_PATH} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    {/* Background Image */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+      <Image
+        src={IMAGE_PATH}
+        alt="Abstract Guidelines Background"
+        fill
+        className="object-contain opacity-20"
+        priority
+      />
+    </div>
 
     {/* Overlay to ensure text readability */}
-    <div className="absolute inset-0 bg-black/60" />
+    <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
     <div className="container relative z-10 mx-auto px-4 text-center text-white">
       {/* Breadcrumbs */}

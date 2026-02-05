@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
-const VIDEO_PATH = "/videos/sponsorship-page.mp4";
+
+const IMAGE_PATH = "/images/sponsorship-page.svg";
 
 /**
  * A visually engaging hero section for the Sponsorship page.
@@ -17,19 +19,17 @@ export const SponsorshipHeroSection = () => {
       transition={{ duration: 0.7 }}
       className="relative w-full overflow-hidden py-24 text-center md:py-32"
     >
-      {/* Video Background & Overlay */}
-      <video
-        className="absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src={VIDEO_PATH} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Background Image & Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+        <Image
+          src={IMAGE_PATH}
+          alt="Sponsorship Background"
+          fill
+          className="object-contain opacity-20"
+          priority
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
       <div className="container relative z-10 mx-auto px-4 text-white">
         <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-300">

@@ -16,7 +16,6 @@ import {
 export const ABSTRACT_SUBMISSION_FORM_LINK =
   "https://docs.google.com/forms/d/e/1FAIpQLSck6rmfSKDY47bUXlyC64d_74YUMUDS5Tew1pJFyw__5gJINA/viewform";
 export const GUIDELINES_DOC_PATH = "/files/isn-nz-brochure.pdf";
-export const BACKGROUND_VIDEO_PATH = "/videos/abstract-page.mp4";
 
 /**
  * Categories for abstract submissions.

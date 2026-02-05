@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { CalendarDays, ChevronRight, Home, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { ConferenceDetails } from "@/lib/constants/contact";
 
-const VIDEO_PATH = "/videos/committee-page.mp4";
+const IMAGE_PATH = "/images/committee-page.svg";
 
 /**
- * A visually enhanced hero section for the Committee page with a video background.
+ * A visually enhanced hero section for the Committee page with an image background.
  */
 export const CommitteeHeroSection = () => {
   return (
@@ -19,18 +20,16 @@ export const CommitteeHeroSection = () => {
       transition={{ duration: 0.7 }}
       className="relative w-full overflow-hidden py-24 text-center md:py-32"
     >
-      <video
-        className="absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-      >
-        <source src={VIDEO_PATH} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+        <Image
+          src={IMAGE_PATH}
+          alt="Committee Background"
+          fill
+          className="object-contain opacity-20"
+          priority
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
       <div className="container relative z-10 mx-auto px-4 text-white">
         <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-300">
           <Link

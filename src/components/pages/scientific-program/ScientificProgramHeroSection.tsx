@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Calendar, ChevronRight, Home, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ConferenceDetails } from "@/lib/constants/contact";
 
-const VIDEO_PATH = "/videos/program-page.mp4";
+const IMAGE_PATH = "/images/program-page.svg";
 
 /**
- * Hero section for the Scientific Program page with video background.
+ * Hero section for the Scientific Program page with image background.
  */
 export const ScientificProgramHeroSection = () => (
   <motion.section
@@ -18,21 +19,19 @@ export const ScientificProgramHeroSection = () => (
     transition={{ duration: 0.5 }}
     className="relative w-full overflow-hidden py-24 md:py-32"
   >
-    {/* Video Background */}
-    <video
-      className="absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover"
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="auto"
-    >
-      <source src={VIDEO_PATH} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    {/* Background Image */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+      <Image
+        src={IMAGE_PATH}
+        alt="Scientific Program Background"
+        fill
+        className="object-contain opacity-20"
+        priority
+      />
+    </div>
 
     {/* Overlay to ensure text readability */}
-    <div className="absolute inset-0 bg-black/60" />
+    <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
     <div className="container relative z-10 mx-auto px-4 text-center text-white">
       {/* Breadcrumbs */}

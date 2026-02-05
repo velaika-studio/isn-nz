@@ -1,6 +1,6 @@
 export const ConferenceDetails = {
   title: "NZ-ISNCON 2026",
-  logoSrc: "/isn-logo.png",
+  logoSrc: "/nz-isncon-logo.png",
   logoAlt: "NZ-ISNCON 2026 Dehradun",
   eventName: "NZ-ISNCON 2026",
   eventSubtitle: "Bridging Science, Innovation, and Clinical Practice",

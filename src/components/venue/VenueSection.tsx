@@ -4,13 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  Building,
   Calendar,
   ExternalLink,
   MapPin,
   Plane,
   Train,
   Car,
+  Phone,
+  Globe,
+  MapPinIcon,
 } from "lucide-react";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -26,7 +28,9 @@ import {
   tabsContent,
   venueDetails,
   venueImages,
+  nearbyHotels
 } from "@/lib/constants/venueDetails";
+import { Hotel, HotelCategory } from "@/types/information";
 
 // --- Main Section Component ---
 
@@ -98,7 +102,7 @@ const VenueContent = () => {
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:bg-gradient-to-r" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent lg:bg-linear-to-r" />
 
             {/* Badge */}
             <div className="absolute top-6 left-6">
@@ -119,7 +123,7 @@ const VenueContent = () => {
           </div>
 
           {/* Info Section */}
-          <CardContent className="relative flex flex-col justify-center bg-gradient-to-br from-card/80 via-card/50 to-transparent p-8 lg:p-12">
+          <CardContent className="relative flex flex-col justify-center bg-linear-to-br from-card/80 via-card/50 to-transparent p-8 lg:p-12">
             <div className="space-y-8">
               <div className="space-y-6">
                 {/* Details List */}
@@ -172,11 +176,12 @@ const VenueContent = () => {
         </div>
       </Card>
 
-      {/* Tabs for About and Travel */}
+      {/* Tabs for About, Hotels and Travel */}
       <Tabs defaultValue="about" className="w-full">
-        <TabsList className="mx-auto grid w-full max-w-sm grid-cols-2">
-          <TabsTrigger value="about">About Venue</TabsTrigger>
-          <TabsTrigger value="travel">How to Reach</TabsTrigger>
+        <TabsList className="mx-auto grid w-full max-w-2xl grid-cols-3">
+          <TabsTrigger value="about">About</TabsTrigger>
+          <TabsTrigger value="hotels">Hotels</TabsTrigger>
+          <TabsTrigger value="travel">Travel</TabsTrigger>
         </TabsList>
 
         <TabsContent value="about" className="mt-6">
@@ -189,6 +194,26 @@ const VenueContent = () => {
               </div>
             </CardContent>
           </Card>
+        </TabsContent>
+
+        <TabsContent value="hotels" className="mt-6">
+          <div className="space-y-12">
+            {/* Hotels Description */}
+            <div className="text-center">
+              <p className="mx-auto max-w-4xl text-base leading-relaxed text-muted-foreground">
+                {tabsContent.hotels.description}
+              </p>
+            </div>
+
+            {/* Luxury Hotels */}
+            <HotelCategorySection category={nearbyHotels.luxury} />
+
+            {/* Mid-Range Hotels */}
+            <HotelCategorySection category={nearbyHotels.midRange} />
+
+            {/* Budget Hotels */}
+            <HotelCategorySection category={nearbyHotels.budget} />
+          </div>
         </TabsContent>
 
         <TabsContent value="travel" className="mt-6">
@@ -253,6 +278,122 @@ const VenueContent = () => {
         </TabsContent>
       </Tabs>
     </motion.div>
+  );
+};
+
+// --- Hotel Components ---
+
+const HotelCategorySection = ({ category }: { category: HotelCategory }) => {
+  return (
+    <div className="space-y-6">
+      {/* Category Header */}
+      <div className="text-center">
+        <h3 className="font-serif text-3xl font-bold">{category.title}</h3>
+        <p className="mt-2 text-muted-foreground">{category.subtitle}</p>
+        <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-linear-to-r from-primary/50 via-primary to-primary/50" />
+      </div>
+
+      {/* Hotel Cards Grid */}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {category.hotels && category.hotels.length > 0 ? (
+          category.hotels.map((hotel) => (
+            <HotelCard key={hotel.id} hotel={hotel} />
+          ))
+        ) : (
+          <p className="col-span-full text-center text-muted-foreground">No hotels available in this category.</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const HotelCard = ({ hotel }: { hotel: Hotel }) => {
+  return (
+    <div className="group h-full transition-transform duration-300 hover:-translate-y-1">
+      <Card className="relative h-full overflow-hidden border-border/40 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
+        {/* Image Container */}
+        <div className="relative h-48 overflow-hidden">
+          <Image
+            src={hotel.image}
+            alt={hotel.name}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
+          
+          {/* Price Badge */}
+          <div className="absolute top-4 right-4">
+            <Badge className="bg-black/70 text-white backdrop-blur-sm border-none px-3 py-1.5 text-sm font-semibold">
+              {hotel.priceRange.currency} {hotel.priceRange.min.toLocaleString()} - {hotel.priceRange.currency}{hotel.priceRange.max.toLocaleString()}
+            </Badge>
+          </div>
+
+          {/* Hotel Name Overlay */}
+          <div className="absolute bottom-4 left-4 right-4">
+            <h4 className="font-serif text-xl font-bold leading-tight text-white">
+              {hotel.name}
+            </h4>
+          </div>
+        </div>
+
+        <CardContent className="space-y-4 p-6">
+          {/* Distance */}
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <MapPinIcon className="size-4 text-primary" />
+            <span>{hotel.distance}</span>
+          </div>
+
+          {/* Features */}
+          {hotel.features && hotel.features.length > 0 && (
+            <div className="space-y-2">
+              {hotel.features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 text-sm text-muted-foreground"
+                >
+                  <span className="text-base">{feature.icon}</span>
+                  <span>{feature.label}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Action Buttons */}
+          <div className="flex flex-col gap-2 pt-2">
+            {hotel.contact.phone && (
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full gap-2"
+                asChild
+              >
+                <a href={`tel:${hotel.contact.phone}`}>
+                  <Phone className="size-4" />
+                  Call Hotel
+                </a>
+              </Button>
+            )}
+            {hotel.contact.website && (
+              <Button
+                variant="default"
+                size="sm"
+                className="w-full gap-2"
+                asChild
+              >
+                <Link
+                  href={hotel.contact.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Globe className="size-4" />
+                  Website
+                </Link>
+              </Button>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 
