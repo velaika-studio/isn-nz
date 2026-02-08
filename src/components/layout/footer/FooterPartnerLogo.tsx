@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { OrganizerContactData } from "@/lib/constants/contact";
+import { ORGANIZER_CONTACT_DATA } from "@/lib/constants/contact-data";
 
 const fadeUpVariant = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
@@ -15,8 +15,8 @@ export const FooterPartnerLogo = () => (
       </p>
       <div className="rounded-lg bg-background/50 p-4 shadow-sm transition-transform hover:scale-105">
         <Image
-          src={OrganizerContactData.eventPartner.logoSrc}
-          alt={OrganizerContactData.eventPartner.logoAlt}
+          src={ORGANIZER_CONTACT_DATA.eventPartner.logoSrc}
+          alt={ORGANIZER_CONTACT_DATA.eventPartner.logoAlt}
           width={80}
           height={80}
           className="object-contain"

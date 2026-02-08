@@ -152,7 +152,7 @@ function IllustrationSection() {
  */
 function ContentSection() {
   return (
-    // ✨ Cohesive content layout inside a single card
+
     <motion.div
       variants={animations.staggered}
       className="text-center lg:text-left"

@@ -3,10 +3,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { allBenefits } from "@/lib/constants/sponsorshipDetails";
+import { ALL_BENEFITS } from "@/lib/constants/sponsorship-details";
 import { cn } from "@/lib/utils";
 
-// Animation variants for the content in the display card
 const cardContentVariants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -17,7 +16,7 @@ const cardContentVariants = {
  * Displays sponsorship benefits using an interactive tabbed layout.
  */
 export const SponsorshipBenefitsSection = () => {
-  const [selectedBenefit, setSelectedBenefit] = useState(allBenefits[0]);
+  const [selectedBenefit, setSelectedBenefit] = useState(ALL_BENEFITS[0]);
 
   return (
     <motion.section
@@ -25,7 +24,7 @@ export const SponsorshipBenefitsSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-gradient-to-b from-primary/5 via-transparent to-transparent py-16 md:py-24"
+      className="w-full bg-gradient-to-b from-background via-primary/5 to-background py-16 md:py-24"
     >
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-12 text-center">
@@ -40,20 +39,20 @@ export const SponsorshipBenefitsSection = () => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Left Column: Interactive Tabs */}
           <div className="space-y-2">
-            {allBenefits.map((benefit) => (
+            {ALL_BENEFITS.map((BenefitType) => (
               <button
-                key={benefit.name}
-                onClick={() => setSelectedBenefit(benefit)}
+                key={BenefitType.name}
+                onClick={() => setSelectedBenefit(BenefitType)}
                 className={cn(
                   "flex w-full items-center gap-4 rounded-lg p-4 text-left transition-colors duration-200",
                   "hover:bg-muted/50",
-                  selectedBenefit.name === benefit.name
+                  selectedBenefit.name === BenefitType.name
                     ? "bg-primary/10 text-primary"
                     : "text-muted-foreground",
                 )}
               >
-                <benefit.icon className="size-6 flex-shrink-0" />
-                <span className="font-semibold">{benefit.name}</span>
+                <BenefitType.icon className="size-6 flex-shrink-0" />
+                <span className="font-semibold">{BenefitType.name}</span>
               </button>
             ))}
           </div>

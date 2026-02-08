@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const AnnouncementBanner = () => {
   const { status, timeText, daysUntilStart } = useConferenceStatus();
 
-  // Don't render the banner if the conference has ended or is still loading
+
   if (status === "ended" || status === "loading") {
     return <></>;
   }

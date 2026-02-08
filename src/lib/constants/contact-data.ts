@@ -1,4 +1,4 @@
-export const ConferenceDetails = {
+export const CONFERENCE_DETAILS = {
   title: "NZ-ISNCON 2026",
   logoSrc: "/nz-isncon-logo.png",
   logoAlt: "NZ-ISNCON 2026 Dehradun",
@@ -10,7 +10,7 @@ export const ConferenceDetails = {
     line3: "Uttarakhand",
     line4: "India",
   },
-  eventDetails: {
+  WELCOME_EVENT_DETAILS: {
     dates: "10-12 April 2026",
     timing: "3 Days Conference",
   },
@@ -28,7 +28,7 @@ export const ConferenceDetails = {
   ],
 };
 
-export const OrganizerContactData = {
+export const ORGANIZER_CONTACT_DATA = {
   title: "Conference Secretariat",
   organizer: {
     logoSrc: "/isn-logo.png",

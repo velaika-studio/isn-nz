@@ -1,10 +1,10 @@
 import { Building, Megaphone, Star, Tv, Users } from "lucide-react";
-import type { Benefit, SponsorshipPackage, SponsorshipTier } from "@/types/ui";
+import type { BenefitType, SponsorshipPackageType, SponsorshipTierType } from "@/types/ui";
 
 /**
  * Defines the different sponsorship tiers available.
  */
-export const sponsorshipTiers: SponsorshipTier[] = [
+export const SPONSORSHIP_TIERS: SponsorshipTierType[] = [
   {
     name: "Silver Partner",
     price: "To Be Announced",
@@ -43,7 +43,7 @@ export const sponsorshipTiers: SponsorshipTier[] = [
 /**
  * A list of all possible benefits a sponsor can receive.
  */
-export const allBenefits: Benefit[] = [
+export const ALL_BENEFITS: BenefitType[] = [
   {
     name: "Logo on Website",
     description:
@@ -84,7 +84,7 @@ export const allBenefits: Benefit[] = [
 /**
  * Defines the specific benefits for each package tier for the comparison table.
  */
-export const sponsorshipPackages: SponsorshipPackage[] = [
+export const SPONSORSHIP_PACKAGES: SponsorshipPackageType[] = [
   {
     name: "Silver",
     price: "To Be Announced",

@@ -13,11 +13,9 @@ import {
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { itemVariants, staggerContainer } from "@/lib/animations";
-import { attractionsData } from "@/lib/constants/touristAttractions";
+import { ATTRACTIONS_DATA } from "@/lib/constants/tourist-attractions";
 import { cn } from "@/lib/utils";
 import type { TouristAttractionType } from "@/types";
-
-// --- Main Section Component ---
 
 /**
  * A refined section showcasing tourist attractions with a unified, interactive carousel.
@@ -43,17 +41,16 @@ export function TouristAttractionsSection() {
       viewport={{ once: true, amount: 0.1 }}
       variants={staggerContainer}
       id="tourist-attractions"
-      className="relative w-full overflow-hidden py-16 md:py-24"
+      className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-transparent via-primary/5 to-background"
       aria-labelledby="attractions-heading"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
       <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <AttractionsHeader />
 
         <motion.div variants={itemVariants}>
           <Carousel setApi={setApi} opts={{ align: "start", loop: true }}>
             <CarouselContent className="-ml-4">
-              {attractionsData.map((attraction) => (
+              {ATTRACTIONS_DATA.map((attraction) => (
                 <CarouselItem
                   key={attraction.id}
                   className="pl-4 md:basis-1/2 lg:basis-1/3"
@@ -82,8 +79,6 @@ export function TouristAttractionsSection() {
     </motion.section>
   );
 }
-
-// --- Sub-components ---
 
 const AttractionsHeader = () => (
   <motion.div variants={itemVariants} className="mb-12 text-center">

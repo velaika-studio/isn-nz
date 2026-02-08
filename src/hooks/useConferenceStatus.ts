@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   CONFERENCE_DATE,
   CONFERENCE_END_DATE,
-} from "@/lib/constants/conferenceDetails";
+} from "@/lib/constants/conference-details";
 import type { ConferenceStateType } from "@/types/ui";
 
 /**

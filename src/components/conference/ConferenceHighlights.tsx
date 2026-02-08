@@ -9,16 +9,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { conferenceHighlightsData } from "@/lib/constants/conferenceHighlights";
+import { CONFERENCE_HIGHLIGHTS } from "@/lib/constants/conference-highlights";
 
-// --- Type Definition ---
-interface Highlight {
+
+interface HighlightDataType {
   title: string;
   description: string;
   icon: React.ReactNode;
 }
 
-// --- Main Section Component ---
+
 
 /**
  * Conference highlights section with modern card grid
@@ -46,7 +46,7 @@ export const ConferenceHighlightsSection = () => (
   </motion.section>
 );
 
-// --- Sub-components ---
+
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -73,7 +73,7 @@ const HighlightsGrid = () => (
     variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
     className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
   >
-    {conferenceHighlightsData.map((highlight, index) => (
+    {CONFERENCE_HIGHLIGHTS.map((highlight, index) => (
       <HighlightCard key={index} highlight={highlight} index={index} />
     ))}
   </motion.div>
@@ -83,7 +83,7 @@ const HighlightCard = ({
   highlight,
   index,
 }: {
-  highlight: Highlight;
+  highlight: HighlightDataType;
   index: number;
 }) => {
   const { title, description, icon } = highlight;

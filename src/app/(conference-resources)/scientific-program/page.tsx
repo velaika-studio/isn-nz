@@ -14,7 +14,7 @@ export default function ScientificProgramPage() {
     <Layout>
       <div className="flex min-h-[70vh] flex-col items-center justify-center px-4 py-20">
         {/* <ScientificProgramHeroSection />
-      <SessionHighlightsSection />
+      <SESSION_HIGHLIGHTSSection />
       <ProgramScheduleSection /> */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

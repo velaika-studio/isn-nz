@@ -2,24 +2,25 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import CircularGallery from "@/components/ui/circular-gallery/CircularGallery";
-import { TABS } from "@/lib/constants/committeeData";
-import type { CommitteeTabsProps } from "@/types/ui";
+import DomeGallery from "@/components/ui/dome-gallery/DomeGallery";
+import { TABS } from "@/lib/constants/committee-data";
+import type { CommitteeTabsPropsType } from "@/types/ui";
 
 const FALLBACK_AVATAR_URL = "/images/avatar-fallback.png";
 
 /**
- * A component that displays committee members in the provided WebGL CircularGallery.
+ * A component that displays committee members in the provided DomeGallery.
  */
 export const CommitteeTabs = ({
   activeTab,
   setActiveTab,
   committeeDataMap,
-}: CommitteeTabsProps) => {
+}: CommitteeTabsPropsType) => {
   const committeeData = committeeDataMap[activeTab];
   const galleryItems = committeeData.map((member) => ({
-    image: member.image || FALLBACK_AVATAR_URL,
-    text: member.name,
+    src: member.image || FALLBACK_AVATAR_URL,
+    alt: member.name,
+    name: member.name,
     role: member.role,
     institution: member.institution,
   }));
@@ -31,7 +32,7 @@ export const CommitteeTabs = ({
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-gradient-to-b from-primary/5 via-transparent to-transparent text-foreground"
+      className="w-full bg-background text-foreground"
     >
       <div className="container mx-auto max-w-6xl px-4 md:px-6 py-16 md:py-24 text-center">
         <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
@@ -67,13 +68,25 @@ export const CommitteeTabs = ({
           </p>
         </div>
       </div>
-      <div className="relative -mt-16 h-[40vh] w-full xl:h-[90vh]">
-        <CircularGallery
-          items={galleryItems}
-          bend={3}
-          textColor="#ffffff"
-          borderRadius={0.05}
-          scrollEase={0.02}
+      <div className="relative -mt-16 h-[60vh] min-h-[500px] w-full xl:h-[90vh] bg-background overflow-hidden">
+        {/* Stronger fade overlays for better blending */}
+        <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-background via-background/90 via-30% to-transparent z-10 pointer-events-none" />
+
+        <DomeGallery
+          images={galleryItems}
+          fit={0.65}
+          minRadius={300}
+          maxRadius={800}
+          segments={35}
+          dragSensitivity={20}
+          maxVerticalRotationDeg={5}
+          imageBorderRadius="20px"
+          openedImageBorderRadius="20px"
+          openedImageWidth="min(450px, 90vw)"
+          openedImageHeight="min(450px, 90vw)"
+          grayscale={true}
+          overlayBlurColor="transparent"
         />
       </div>
     </motion.section>

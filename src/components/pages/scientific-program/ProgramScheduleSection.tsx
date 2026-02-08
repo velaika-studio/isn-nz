@@ -14,7 +14,7 @@ import {
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { conferenceSchedule } from "@/lib/constants/scheduleData";
+import { CONFERENCE_SCHEDULE } from "@/lib/constants/schedule-data";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -69,7 +69,7 @@ export const ProgramScheduleSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
-      className="w-full bg-gradient-to-br from-primary/5 via-transparent to-primary/10 py-20 md:py-28"
+      className="w-full bg-gradient-to-b from-background via-primary/5 to-background py-20 md:py-28"
     >
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
@@ -84,7 +84,7 @@ export const ProgramScheduleSection = () => {
 
         {/* Day Selection Tabs */}
         <div className="mx-auto mb-8 flex max-w-4xl flex-wrap justify-center gap-4">
-          {conferenceSchedule.map((day, index) => (
+          {CONFERENCE_SCHEDULE.map((day, index) => (
             <button
               key={index}
               type="button"
@@ -116,13 +116,13 @@ export const ProgramScheduleSection = () => {
             <CardHeader className="bg-primary/5">
               <CardTitle className="flex items-center gap-3 text-2xl py-6">
                 <Calendar className="size-6 text-primary" />
-                {conferenceSchedule[selectedDay].day} -{" "}
-                {conferenceSchedule[selectedDay].date}
+                {CONFERENCE_SCHEDULE[selectedDay].day} -{" "}
+                {CONFERENCE_SCHEDULE[selectedDay].date}
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
               <div className="space-y-4">
-                {conferenceSchedule[selectedDay].sessions.map(
+                {CONFERENCE_SCHEDULE[selectedDay].sessions.map(
                   (session, sessionIndex) => (
                     <motion.div
                       key={sessionIndex}

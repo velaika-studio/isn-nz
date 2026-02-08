@@ -6,38 +6,39 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { ABSTRACT_SUBMISSION_FORM_LINK } from "@/lib/constants/abstractData";
-import { ConferenceDetails } from "@/lib/constants/contact";
+import { ABSTRACT_SUBMISSION_FORM_LINK } from "@/lib/constants/abstract-data";
+import { CONFERENCE_DETAILS } from "@/lib/constants/contact-data";
 
 const IMAGE_PATH = "/images/abstract-page.svg";
 
 /**
- * Hero section for the Abstract Guidelines page with an image background.
+ * Hero section for the Abstract Guidelines page with enhanced styling and consistency.
  */
 export const AbstractPageHeroSection = () => (
   <motion.section
-    initial={{ opacity: 0, y: 20 }}
+    initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
     className="relative w-full overflow-hidden py-24 md:py-32"
   >
-    {/* Background Image */}
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-      <Image
-        src={IMAGE_PATH}
-        alt="Abstract Guidelines Background"
-        fill
-        className="object-contain opacity-20"
-        priority
-      />
+    {/* Background Image with Gradient Overlay */}
+    <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+        <Image
+          src={IMAGE_PATH}
+          alt="Abstract Guidelines Background"
+          fill
+          className="object-contain opacity-20"
+          priority
+        />
+      </div>
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
     </div>
-
-    {/* Overlay to ensure text readability */}
-    <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
     <div className="container relative z-10 mx-auto px-4 text-center text-white">
       {/* Breadcrumbs */}
-      <nav className="mb-4 flex items-center justify-center gap-2 text-sm text-gray-200">
+      <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-200">
         <Link
           href="/"
           className="flex items-center gap-1.5 transition-colors hover:text-primary"
@@ -45,41 +46,64 @@ export const AbstractPageHeroSection = () => (
           <Home className="size-4" />
           Home
         </Link>
-        <ChevronRight className="size-4" />
+        <ChevronRight className="size-4 opacity-60" />
         <span className="font-medium text-white">Abstract Guidelines</span>
       </nav>
 
-      <h1 className="mb-4 text-4xl font-extrabold tracking-tighter md:text-6xl">
+      {/* Title */}
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="mb-6 text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl"
+      >
         Abstract Submission Guidelines
-      </h1>
-      <p className="mx-auto mb-8 max-w-3xl text-lg md:text-xl text-gray-300">
+      </motion.h1>
+
+      {/* Description */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="mx-auto mb-10 max-w-3xl text-lg text-gray-200 md:text-xl"
+      >
         We invite you to contribute to NZ-ISNCON 2026. Share your research with
         leading experts in nephrology, clinical kidney health, and
         transplantation medicine.
-      </p>
+      </motion.p>
 
       {/* Event Details */}
-      <div className="mb-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
-        <div className="flex items-center gap-2">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="mb-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm"
+      >
+        <div className="flex items-center gap-2.5 rounded-lg bg-black/20 px-4 py-2 backdrop-blur-sm">
           <CalendarDays className="size-4 text-primary" />
-          <span className="font-medium text-white">
-            {ConferenceDetails.eventDetails.dates}
+          <span className="font-semibold text-white">
+            {CONFERENCE_DETAILS.WELCOME_EVENT_DETAILS.dates}
           </span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5 rounded-lg bg-black/20 px-4 py-2 backdrop-blur-sm">
           <MapPin className="size-4 text-primary" />
-          <span className="font-medium text-white">
-            {ConferenceDetails.address.line3}
+          <span className="font-semibold text-white">
+            {CONFERENCE_DETAILS.address.line3}
           </span>
         </div>
-      </div>
+      </motion.div>
 
       {/* Action Buttons */}
-      <div className="flex flex-wrap justify-center gap-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="flex flex-wrap justify-center gap-4"
+      >
         <Button
           size="lg"
           asChild
-          className="bg-primary text-primary-foreground hover:bg-primary/90"
+          className="bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90"
         >
           <Link
             href={ABSTRACT_SUBMISSION_FORM_LINK}
@@ -90,18 +114,7 @@ export const AbstractPageHeroSection = () => (
             Submit Abstract via Form
           </Link>
         </Button>
-        {/* <Button
-          size="lg"
-          variant="outline"
-          asChild
-          className="border-white text-black dark:text-white hover:bg-white/10"
-        >
-          <Link href={GUIDELINES_DOC_PATH}>
-            <Download className="mr-2 size-5" />
-            Download Guidelines
-          </Link>
-        </Button> */}
-      </div>
+      </motion.div>
     </div>
   </motion.section>
 );

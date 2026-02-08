@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { formatRequirements } from "@/lib/constants/abstractData";
+import { FORMAT_REQUIREMENTS } from "@/lib/constants/abstract-data";
 
 /**
  * A section detailing the formatting requirements for abstract submissions using an interactive accordion.
@@ -19,7 +19,7 @@ export const AbstractFormatSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5 }}
-      className="w-full py-20 md:py-28 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"
+      className="w-full py-20 md:py-28 bg-gradient-to-b from-background via-primary/5 to-background"
     >
       <div className="container mx-auto px-4">
         {/* Section Header */}
@@ -41,7 +41,7 @@ export const AbstractFormatSection = () => {
             className="w-full"
             defaultValue="item-0"
           >
-            {formatRequirements.map((req, index) => (
+            {FORMAT_REQUIREMENTS.map((req: any, index: number) => (
               <AccordionItem
                 value={`item-${index}`}
                 key={req.element}

@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
-import { resourceItems } from "@/lib/constants/brochureData";
-import type { ResourceItem } from "@/types/information";
+import { RESOURCE_ITEMS } from "@/lib/constants/brochure-data";
+import type { ResourceItemType } from "@/types/information";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -27,20 +27,11 @@ export const BrochureResourcesSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={sectionVariants}
-      className="w-full py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
+      className="w-full py-16 md:py-24"
     >
-      <div className="container mx-auto max-w-6xl px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Important Resources
-          </h2>
-          <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            Quick access to all essential conference information and forms.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {resourceItems.map((resource) => (
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          {RESOURCE_ITEMS.map((resource) => (
             <ResourceCard key={resource.title} resource={resource} />
           ))}
         </div>
@@ -52,7 +43,7 @@ export const BrochureResourcesSection = () => {
 /**
  * ✨ A redesigned, fully-clickable resource card with an animated arrow on hover.
  */
-const ResourceCard = ({ resource }: { resource: ResourceItem }) => {
+const ResourceCard = ({ resource }: { resource: ResourceItemType }) => {
   const Icon = resource.icon;
   return (
     <motion.div variants={cardVariants} className="h-full">

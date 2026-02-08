@@ -1,24 +1,24 @@
 import type { LucideIcon } from "lucide-react";
 
-export interface SubmissionCategory {
+export interface SubmissionCategoryType {
   title: string;
   icon: LucideIcon;
   description: string;
 }
 
-export interface FormatRequirement {
+export interface FormatRequirementType {
   element: string;
   requirement: string;
   example: React.ReactNode;
 }
 
-export interface Guideline {
+export interface GuidelineType {
   icon: LucideIcon;
   text: string;
   colorClassName: string;
 }
 
-export interface ResourceItem {
+export interface ResourceItemType {
   icon: LucideIcon;
   title: string;
   description: string;
@@ -27,12 +27,12 @@ export interface ResourceItem {
   isExternal?: boolean;
 }
 
-export interface HotelFeature {
+export interface HotelFeatureType {
   icon: string;
   label: string;
 }
 
-export interface Hotel {
+export interface HotelType {
   id: string;
   name: string;
   image: string;
@@ -43,7 +43,7 @@ export interface Hotel {
   };
   distance: string;
   distanceFromVenue: number;
-  features: HotelFeature[];
+  features: HotelFeatureType[];
   contact: {
     phone?: string;
     website?: string;
@@ -52,8 +52,8 @@ export interface Hotel {
   location?: string;
 }
 
-export interface HotelCategory {
+export interface HotelCategoryType {
   title: string;
   subtitle: string;
-  hotels: Hotel[];
+  hotels: HotelType[];
 }

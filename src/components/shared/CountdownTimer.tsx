@@ -8,35 +8,29 @@ import { Button } from "@/components/ui/button";
 import {
   CONFERENCE_DATE,
   CONFERENCE_END_DATE,
-} from "@/lib/constants/conferenceDetails";
+} from "@/lib/constants/conference-details";
 import { cn } from "@/lib/utils";
 
-// --- Types ---
-type ConferenceStatus = "countdown" | "ongoing" | "ended" | "loading";
-interface TimeLeft {
+type ConferenceStatusType = "countdown" | "ongoing" | "ended" | "loading";
+interface TimeLeftType {
   days: number;
   hours: number;
   minutes: number;
   seconds: number;
 }
-interface TimeUnit {
+interface TimeUnitType {
   value: string;
   label: string;
 }
 
-// --- Custom Hook for Countdown Logic ---
-
-/**
- * All timer and state logic encapsulated in this custom hook.
- */
 const useConferenceCountdown = (targetDate: Date) => {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+  const [timeLeft, setTimeLeft] = useState<TimeLeftType>({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
   });
-  const [status, setStatus] = useState<ConferenceStatus>("loading");
+  const [status, setStatus] = useState<ConferenceStatusType>("loading");
 
   const conferenceStartTime = useMemo(() => targetDate.getTime(), [targetDate]);
   const conferenceEndTime = useMemo(
@@ -76,8 +70,6 @@ const useConferenceCountdown = (targetDate: Date) => {
   return { timeLeft, status };
 };
 
-// --- Main Component ---
-
 /**
  * Redesigned countdown timer with proper theming support
  */
@@ -88,7 +80,7 @@ export const CountdownSection = () => {
   const formatNumber = (num: number, digits: number = 2) =>
     num.toString().padStart(digits, "0");
 
-  const timeUnits: TimeUnit[] = [
+  const timeUnits: TimeUnitType[] = [
     { value: formatNumber(timeLeft.days, 3), label: "Days" },
     { value: formatNumber(timeLeft.hours), label: "Hours" },
     { value: formatNumber(timeLeft.minutes), label: "Minutes" },
@@ -98,7 +90,7 @@ export const CountdownSection = () => {
   const messages = {
     countdown: {
       header: "Conference Begins In",
-      body: "Join us for the 30th Annual Conference of ISN-NZ.",
+      body: "Join us for the 30th annual Conference of ISN-NZ.",
     },
     ongoing: {
       header: "Conference In Progress",
@@ -195,8 +187,6 @@ export const CountdownSection = () => {
     </motion.section>
   );
 };
-
-// --- Sub-components ---
 
 /**
  * A "slot machine" style scrolling digit for clean animation.

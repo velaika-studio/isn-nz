@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { mainNavItems } from "@/lib/constants/navigation";
+import { MAIN_NAV_ITEMS } from "@/lib/constants/navigation-data";
 import { cn } from "@/lib/utils";
 import { DesktopNavigation } from "./DesktopNavbar";
 import { MobileNavigation } from "./MobileNavbar";
@@ -19,8 +19,6 @@ export const NavbarComponent = (): React.JSX.Element => {
 
   useEffect(() => {
     const handleScroll = (): void => {
-      // Use requestAnimationFrame for optimal performance on scroll events.
-      // This syncs the state update with the browser's repaint cycle.
       window.requestAnimationFrame(() => {
         setIsScrolled(window.scrollY > 10);
       });
@@ -36,20 +34,20 @@ export const NavbarComponent = (): React.JSX.Element => {
       <header
         className={cn(
           "sticky top-0 z-50 w-full border-b backdrop-blur-xl transition-all duration-300",
-          // Style applied to browsers that support backdrop-filter (for the glass effect)
+
           "supports-[backdrop-filter]:bg-background/60",
-          // When scrolled, the navbar becomes more opaque with a shadow and border.
+
           isScrolled
             ? "border-border/30 bg-background/80 shadow-lg"
             : // At the top, it's transparent to blend with the hero section.
-              "border-transparent bg-transparent shadow-none",
+            "border-transparent bg-transparent shadow-none",
         )}
       >
         <ContactInfoBar />
         <div className="flex items-center justify-between px-5">
           <NavbarLogo />
-          <DesktopNavigation items={mainNavItems} />
-          <MobileNavigation items={mainNavItems} />
+          <DesktopNavigation items={MAIN_NAV_ITEMS} />
+          <MobileNavigation items={MAIN_NAV_ITEMS} />
         </div>
       </header>
     </>

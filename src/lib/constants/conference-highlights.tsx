@@ -7,7 +7,7 @@ import {
   Users,
 } from "lucide-react";
 
-export const conferenceHighlightsData = [
+export const CONFERENCE_HIGHLIGHTS = [
   {
     title: "Clinical Case Discussions",
     description:

@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { conferenceHighlights } from "@/lib/constants/brochureData";
-import type { ConferenceHighlight } from "@/types/ui";
+import { CONFERENCE_HIGHLIGHTS } from "@/lib/constants/brochure-data";
+import type { ConferenceHighlightType } from "@/types/ui";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -25,7 +25,7 @@ export const BrochureHighlightsSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={sectionVariants}
-      className="w-full py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
+      className="w-full py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background"
     >
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -39,7 +39,7 @@ export const BrochureHighlightsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {conferenceHighlights.map((highlight) => (
+          {CONFERENCE_HIGHLIGHTS.map((highlight) => (
             <HighlightCard key={highlight.title} highlight={highlight} />
           ))}
         </div>
@@ -51,17 +51,19 @@ export const BrochureHighlightsSection = () => {
 /**
  * ✨ A new card design from scratch, featuring an animated outline-to-fill icon.
  */
-const HighlightCard = ({ highlight }: { highlight: ConferenceHighlight }) => {
+const HighlightCard = ({
+  highlight,
+}: {
+  highlight: ConferenceHighlightType;
+}) => {
   const Icon = highlight.icon;
   return (
     <motion.div variants={cardVariants} className="h-full">
       <Card className="group h-full border-border/50 bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 ease-in-out hover:bg-card hover:shadow-xl hover:-translate-y-1.5">
-        {/* Animated Icon Container */}
         <div className="flex h-16 w-16 items-center justify-center rounded-xl border-2 border-primary bg-primary/5 transition-colors duration-300 group-hover:bg-primary">
           <Icon className="size-7 text-primary transition-colors duration-300 group-hover:text-primary-foreground" />
         </div>
 
-        {/* Content */}
         <div className="mt-6">
           <h3 className="text-xl font-bold text-foreground">
             {highlight.title}

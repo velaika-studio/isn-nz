@@ -13,7 +13,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { carouselSlides } from "@/lib/constants/carouselSlides";
+import { CAROUSEL_SLIDES } from "@/lib/constants/carousel-slides";
 import { cn } from "@/lib/utils";
 
 const AUTOPLAY_DURATION = 7000;
@@ -28,8 +28,8 @@ export const HeroCarousel = () => {
   const paginate = useCallback(
     (newDirection: number) => {
       setPage([
-        (currentIndex + newDirection + carouselSlides.length) %
-          carouselSlides.length,
+        (currentIndex + newDirection + CAROUSEL_SLIDES.length) %
+          CAROUSEL_SLIDES.length,
         newDirection,
       ]);
     },
@@ -48,7 +48,7 @@ export const HeroCarousel = () => {
     }
   }, [isPaused, currentIndex, paginate]);
 
-  const activeSlide = carouselSlides[currentIndex];
+  const activeSlide = CAROUSEL_SLIDES[currentIndex];
 
   return (
     <section
@@ -99,7 +99,7 @@ export const HeroCarousel = () => {
                     variant="outline"
                     className="border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm"
                   >
-                    30th Annual Conference of ISN-NZ
+                    30th annual Conference of ISN-NZ
                   </Badge>
 
                   {/* Subtitle */}
@@ -173,7 +173,7 @@ export const HeroCarousel = () => {
           </button>
 
           <div className="flex items-center gap-2 rounded-full border border-border/50 bg-card/80 px-4 py-2 backdrop-blur-sm">
-            {carouselSlides.map((_, i) => (
+            {CAROUSEL_SLIDES.map((_, i: number) => (
               <button
                 key={i}
                 onClick={() => goToSlide(i)}

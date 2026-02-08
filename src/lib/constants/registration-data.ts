@@ -1,32 +1,34 @@
 import { CalendarClock, Mail, MapPin, Sparkles, Users } from "lucide-react";
-import type { Detail, Highlight, PricingOption } from "@/types/ui";
-import { ConferenceDetails } from "./contact";
+import type { DetailType, HighlightType, PricingOptionType } from "@/types/ui";
+import { CONFERENCE_DETAILS } from "./contact-data";
 
 // Conference details for NZ-ISNCON 2026
-export const conferenceDetails: Detail[] = [
+export const REGISTRATION_DETAILS: DetailType[] = [
   {
     icon: CalendarClock,
     title: "Conference Dates",
-    content: ConferenceDetails.eventDetails.dates,
+    content: CONFERENCE_DETAILS.WELCOME_EVENT_DETAILS.dates,
     subtitle: "Three-day comprehensive nephrology conference",
   },
   {
     icon: MapPin,
     title: "Venue",
     content:
-      ConferenceDetails.address.line2 + ", " + ConferenceDetails.address.line3,
+      CONFERENCE_DETAILS.address.line2 +
+      ", " +
+      CONFERENCE_DETAILS.address.line3,
     subtitle: "Hotel Hyatt Centric, Rajpur Road, Dehradun",
   },
   {
     icon: Mail,
     title: "Have Questions?",
-    content: ConferenceDetails.contact.email,
+    content: CONFERENCE_DETAILS.contact.email,
     subtitle: "Contact our organizing committee for assistance",
   },
 ];
 
 // Registration fee structure with multiple pricing tiers
-export const pricingOptions: PricingOption[] = [
+export const PRICING_OPTIONS: PricingOptionType[] = [
   {
     category: "Students",
     earlyBird: "₹1,200",
@@ -43,7 +45,7 @@ export const pricingOptions: PricingOption[] = [
     popular: true,
   },
   {
-    category: "NON ISN Members",
+    category: "Non-ISN Members",
     earlyBird: "₹4,800",
     regular: "₹6,500",
     late: "₹8,900",
@@ -66,7 +68,7 @@ export const EARLY_BIRD_END_DATE = new Date("2026-02-15T23:59:59");
 export const REGULAR_END_DATE = new Date("2026-03-15T23:59:59");
 
 // Bank account details for registration payments
-export const bankDetails = {
+export const BANK_DETAILS = {
   accountName: "INDIAN SOCIETY OF NEPHROLOGY NORTHERN ZONE",
   bankName: "Bank of Baroda",
   branch: "DELHI-ARMY HOSPITAL BRANCH",
@@ -78,7 +80,7 @@ export const bankDetails = {
 };
 
 // Conference organizing committee contact details
-export const registrationContacts = [
+export const REGISTRATION_CONTACTS = [
   {
     name: "Organizing Team",
     role: "Secretariat",
@@ -88,7 +90,7 @@ export const registrationContacts = [
 ];
 
 // Conference highlights with actual program details
-export const conferenceHighlights: Highlight[] = [
+export const REGISTRATION_HIGHLIGHTS: HighlightType[] = [
   {
     icon: Sparkles,
     title: "Expert-Led Sessions & Workshops",

@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { bankDetails } from "@/lib/constants/registrationData";
+import { BANK_DETAILS } from "@/lib/constants/registration-data";
 
 /**
  * Payment QR code display component
@@ -44,32 +44,32 @@ const BankDetailsContent = () => {
   };
 
   const details = [
-    { label: "Account Name", value: bankDetails.accountName },
-    { label: "Bank Name", value: bankDetails.bankName },
-    { label: "Branch", value: bankDetails.branch },
-    { label: "Account Number", value: bankDetails.accountNumber },
-    { label: "IFSC Code", value: bankDetails.ifscCode },
-    { label: "PAN", value: bankDetails.pan || "AABAI0867P" },
-    { label: "GSTIN", value: bankDetails.gstin || "07AABAI086P1Z9" },
+    { label: "Account Name", value: BANK_DETAILS.accountName },
+    { label: "Bank Name", value: BANK_DETAILS.bankName },
+    { label: "Branch", value: BANK_DETAILS.branch },
+    { label: "Account Number", value: BANK_DETAILS.accountNumber },
+    { label: "IFSC Code", value: BANK_DETAILS.ifscCode },
+    { label: "PAN", value: BANK_DETAILS.pan || "AABAI0867P" },
+    { label: "GSTIN", value: BANK_DETAILS.gstin || "07AABAI086P1Z9" },
   ];
 
   return (
     <div className="grid gap-3 sm:grid-cols-2">
-      {details.map((detail) => (
+      {details.map((DetailType: any) => (
         <button
-          key={detail.label}
+          key={DetailType.label}
           type="button"
-          onClick={() => handleCopyToClipboard(detail.value, detail.label)}
+          onClick={() => handleCopyToClipboard(DetailType.value, DetailType.label)}
           className="group flex flex-col items-start rounded-lg border border-border/50 bg-muted/30 p-3 text-left transition-all hover:border-primary/30 hover:bg-muted/50"
         >
           <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            {detail.label}
+            {DetailType.label}
           </div>
           <div className="mt-0.5 font-semibold text-foreground">
-            {detail.value}
+            {DetailType.value}
           </div>
           <div className="mt-1 text-xs text-primary opacity-0 transition-opacity group-hover:opacity-100">
-            {copiedField === detail.label ? "Copied!" : "Click to copy"}
+            {copiedField === DetailType.label ? "Copied!" : "Click to copy"}
           </div>
         </button>
       ))}

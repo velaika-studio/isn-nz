@@ -8,9 +8,9 @@ import { WelcomeMessage } from "./WelcomeMessage";
 
 export default function WelcomePage() {
   return (
-    <div className="min-h-screen bg-background overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-background via-background to-background overflow-hidden">
       <WelcomeSection />
-      <div className="py-8 md:py-12 bg-primary/5">
+      <div className="py-8 md:py-12 bg-gradient-to-b from-background via-primary/5 to-background">
         <div className="container mx-auto max-w-6xl px-4 md:px-6">
           <CountdownSection />
         </div>
@@ -39,8 +39,6 @@ const HeroSection = () => (
   </section>
 );
 
-// --- All other components remain exactly as you designed them ---
-
 const HeroBackground = () => (
   <>
     <div className="absolute inset-0 z-0">
@@ -58,8 +56,7 @@ const HeroBackground = () => (
   </>
 );
 const WelcomeSection = () => (
-  <section className="relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+  <section className="relative overflow-hidden bg-gradient-to-b from-background to-background">
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <div className="absolute top-1/4 left-[5%] w-64 h-64 bg-white/5 backdrop-blur-sm rounded-full opacity-60" />
       <div className="absolute bottom-1/4 right-[5%] w-48 h-48 bg-primary/5 backdrop-blur-sm rounded-full opacity-50" />
@@ -72,7 +69,7 @@ const WelcomeSection = () => (
 );
 
 const FeaturesSection = () => (
-  <section className="relative overflow-hidden">
+  <section className="relative overflow-hidden bg-gradient-to-b from-background via-primary/5 to-background">
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-primary/8 via-primary/3 to-transparent opacity-60" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-radial from-primary/6 via-primary/2 to-transparent opacity-50" />
@@ -89,7 +86,7 @@ const FeaturesSection = () => (
 );
 
 const CommitteeSection = () => (
-  <section className="relative overflow-hidden">
+  <section className="relative overflow-hidden bg-gradient-to-b from-background via-primary/5 to-background">
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <div className="absolute top-1/4 left-[5%] w-96 h-96 bg-primary/5 rounded-full blur-[140px] opacity-70" />
       <div className="absolute bottom-1/4 right-[5%] w-80 h-80 bg-primary/7 rounded-full blur-[120px] opacity-60" />

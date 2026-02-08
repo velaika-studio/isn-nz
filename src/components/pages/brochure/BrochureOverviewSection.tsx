@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { overviewItems } from "@/lib/constants/brochureData";
+import { OVERVIEW_ITEMS } from "@/lib/constants/brochure-data";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -27,7 +27,7 @@ export const BrochureOverviewSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent flex items-center justify-center"
+      className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background flex items-center justify-center"
     >
       <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -50,7 +50,7 @@ export const BrochureOverviewSection = () => {
             </p>
           </div>
           <div className="space-y-8">
-            {overviewItems.map((item) => {
+            {OVERVIEW_ITEMS.map((item) => {
               const Icon = item.icon;
               return (
                 <motion.div

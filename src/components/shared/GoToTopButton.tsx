@@ -14,14 +14,14 @@ export const GoToTopButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Use requestAnimationFrame to prevent performance issues from frequent scroll events
+
       window.requestAnimationFrame(() => {
         setIsVisible(window.scrollY > 400);
       });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Clean up the event listener on component unmount
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

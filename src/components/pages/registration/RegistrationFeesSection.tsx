@@ -7,9 +7,9 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import {
   EARLY_BIRD_END_DATE,
-  pricingOptions,
+  PRICING_OPTIONS,
   REGULAR_END_DATE,
-} from "@/lib/constants/registrationData";
+} from "@/lib/constants/registration-data";
 import { cn } from "@/lib/utils";
 import { PaymentSection } from "./PaymentSection";
 import { RegistrationSection } from "./RegistrationSection";
@@ -42,7 +42,7 @@ export const RegistrationFeesSection = ({
     {
       id: "early" as PricingPeriod,
       title: "Early Bird",
-      date: "Upto 15th Feb 2026",
+      date: "Up to 15th Feb 2026",
       active: isEarlyBird,
     },
     {
@@ -66,7 +66,7 @@ export const RegistrationFeesSection = ({
   };
 
   const getPrice = (
-    option: (typeof pricingOptions)[0],
+    option: (typeof PRICING_OPTIONS)[0],
     period: PricingPeriod,
   ) => {
     switch (period) {
@@ -120,7 +120,7 @@ export const RegistrationFeesSection = ({
         {/* Period Tabs */}
         <div className="mb-10 flex justify-center">
           <div className="inline-flex rounded-full border border-border/50 bg-muted/30 p-1">
-            {pricingPeriods.map((period) => (
+            {pricingPeriods.map((period: any) => (
               <button
                 key={period.id}
                 type="button"
@@ -174,7 +174,7 @@ export const RegistrationFeesSection = ({
                   </tr>
                 </thead>
                 <tbody>
-                  {pricingOptions.map((option, index) => {
+                  {PRICING_OPTIONS.map((option: any, index: number) => {
                     const CategoryIcon = getCategoryIcon(option.category);
                     const price = getPrice(option, selectedPeriod);
                     return (

@@ -16,7 +16,7 @@ export const ContactCtaSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
-      className="w-full py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
+      className="w-full py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background"
     >
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
         <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl shadow-2xl">

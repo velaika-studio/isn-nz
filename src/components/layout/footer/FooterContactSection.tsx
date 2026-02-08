@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, User } from "lucide-react";
-import { ConferenceDetails } from "@/lib/constants/contact";
+import { CONFERENCE_DETAILS } from "@/lib/constants/contact-data";
 import { ContactItem, FooterSectionHeader } from "./FooterShared";
 
 const fadeUpVariant = {
@@ -14,18 +14,18 @@ export const FooterContactSection = () => (
     <div className="space-y-5">
       <ContactItem icon={Phone}>
         <a
-          href={ConferenceDetails.contact.phoneHref}
+          href={CONFERENCE_DETAILS.contact.phoneHref}
           className="hover:text-primary transition-colors"
         >
-          {ConferenceDetails.contact.phone}
+          {CONFERENCE_DETAILS.contact.phone}
         </a>
       </ContactItem>
       <ContactItem icon={Mail}>
         <a
-          href={ConferenceDetails.contact.emailHref}
+          href={CONFERENCE_DETAILS.contact.emailHref}
           className="hover:text-primary transition-colors break-words"
         >
-          {ConferenceDetails.contact.email}
+          {CONFERENCE_DETAILS.contact.email}
         </a>
       </ContactItem>
     </div>

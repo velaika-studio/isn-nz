@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Send, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ABSTRACT_SUBMISSION_FORM_LINK } from "@/lib/constants/abstractData";
+import { ABSTRACT_SUBMISSION_FORM_LINK } from "@/lib/constants/abstract-data";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -21,8 +21,7 @@ export const AbstractCtaSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      // ✨ Improvement 1: Dynamic gradient background for a premium feel
-      className="relative w-full overflow-hidden py-24 md:py-32 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"
+      className="relative w-full overflow-hidden py-24 md:py-32 bg-gradient-to-b from-background via-primary/5 to-background"
     >
       <div className="container relative z-10 mx-auto px-4 text-center">
         <div className="mx-auto flex max-w-3xl flex-col items-center">

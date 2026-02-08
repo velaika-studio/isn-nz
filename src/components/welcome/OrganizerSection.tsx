@@ -7,7 +7,7 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { organizersData } from "@/lib/constants/organizerDetails";
+import { ORGANIZERS_DATA } from "@/lib/constants/organizer-details";
 import type { OrganizerPropsType } from "@/types";
 
 /**
@@ -57,7 +57,7 @@ const OrganizerGrid = () => (
     variants={itemVariants}
     className="mx-auto mb-12 grid max-w-4xl gap-6 sm:grid-cols-2"
   >
-    {organizersData.map((organizer, index) => (
+    {ORGANIZERS_DATA.map((organizer, index) => (
       <OrganizerCard key={index} organizer={organizer} index={index} />
     ))}
   </motion.div>

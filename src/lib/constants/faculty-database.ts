@@ -6,7 +6,7 @@ import type { OrganizerPropsType } from "@/types";
 
 // ==================== INTERNATIONAL FACULTY ====================
 
-export const internationalFaculty: Record<string, OrganizerPropsType> = {
+export const INTERNATIONAL_FACULTY: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "International Faculty",
@@ -17,7 +17,7 @@ export const internationalFaculty: Record<string, OrganizerPropsType> = {
 
 // ==================== NATIONAL FACULTY ====================
 
-export const nationalFaculty: Record<string, OrganizerPropsType> = {
+export const NATIONAL_FACULTY: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "National Faculty",
@@ -28,7 +28,7 @@ export const nationalFaculty: Record<string, OrganizerPropsType> = {
 
 // ==================== PATRONS & ADVISORS ====================
 
-export const patrons: Record<string, OrganizerPropsType> = {
+export const PATRONS: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "Patron",
@@ -37,7 +37,7 @@ export const patrons: Record<string, OrganizerPropsType> = {
   },
 };
 
-export const advisors: Record<string, OrganizerPropsType> = {
+export const ADVISORS: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "Advisor",
@@ -48,7 +48,7 @@ export const advisors: Record<string, OrganizerPropsType> = {
 
 // ==================== SCIENTIFIC COMMITTEE ====================
 
-export const scientificCommittee: Record<string, OrganizerPropsType> = {
+export const SCIENTIFIC_COMMITTEE: Record<string, OrganizerPropsType> = {
   tba1: {
     name: "TBA",
     role: "Scientific Committee",
@@ -59,7 +59,7 @@ export const scientificCommittee: Record<string, OrganizerPropsType> = {
 
 // ==================== ORGANIZING COMMITTEE ====================
 
-export const organizingCommittee: Record<string, OrganizerPropsType> = {
+export const ORGANIZING_COMMITTEE: Record<string, OrganizerPropsType> = {
   sanjayDCruz: {
     name: "Dr. Sanjay D Cruz",
     role: "Organizing Chairman (ISN-NZ)",
@@ -96,25 +96,25 @@ export function getFacultyByKeys(
 }
 
 export function getAllInternationalFaculty(): OrganizerPropsType[] {
-  return Object.values(internationalFaculty);
+  return Object.values(INTERNATIONAL_FACULTY);
 }
 
 export function getAllNationalFaculty(): OrganizerPropsType[] {
-  return Object.values(nationalFaculty);
+  return Object.values(NATIONAL_FACULTY);
 }
 
 export function getAllScientificCommittee(): OrganizerPropsType[] {
-  return Object.values(scientificCommittee);
+  return Object.values(SCIENTIFIC_COMMITTEE);
 }
 
 export function getAllOrganizingCommittee(): OrganizerPropsType[] {
-  return Object.values(organizingCommittee);
+  return Object.values(ORGANIZING_COMMITTEE);
 }
 
 export function getAllPatrons(): OrganizerPropsType[] {
-  return Object.values(patrons);
+  return Object.values(PATRONS);
 }
 
 export function getAllAdvisors(): OrganizerPropsType[] {
-  return Object.values(advisors);
+  return Object.values(ADVISORS);
 }

@@ -5,7 +5,7 @@ import { Footer } from "./footer/Footer";
 import { NavbarComponent } from "./navbar/Navbar";
 
 /**
- * Provides a consistent page structure with a header, main content area, and footer.
+ * Provides a consistent page structure with a header, main content area, and Footer.
  * Includes essential accessibility features like a skip-to-content link.
  *
  * @param {LayoutPropsType} props - The properties for the layout component.

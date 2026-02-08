@@ -13,7 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { sponsorshipTiers } from "@/lib/constants/sponsorshipDetails";
+import { SPONSORSHIP_TIERS } from "@/lib/constants/sponsorship-details";
 import { cn } from "@/lib/utils";
 
 /**
@@ -27,7 +27,7 @@ export const SponsorshipTiersSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="w-full scroll-mt-20 bg-gradient-to-b from-primary/5 via-transparent to-transparent py-16 md:py-24"
+      className="w-full scroll-mt-20 bg-gradient-to-b from-background via-primary/5 to-background py-16 md:py-24"
     >
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-12 text-center">
@@ -41,8 +41,7 @@ export const SponsorshipTiersSection = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center">
-          {sponsorshipTiers.map((tier) => (
-            // ✨ 1. Wrapper for glow effect on the featured card
+          {SPONSORSHIP_TIERS.map((tier) => (
             <div
               key={tier.name}
               className={cn(
@@ -82,10 +81,9 @@ export const SponsorshipTiersSection = () => {
                 </CardHeader>
                 <CardContent className="flex-1">
                   <ul className="space-y-4">
-                    {tier.benefits.map((benefit, index) => (
+                    {tier.benefits.map((BenefitType, index) => (
                       <li
-                        key={benefit}
-                        // ✨ 3. Cleaner benefit list with borders
+                        key={BenefitType}
                         className={cn(
                           "flex items-start border-b border-border/50 pb-4",
                           index === tier.benefits.length - 1 && "border-b-0",
@@ -93,7 +91,7 @@ export const SponsorshipTiersSection = () => {
                       >
                         <Check className="mr-2.5 mt-1 size-4 flex-shrink-0 text-primary" />
                         <span className="text-sm text-muted-foreground">
-                          {benefit}
+                          {BenefitType}
                         </span>
                       </li>
                     ))}

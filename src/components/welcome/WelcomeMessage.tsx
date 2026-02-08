@@ -21,37 +21,37 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
-  eventDetails as eventDetailsData,
-  resourceLinks as resourceLinksData,
-  welcomeMessage as welcomeMessageData,
-} from "@/lib/constants/welcomeMessage";
+  WELCOME_EVENT_DETAILS as WELCOME_EVENT_DETAILSData,
+  WELCOME_RESOURCE_LINKS as WELCOME_RESOURCE_LINKSData,
+  WelcomeMessage as WELCOME_MESSAGEData,
+} from "@/lib/constants/welcome-message";
 import { cn } from "@/lib/utils";
 
-// --- Type Definitions ---
-interface WelcomeMessageData {
+
+interface WelcomeMessageDataType {
   greeting: string;
   paragraphs: string[];
   closing: {
     text: string;
   };
 }
-interface EventDetailsData {
+interface WelcomeEventDetailsDataType {
   imageSrc: string;
   title: string;
   date: string;
   location: string;
 }
-interface ResourceLinkData {
+interface ResourceLinkDataType {
   label: string;
   icon: string;
   href: string;
   disabled?: boolean;
 }
-const welcomeMessage: WelcomeMessageData = welcomeMessageData;
-const eventDetails: EventDetailsData = eventDetailsData;
-const resourceLinks: ResourceLinkData[] = resourceLinksData;
+const WELCOME_MESSAGE_CONTENT: WelcomeMessageDataType = WELCOME_MESSAGEData;
+const WELCOME_EVENT_DETAILS_CONTENT: WelcomeEventDetailsDataType = WELCOME_EVENT_DETAILSData;
+const WELCOME_RESOURCE_LINKS_CONTENT: ResourceLinkDataType[] = WELCOME_RESOURCE_LINKSData;
 
-// --- Type-Safe Icon Mapping ---
+
 const iconMap: Record<string, LucideIcon> = {
   Download,
   MapPin,
@@ -63,7 +63,7 @@ const iconMap: Record<string, LucideIcon> = {
 const getIconComponent = (iconName: string): LucideIcon =>
   iconMap[iconName] || FileText;
 
-// --- Main Welcome Section Component ---
+
 export const WelcomeMessage = () => (
   <motion.section
     initial="hidden"
@@ -88,7 +88,7 @@ export const WelcomeMessage = () => (
   </motion.section>
 );
 
-// --- Sub-components ---
+
 
 const itemVariants = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
@@ -129,7 +129,7 @@ const WelcomeContent = () => (
       className="rounded-2xl border border-border/50 bg-gradient-to-br from-card to-card/50 p-8 shadow-sm"
     >
       <p className="font-serif text-2xl font-medium leading-relaxed text-foreground md:text-3xl">
-        {welcomeMessage.greeting}
+        {WELCOME_MESSAGE_CONTENT.greeting}
       </p>
     </motion.div>
 
@@ -138,7 +138,7 @@ const WelcomeContent = () => (
       variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
       className="space-y-6"
     >
-      {welcomeMessage.paragraphs.map((p: string, i: number) => (
+      {WELCOME_MESSAGE_CONTENT.paragraphs.map((p: string, i: number) => (
         <motion.p
           variants={itemVariants}
           key={i}
@@ -181,24 +181,24 @@ const EventInfoCard = React.memo(() => (
     <Card className="overflow-hidden border-0 bg-gradient-to-br from-primary to-primary/80 p-0 shadow-xl shadow-primary/20">
       <div className="relative aspect-[4/3]">
         <Image
-          src={eventDetails.imageSrc}
+          src={WELCOME_EVENT_DETAILS_CONTENT.imageSrc}
           alt="Conference Venue"
           fill
           sizes="(max-width: 768px) 100vw, 500px"
           className="object-cover opacity-30 transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 flex flex-col justify-center p-8 text-white">
-          <h3 className="text-3xl font-bold">{eventDetails.title}</h3>
+          <h3 className="text-3xl font-bold">{WELCOME_EVENT_DETAILS_CONTENT.title}</h3>
           <div className="mt-6 space-y-4">
             <EventDetail
               icon={Calendar}
               label="Date"
-              value={eventDetails.date}
+              value={WELCOME_EVENT_DETAILS_CONTENT.date}
             />
             <EventDetail
               icon={MapPin}
               label="Location"
-              value={eventDetails.location}
+              value={WELCOME_EVENT_DETAILS_CONTENT.location}
             />
           </div>
         </div>
@@ -234,7 +234,7 @@ const ResourcesCard = React.memo(() => (
   <Card className="border-border/50 bg-card/80 p-6 backdrop-blur-sm">
     <h3 className="mb-5 text-lg font-bold">Conference Resources</h3>
     <div className="space-y-1">
-      {resourceLinks.map((link) => {
+      {WELCOME_RESOURCE_LINKS_CONTENT.map((link) => {
         const Icon = getIconComponent(link.icon);
         return (
           <Link

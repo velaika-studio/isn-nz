@@ -1,5 +1,5 @@
 /**
- * Modern footer background with gradient mesh
+ * Modern Footer background with gradient mesh
  */
 export const FooterBackground = () => (
   <div

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 /**
- * Premium navbar logo with sleek styling
+ * Premium Navbar logo with sleek styling
  */
 export const NavbarLogo = () => {
   return (
@@ -71,7 +71,7 @@ export const NavbarLogo = () => {
 
         {/* Subtitle */}
         <p className="mt-0.5 text-xs text-muted-foreground lg:text-sm">
-          30th Annual Conference • Dehradun
+          30th annual Conference • Dehradun
         </p>
       </div>
 

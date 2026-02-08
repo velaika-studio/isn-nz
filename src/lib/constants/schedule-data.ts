@@ -1,25 +1,25 @@
-export interface ScheduleSession {
+export interface ScheduleSessionType {
   time: string;
   title: string;
   speaker?: string;
   chairperson?: string;
   additionalSpeakers?: string[];
   type?:
-    | "inauguration"
-    | "session"
-    | "slide-seminar"
-    | "lunch"
-    | "tea-break"
-    | "poster-review";
+  | "inauguration"
+  | "session"
+  | "slide-seminar"
+  | "lunch"
+  | "tea-break"
+  | "poster-review";
 }
 
-export interface DaySchedule {
+export interface DayScheduleType {
   day: string;
   date: string;
-  sessions: ScheduleSession[];
+  sessions: ScheduleSessionType[];
 }
 
-export const conferenceSchedule: DaySchedule[] = [
+export const CONFERENCE_SCHEDULE: DayScheduleType[] = [
   {
     day: "DAY 1",
     date: "April 10th 2026 - Friday",
@@ -137,10 +137,10 @@ export const conferenceSchedule: DaySchedule[] = [
 ];
 
 // Key speakers list
-export const keynoteSpeakers = [{ name: "TBA", affiliation: "" }];
+export const KEYNOTE_SPEAKERS = [{ name: "TBA", affiliation: "" }];
 
 // Session highlights for quick overview
-export const sessionHighlights = [
+export const SESSION_HIGHLIGHTS = [
   {
     title: "Clinical Nephrology",
     topics: [

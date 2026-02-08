@@ -6,11 +6,9 @@ import Link from "next/link";
 import type React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { informationCardsData } from "@/lib/constants/informationCards";
+import { INFORMATION_CARDS_DATA } from "@/lib/constants/information-cards";
 import { cn } from "@/lib/utils";
 import type { InfoCardPropsType } from "@/types";
-
-// --- Main Section Component ---
 
 /**
  * A refined section showcasing important conference information with a clean, interactive design.
@@ -21,7 +19,7 @@ export const ImportantInformationSection = () => (
     whileInView="visible"
     viewport={{ once: true, amount: 0.1 }}
     variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-    className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
+    className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background"
     aria-labelledby="info-section-title"
   >
     <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
@@ -30,8 +28,6 @@ export const ImportantInformationSection = () => (
     </div>
   </motion.section>
 );
-
-// --- Sub-components ---
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -61,7 +57,7 @@ const InformationGrid = () => (
     variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
     className="grid grid-cols-1 gap-6 md:grid-cols-2"
   >
-    {informationCardsData.map((card, index) => (
+    {INFORMATION_CARDS_DATA.map((card, index) => (
       <InfoCard key={index} card={card} index={index} />
     ))}
   </motion.div>

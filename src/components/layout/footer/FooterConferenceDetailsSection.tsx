@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
-import { ConferenceDetails } from "@/lib/constants/contact";
+import { CONFERENCE_DETAILS } from "@/lib/constants/contact-data";
 import { ContactItem, FooterSectionHeader } from "./FooterShared";
 
 const fadeUpVariant = {
@@ -9,15 +9,15 @@ const fadeUpVariant = {
   hidden: { y: 20, opacity: 0 },
 };
 
-export const FooterConferenceDetailsSection = () => (
+export const FooterCONFERENCE_DETAILSSection = () => (
   <motion.div variants={fadeUpVariant} className="space-y-6">
-    <FooterSectionHeader icon={MapPin} title={ConferenceDetails.title} />
+    <FooterSectionHeader icon={MapPin} title={CONFERENCE_DETAILS.title} />
 
     <div className="flex items-center group">
       <div className="relative h-16 w-16 flex-shrink-0 rounded-2xl flex items-center justify-center p-1 overflow-hidden border border-border/50 bg-card/50 shadow-lg">
         <Image
-          src={ConferenceDetails.logoSrc}
-          alt={ConferenceDetails.logoAlt}
+          src={CONFERENCE_DETAILS.logoSrc}
+          alt={CONFERENCE_DETAILS.logoAlt}
           width={48}
           height={48}
           className="object-contain transition-transform duration-300 group-hover:scale-110"
@@ -25,10 +25,10 @@ export const FooterConferenceDetailsSection = () => (
       </div>
       <div className="ml-4">
         <h4 className="font-bold text-foreground">
-          {ConferenceDetails.eventName}
+          {CONFERENCE_DETAILS.eventName}
         </h4>
         <p className="text-sm text-muted-foreground">
-          {ConferenceDetails.eventSubtitle}
+          {CONFERENCE_DETAILS.eventSubtitle}
         </p>
       </div>
     </div>
@@ -37,28 +37,28 @@ export const FooterConferenceDetailsSection = () => (
       <ContactItem icon={Calendar}>
         <div className="text-sm">
           <div className="font-medium text-foreground">
-            {ConferenceDetails.eventDetails.dates}
+            {CONFERENCE_DETAILS.WELCOME_EVENT_DETAILS.dates}
           </div>
           <div className="flex items-center text-xs text-muted-foreground">
             <Clock className="h-3 w-3 mr-1.5" />
-            {ConferenceDetails.eventDetails.timing}
+            {CONFERENCE_DETAILS.WELCOME_EVENT_DETAILS.timing}
           </div>
         </div>
       </ContactItem>
       <ContactItem icon={Phone}>
         <a
-          href={ConferenceDetails.contact.phoneHref}
+          href={CONFERENCE_DETAILS.contact.phoneHref}
           className="text-sm text-muted-foreground hover:text-primary transition-colors"
         >
-          {ConferenceDetails.contact.phone}
+          {CONFERENCE_DETAILS.contact.phone}
         </a>
       </ContactItem>
       <ContactItem icon={Mail}>
         <a
-          href={ConferenceDetails.contact.emailHref}
+          href={CONFERENCE_DETAILS.contact.emailHref}
           className="text-sm text-muted-foreground hover:text-primary transition-colors"
         >
-          {ConferenceDetails.contact.email}
+          {CONFERENCE_DETAILS.contact.email}
         </a>
       </ContactItem>
     </div>

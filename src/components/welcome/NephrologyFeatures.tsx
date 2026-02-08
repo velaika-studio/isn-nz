@@ -10,10 +10,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { surgicalFeaturesData } from "@/lib/constants/surgicalFeatures";
+import { SURGICAL_FEATURES_DATA } from "@/lib/constants/surgical-features";
 import type { SurgicalFeaturePropsType } from "@/types";
 
-// --- Main Section Component ---
+
 
 /**
  * A refined section showcasing focus areas with a unified 'magnetic tilt' card grid.
@@ -29,7 +29,7 @@ export const SurgicalFeatures = () => (
     <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
       <FeaturesHeader />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {surgicalFeaturesData.map((feature, index) => (
+        {SURGICAL_FEATURES_DATA.map((feature, index) => (
           <FeatureCard key={feature.index} feature={feature} index={index} />
         ))}
       </div>
@@ -37,7 +37,7 @@ export const SurgicalFeatures = () => (
   </motion.section>
 );
 
-// --- Sub-components ---
+
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -82,7 +82,7 @@ const FeatureCard = ({
     mouseY.set(event.clientY - top);
   };
 
-  // Create a spring-based motion value for smooth, dampened movement
+
   const smoothMouseX = useSpring(mouseX, { damping: 40, stiffness: 400 });
   const smoothMouseY = useSpring(mouseY, { damping: 40, stiffness: 400 });
 

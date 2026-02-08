@@ -15,7 +15,7 @@ export const CommitteeCtaSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
-      className="w-full py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
+      className="w-full py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-transparent"
     >
       <div className="container mx-auto px-4 text-center">
         <div className="mx-auto max-w-2xl">

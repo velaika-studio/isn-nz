@@ -23,16 +23,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   CONFERENCE_DATE,
   CONFERENCE_END_DATE,
-} from "@/lib/constants/conferenceDetails";
+} from "@/lib/constants/conference-details";
 import {
-  nearbyHotels,
-  tabsContent,
-  venueDetails,
-  venueImages,
-} from "@/lib/constants/venueDetails";
-import type { Hotel, HotelCategory } from "@/types/information";
-
-// --- Main Section Component ---
+  NEARBY_HOTELS,
+  VENUE_DETAILS,
+  VENUE_IMAGES,
+  VENUE_TABS_CONTENT,
+} from "@/lib/constants/venue-details";
+import type { HotelType, HotelCategoryType } from "@/types/information";
 
 /**
  * Venue section without hotels - simplified design
@@ -44,7 +42,7 @@ export const VenueSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-      className="relative w-full overflow-hidden py-16 md:py-24"
+      className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-transparent"
       id="venue"
       aria-labelledby="venue-heading"
     >
@@ -55,8 +53,6 @@ export const VenueSection = () => {
     </motion.section>
   );
 };
-
-// --- Sub-components ---
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -91,102 +87,105 @@ const VenueContent = () => {
   return (
     <motion.div variants={itemVariants} className="space-y-8">
       {/* Venue Card */}
-      <Card className="group relative overflow-hidden rounded-3xl border-border/40 bg-card/30 shadow-2xl backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-primary/5">
-        <div className="grid gap-0 lg:grid-cols-2">
-          {/* Image Section */}
-          <div className="relative min-h-[350px] overflow-hidden lg:h-auto">
-            <Image
-              src={venueImages.main}
-              alt="Hotel Hyatt Centric, Dehradun"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            {/* Overlays */}
-            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent lg:bg-linear-to-r" />
+      <Card className="group py-0 overflow-hidden rounded-3xl border-border/40 bg-card/30 shadow-2xl backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-primary/5">
+        {/* Image Section - Full Width on Mobile */}
+        <div className="relative h-64 w-full overflow-hidden sm:h-80 lg:h-96">
+          <Image
+            src={VENUE_IMAGES.main}
+            alt="Hotel Hyatt Centric, Dehradun"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent" />
 
-            {/* Badge */}
-            <div className="absolute top-6 left-6">
-              <Badge className="bg-primary/90 text-primary-foreground backdrop-blur-md border-none px-4 py-1.5 font-medium">
-                Official Venue
-              </Badge>
+          {/* Badge */}
+          <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
+            <Badge className="border-none bg-primary/90 px-3 py-1 text-xs font-medium text-primary-foreground backdrop-blur-md sm:px-4 sm:py-1.5 sm:text-sm">
+              Official Venue
+            </Badge>
+          </div>
+
+          {/* Title Overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+            <h3 className="font-serif text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
+              {VENUE_DETAILS.name}
+            </h3>
+            <p className="mt-2 text-base font-medium text-white/90 sm:text-lg">
+              {VENUE_DETAILS.tagline}
+            </p>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <CardContent className="space-y-6 p-6 sm:p-8">
+          {/* Info Grid */}
+          <div className="grid gap-6 sm:grid-cols-2">
+            {/* Location */}
+            <div className="flex gap-4">
+              <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <MapPin className="size-5" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+                  Location
+                </h4>
+                <p className="text-sm leading-relaxed text-foreground">
+                  {VENUE_DETAILS.address.line1}, {VENUE_DETAILS.address.line2}
+                  <br />
+                  <span className="text-muted-foreground">
+                    {VENUE_DETAILS.address.line3}
+                  </span>
+                </p>
+              </div>
             </div>
 
-            {/* Title Overlay for Mobile/Image Sidebar */}
-            <div className="absolute bottom-8 left-8 right-8">
-              <h3 className="font-serif text-3xl font-bold leading-tight text-white md:text-4xl">
-                {venueDetails.name}
-              </h3>
-              <p className="mt-2 text-lg font-medium text-white/90">
-                {venueDetails.tagline}
-              </p>
+            {/* Conference Dates */}
+            <div className="flex gap-4">
+              <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Calendar className="size-5" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary">
+                  Conference Dates
+                </h4>
+                <p className="text-sm font-semibold text-foreground">
+                  {formatConferenceDates()}
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Info Section */}
-          <CardContent className="relative flex flex-col justify-center bg-linear-to-br from-card/80 via-card/50 to-transparent p-8 lg:p-12">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                {/* Details List */}
-                <div className="flex items-start gap-5">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/5 text-primary shadow-inner">
-                    <MapPin className="size-6" />
-                  </div>
-                  <div className="space-y-1">
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-primary/80">
-                      Location
-                    </h4>
-                    <p className="text-base leading-relaxed text-foreground">
-                      {venueDetails.address.line1}, {venueDetails.address.line2}
-                      <br />
-                      <span className="text-muted-foreground">
-                        {venueDetails.address.line3}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-5">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/5 text-primary shadow-inner">
-                    <Calendar className="size-6" />
-                  </div>
-                  <div className="space-y-1">
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-primary/80">
-                      Conference Dates
-                    </h4>
-                    <p className="text-base font-medium text-foreground">
-                      {formatConferenceDates()}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4 pt-4 sm:flex-row">
-                <Button
-                  asChild
-                  size="lg"
-                  className="h-12 flex-1 gap-2 rounded-xl shadow-lg shadow-primary/20 lg:flex-none lg:px-8"
-                >
-                  <Link
-                    href={venueDetails.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Explore Hotel
-                    <ExternalLink className="size-4" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="h-12 flex-1 hover:text-white rounded-xl backdrop-blur-sm lg:flex-none lg:px-8"
-                >
-                  <Link href="#tourist-attractions">View Surroundings</Link>
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </div>
+          {/* Action Buttons */}
+          <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+            <Button
+              asChild
+              size="lg"
+              className="h-12 w-full gap-2 rounded-xl shadow-lg shadow-primary/20 sm:flex-1"
+            >
+              <Link
+                href={VENUE_DETAILS.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Globe className="size-4" />
+                Explore Hotel
+                <ExternalLink className="size-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-12 w-full gap-2 rounded-xl backdrop-blur-sm hover:bg-primary hover:text-white sm:flex-1"
+            >
+              <Link href="#tourist-attractions">
+                <MapPinIcon className="size-4" />
+                View Surroundings
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
       </Card>
 
       {/* Tabs for About, Hotels and Travel */}
@@ -201,8 +200,11 @@ const VenueContent = () => {
           <Card>
             <CardContent className="p-6">
               <div className="prose prose-sm max-w-none text-muted-foreground">
-                {tabsContent.info.mainContent.map((paragraph, index) => (
-                  <p key={index} className="mb-4 last:mb-0">
+                {VENUE_TABS_CONTENT.info.mainContent.map((paragraph) => (
+                  <p
+                    key={paragraph.substring(0, 50)}
+                    className="mb-4 last:mb-0"
+                  >
                     {paragraph}
                   </p>
                 ))}
@@ -216,18 +218,18 @@ const VenueContent = () => {
             {/* Hotels Description */}
             <div className="text-center">
               <p className="mx-auto max-w-4xl text-base leading-relaxed text-muted-foreground">
-                {tabsContent.hotels.description}
+                {VENUE_TABS_CONTENT.hotels.description}
               </p>
             </div>
 
             {/* Luxury Hotels */}
-            <HotelCategorySection category={nearbyHotels.luxury} />
+            <HotelCategorySection category={NEARBY_HOTELS.luxury} />
 
             {/* Mid-Range Hotels */}
-            <HotelCategorySection category={nearbyHotels.midRange} />
+            <HotelCategorySection category={NEARBY_HOTELS.midRange} />
 
             {/* Budget Hotels */}
-            <HotelCategorySection category={nearbyHotels.budget} />
+            <HotelCategorySection category={NEARBY_HOTELS.budget} />
           </div>
         </TabsContent>
 
@@ -281,7 +283,7 @@ const VenueContent = () => {
           <div className="mt-6 overflow-hidden rounded-xl border">
             <AspectRatio ratio={21 / 9}>
               <iframe
-                src={venueDetails.mapEmbedUrl}
+                src={VENUE_DETAILS.mapEmbedUrl}
                 className="size-full"
                 style={{ border: 0 }}
                 allowFullScreen
@@ -297,9 +299,11 @@ const VenueContent = () => {
   );
 };
 
-// --- Hotel Components ---
-
-const HotelCategorySection = ({ category }: { category: HotelCategory }) => {
+const HotelCategorySection = ({
+  category,
+}: {
+  category: HotelCategoryType;
+}) => {
   return (
     <div className="space-y-6">
       {/* Category Header */}
@@ -325,80 +329,75 @@ const HotelCategorySection = ({ category }: { category: HotelCategory }) => {
   );
 };
 
-const HotelCard = ({ hotel }: { hotel: Hotel }) => {
+const HotelCard = ({ hotel }: { hotel: HotelType }) => {
   return (
-    <div className="group h-full transition-transform duration-300 hover:-translate-y-1">
-      <Card className="relative h-full overflow-hidden border-border/40 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
-        {/* Image Container */}
-        <div className="relative h-48 overflow-hidden">
-          <Image
-            src={hotel.image}
-            alt={hotel.name}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
+    <Card className="group py-0 flex h-full flex-col overflow-hidden border-border/50 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
+      {/* Image Section - Fixed Height */}
+      <div className="relative h-48 w-full shrink-0 overflow-hidden">
+        <Image
+          src={hotel.image}
+          alt={hotel.name}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+      </div>
 
-          {/* Price Badge */}
-          <div className="absolute top-4 right-4">
-            <Badge className="bg-black/70 text-white backdrop-blur-sm border-none px-3 py-1.5 text-sm font-semibold">
-              {hotel.priceRange.currency}{" "}
-              {hotel.priceRange.min.toLocaleString()} -{" "}
-              {hotel.priceRange.currency}
-              {hotel.priceRange.max.toLocaleString()}
-            </Badge>
-          </div>
-
-          {/* Hotel Name Overlay */}
-          <div className="absolute bottom-4 left-4 right-4">
-            <h4 className="font-serif text-xl font-bold leading-tight text-white">
-              {hotel.name}
-            </h4>
+      {/* Content Section - Flex Grow */}
+      <CardContent className="flex flex-1 flex-col p-5">
+        {/* Header Section - Fixed */}
+        <div className="space-y-2">
+          <h4 className="line-clamp-2 min-h-14 font-semibold leading-tight text-foreground sm:text-lg">
+            {hotel.name}
+          </h4>
+          <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+            <MapPinIcon className="size-4 shrink-0 text-primary" />
+            <span className="line-clamp-1">{hotel.distance}</span>
           </div>
         </div>
 
-        <CardContent className="space-y-4 p-6">
-          {/* Distance */}
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <MapPinIcon className="size-4 text-primary" />
-            <span>{hotel.distance}</span>
-          </div>
-
-          {/* Features */}
+        {/* Features Section - Fixed Height */}
+        <div className="mt-4 min-h-16">
           {hotel.features && hotel.features.length > 0 && (
-            <div className="space-y-2">
-              {hotel.features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 text-sm text-muted-foreground"
+            <div className="flex flex-wrap gap-2">
+              {hotel.features.slice(0, 3).map((feature) => (
+                <span
+                  key={feature.label}
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-muted/50 px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:bg-muted"
                 >
-                  <span className="text-base">{feature.icon}</span>
-                  <span>{feature.label}</span>
-                </div>
+                  <span className="text-sm">{feature.icon}</span>
+                  <span className="font-medium">{feature.label}</span>
+                </span>
               ))}
             </div>
           )}
+        </div>
+
+        {/* Spacer to push footer to bottom */}
+        <div className="flex-1" />
+
+        {/* Footer Section - Always at Bottom */}
+        <div className="mt-4 space-y-3 border-t border-border/50 pt-4">
+          {/* Price */}
+          <div className="flex items-baseline gap-1">
+            <span className="text-xs text-muted-foreground">From</span>
+            <span className="text-xl font-bold text-primary">
+              {hotel.priceRange.currency}
+              {hotel.priceRange.min.toLocaleString()}
+            </span>
+            <span className="text-sm font-normal text-muted-foreground">
+              / night
+            </span>
+          </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col gap-2 pt-2">
-            {hotel.contact.phone && (
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full gap-2"
-                asChild
-              >
-                <a href={`tel:${hotel.contact.phone}`}>
-                  <Phone className="size-4" />
-                  Call Hotel
-                </a>
-              </Button>
-            )}
+          <div className="flex gap-2">
             {hotel.contact.website && (
               <Button
                 variant="default"
                 size="sm"
-                className="w-full gap-2"
+                className="flex-1 gap-2"
                 asChild
               >
                 <Link
@@ -407,14 +406,26 @@ const HotelCard = ({ hotel }: { hotel: Hotel }) => {
                   rel="noopener noreferrer"
                 >
                   <Globe className="size-4" />
-                  Website
+                  View Details
                 </Link>
               </Button>
             )}
+            {hotel.contact.phone && (
+              <Button
+                variant="outline"
+                size="sm"
+                className="shrink-0 hover:text-white"
+                asChild
+              >
+                <a href={`tel:${hotel.contact.phone}`} aria-label="Call hotel">
+                  <Phone className="size-4" />
+                </a>
+              </Button>
+            )}
           </div>
-        </CardContent>
-      </Card>
-    </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

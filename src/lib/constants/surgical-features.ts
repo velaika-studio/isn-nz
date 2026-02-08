@@ -1,7 +1,7 @@
 import { Brain, Building, Cpu, Globe, Heart, Microscope } from "lucide-react";
 import type { SurgicalFeaturePropsType } from "@/types";
 
-export const surgicalFeaturesData: (SurgicalFeaturePropsType & {
+export const SURGICAL_FEATURES_DATA: (SurgicalFeaturePropsType & {
   index: number;
 })[] = [
   {

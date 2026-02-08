@@ -1,8 +1,8 @@
 // Contains all the text and data related to the venue
 
-import type { HotelCategory } from "@/types/information";
+import type { HotelCategoryType } from "@/types/information";
 
-export const venueDetails = {
+export const VENUE_DETAILS = {
   name: "Hotel Hyatt Centric, Dehradun",
   tagline: "Upscale Lifestyle Hotel in the Heart of Dehradun",
   address: {
@@ -22,15 +22,15 @@ export const venueDetails = {
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3442.492077161735!2d78.06762371200075!3d30.365381974658362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3908d760d9a85bc1%3A0xc15c4fb2aac68aee!2sHyatt%20Centric%20Dehradun!5e0!3m2!1sen!2sin!4v1770225204297!5m2!1sen!2sin",
 };
 
-export const venueImages = {
+export const VENUE_IMAGES = {
   main: "/images/hyatt-centric.png",
   secondary: "/images/dehradun-view.png",
 };
 
-export const tabsContent = {
+export const VENUE_TABS_CONTENT = {
   info: {
     mainContent: [
-      "NZ-ISNCON 2026 will be held at Hotel Hyatt Centric, Dehradun, a premier lifestyle hotel offering state-of-the-art facilities for academic conferences and professional gatherings.",
+      "NZ-ISNCON 2026 will be held at Hotel Hyatt Centric, Dehradun, a premier lifestyle Hotel offering state-of-the-art facilities for academic conferences and professional gatherings.",
       "Located on the iconic Rajpur Road, the venue provides easy access to the city's key attractions while offering a serene environment ideal for focused learning and networking.",
       "The conference facilities at Hyatt Centric Dehradun are designed to foster interaction and high-level academic exchange, ensuring a memorable experience for all delegates.",
     ],
@@ -53,9 +53,9 @@ export const tabsContent = {
   },
 };
 
-export const nearbyHotels: Record<
+export const NEARBY_HOTELS: Record<
   "luxury" | "midRange" | "budget",
-  HotelCategory
+  HotelCategoryType
 > = {
   luxury: {
     title: "Luxury Hotels",
@@ -128,7 +128,7 @@ export const nearbyHotels: Record<
         contact: {
           phone: "+91 135 273 7000",
           website:
-            "https://www.lemontreehotels.com/lemon-tree-hotel/dehradun/hotel-dehradun",
+            "https://www.lemontreehotels.com/lemon-tree-Hotel/dehradun/Hotel-dehradun",
         },
         rating: 4.3,
         location: "Rajpur Road (Pacific Mall)",
@@ -140,7 +140,7 @@ export const nearbyHotels: Record<
     subtitle: "Comfortable stays with essential amenities",
     hotels: [
       {
-        id: "spree-hotel-kriday",
+        id: "spree-Hotel-kriday",
         name: "Spree Hotel Kriday",
         image: "/images/kriday.png",
         priceRange: {
@@ -157,7 +157,7 @@ export const nearbyHotels: Record<
         ],
         contact: {
           phone: "+91 88801 58158",
-          website: "https://www.spreehotels.com/spree-hotel-kriday/",
+          website: "https://www.spreehotels.com/spree-Hotel-kriday/",
         },
         rating: 4.4,
         location: "Rajpur Road (Near Pacific Mall)",

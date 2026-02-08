@@ -21,7 +21,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ConferenceDetails } from "@/lib/constants/contact";
+import { CONFERENCE_DETAILS } from "@/lib/constants/contact-data";
 import { cn } from "@/lib/utils";
 import type { NavItemType } from "@/types";
 
@@ -139,7 +139,7 @@ const MobileNavAccordion = ({ items }: { items: NavItemType[] }) => {
                     ? "text-primary bg-primary/5"
                     : "text-foreground hover:text-primary",
                   item.featured &&
-                    "bg-gradient-to-r from-primary/10 to-accent/10 text-primary",
+                  "bg-gradient-to-r from-primary/10 to-accent/10 text-primary",
                 )}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -219,7 +219,7 @@ const MobileNavAccordion = ({ items }: { items: NavItemType[] }) => {
                 "bg-card/30 backdrop-blur-sm border border-border/40 hover:border-primary/40",
                 "hover:bg-primary/10 hover:shadow-md shadow-sm",
                 item.featured &&
-                  "bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/30",
+                "bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/30",
               )}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -237,7 +237,7 @@ const MobileNavAccordion = ({ items }: { items: NavItemType[] }) => {
 };
 
 const MobileNavFooter = () => {
-  const { contact } = ConferenceDetails;
+  const { contact } = CONFERENCE_DETAILS;
 
   return (
     <motion.div

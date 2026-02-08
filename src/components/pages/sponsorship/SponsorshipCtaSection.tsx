@@ -15,10 +15,9 @@ export const SponsorshipCtaSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
-      className="relative w-full overflow-hidden bg-background py-16 md:py-24"
+      className="relative w-full overflow-hidden bg-gradient-to-b from-background via-primary/5 to-background py-16 md:py-24"
     >
-      {/* ✨ 1. Rich gradient background and decorative elements */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
+      {/* Decorative element */}
       <Handshake className="absolute -left-16 top-1/2 -z-10 size-96 -translate-y-1/2 -rotate-12 text-primary/5" />
 
       <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6 text-center">

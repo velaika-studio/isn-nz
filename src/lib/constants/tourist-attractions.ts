@@ -1,6 +1,6 @@
 import type { TouristAttractionType } from "@/types";
 
-export const attractionsData: TouristAttractionType[] = [
+export const ATTRACTIONS_DATA: TouristAttractionType[] = [
   {
     id: 1,
     name: "Robber's Cave (Guchhupani)",

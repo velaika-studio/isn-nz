@@ -8,17 +8,19 @@ import { cn } from "@/lib/utils";
 /**
  * Standardized section container with consistent spacing and animations.
  */
+interface SectionContainerPropsType {
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
+  background?: "default" | "subtle" | "gradient" | "none";
+}
+
 export const SectionContainer = ({
   children,
   className,
   id,
   background = "default",
-}: {
-  children: React.ReactNode;
-  className?: string;
-  id?: string;
-  background?: "default" | "subtle" | "gradient" | "none";
-}) => {
+}: SectionContainerPropsType) => {
   const backgroundStyles = {
     default: "",
     subtle: "bg-muted/30",
@@ -49,19 +51,21 @@ export const SectionContainer = ({
 /**
  * Standardized section header with consistent typography.
  */
+interface SectionHeaderPropsType {
+  title: string;
+  description?: string;
+  id?: string;
+  align?: "left" | "center";
+  className?: string;
+}
+
 export const SectionHeader = ({
   title,
   description,
   id,
   align = "center",
   className,
-}: {
-  title: string;
-  description?: string;
-  id?: string;
-  align?: "left" | "center";
-  className?: string;
-}) => {
+}: SectionHeaderPropsType) => {
   return (
     <motion.div
       variants={sectionVariants}
@@ -90,21 +94,23 @@ export const SectionHeader = ({
 /**
  * Standardized card wrapper with consistent styling.
  */
+interface StandardCardPropsType {
+  children: React.ReactNode;
+  className?: string;
+  hover?: boolean;
+}
+
 export const StandardCard = ({
   children,
   className,
   hover = true,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  hover?: boolean;
-}) => {
+}: StandardCardPropsType) => {
   return (
     <div
       className={cn(
         "rounded-2xl border border-border/50 bg-card/60 p-6 backdrop-blur-sm transition-all duration-300",
         hover &&
-          "hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5",
+        "hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5",
         className,
       )}
     >
@@ -116,15 +122,17 @@ export const StandardCard = ({
 /**
  * Standardized icon container.
  */
+interface IconContainerPropsType {
+  children: React.ReactNode;
+  size?: "sm" | "md" | "lg";
+  className?: string;
+}
+
 export const IconContainer = ({
   children,
   size = "md",
   className,
-}: {
-  children: React.ReactNode;
-  size?: "sm" | "md" | "lg";
-  className?: string;
-}) => {
+}: IconContainerPropsType) => {
   const sizes = {
     sm: "size-10 rounded-lg",
     md: "size-12 rounded-xl",

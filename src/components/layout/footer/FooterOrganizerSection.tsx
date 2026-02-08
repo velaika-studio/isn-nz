@@ -3,7 +3,7 @@ import { ArrowUpRight, Globe, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { OrganizerContactData } from "@/lib/constants/contact";
+import { ORGANIZER_CONTACT_DATA } from "@/lib/constants/contact-data";
 import { ContactItem, FooterSectionHeader } from "./FooterShared";
 
 const fadeUpVariant = {
@@ -50,33 +50,33 @@ const FooterOrganizerCard = ({
 
 export const FooterOrganizerSection = () => (
   <motion.div variants={fadeUpVariant} className="space-y-6">
-    <FooterSectionHeader icon={Globe} title={OrganizerContactData.title} />
+    <FooterSectionHeader icon={Globe} title={ORGANIZER_CONTACT_DATA.title} />
 
     <div className="space-y-4">
-      <FooterOrganizerCard {...OrganizerContactData.organizer} />
+      <FooterOrganizerCard {...ORGANIZER_CONTACT_DATA.organizer} />
       <div className="h-px bg-border/30" />
-      <FooterOrganizerCard {...OrganizerContactData.eventPartner} />
+      <FooterOrganizerCard {...ORGANIZER_CONTACT_DATA.eventPartner} />
     </div>
 
     <div>
       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3 font-bold">
-        {OrganizerContactData.conferenceManager.title}
+        {ORGANIZER_CONTACT_DATA.conferenceManager.title}
       </p>
       <div className="space-y-3">
         <ContactItem icon={Phone}>
           <a
-            href={OrganizerContactData.conferenceManager.contact.phoneHref}
+            href={ORGANIZER_CONTACT_DATA.conferenceManager.contact.phoneHref}
             className="text-sm text-muted-foreground hover:text-primary transition-colors"
           >
-            {OrganizerContactData.conferenceManager.contact.phone}
+            {ORGANIZER_CONTACT_DATA.conferenceManager.contact.phone}
           </a>
         </ContactItem>
         <ContactItem icon={Mail}>
           <a
-            href={OrganizerContactData.conferenceManager.contact.emailHref}
+            href={ORGANIZER_CONTACT_DATA.conferenceManager.contact.emailHref}
             className="text-sm text-muted-foreground hover:text-primary transition-colors"
           >
-            {OrganizerContactData.conferenceManager.contact.email}
+            {ORGANIZER_CONTACT_DATA.conferenceManager.contact.email}
           </a>
         </ContactItem>
       </div>

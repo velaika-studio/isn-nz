@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { sessionHighlights } from "@/lib/constants/scheduleData";
+import { SESSION_HIGHLIGHTS } from "@/lib/constants/schedule-data";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -22,14 +22,14 @@ const cardVariants = {
 /**
  * Displays session highlights organized by category.
  */
-export const SessionHighlightsSection = () => {
+export const SESSION_HIGHLIGHTSSection = () => {
   return (
     <motion.section
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="w-full bg-gradient-to-bl from-primary/10 via-transparent to-primary/5 py-20 md:py-28"
+      className="w-full bg-gradient-to-b from-background via-primary/5 to-background py-20 md:py-28"
     >
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
@@ -43,7 +43,7 @@ export const SessionHighlightsSection = () => {
         </div>
 
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {sessionHighlights.map((session, index) => (
+          {SESSION_HIGHLIGHTS.map((session, index) => (
             <motion.div
               key={session.title}
               custom={index}

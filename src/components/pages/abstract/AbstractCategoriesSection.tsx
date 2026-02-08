@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import CardSwap, { Card } from "@/components/ui/card-swap/CardSwap";
-import { submissionCategories } from "@/lib/constants/abstractData";
+import { SUBMISSION_CATEGORIES } from "@/lib/constants/abstract-data";
 
 /**
  * A responsive section displaying submission categories with an animated card swapping effect.
@@ -13,10 +13,8 @@ export const AbstractCategoriesSection = () => (
     whileInView={{ opacity: 1 }}
     viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.5 }}
-    className="relative w-full overflow-x-hidden bg-background py-20 md:py-56"
+    className="relative w-full overflow-x-hidden bg-gradient-to-b from-background via-primary/5 to-background py-20 md:py-56"
   >
-    <div className="absolute inset-0 z-0 bg-gradient-to-bl from-primary/10 via-transparent to-primary/5" />
-
     <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-8 px-4 md:gap-16 lg:grid-cols-2">
       <div className="max-w-xl text-center lg:text-left">
         <h2 className="text-3xl font-extrabold tracking-tighter text-primary sm:text-4xl">
@@ -35,14 +33,14 @@ export const AbstractCategoriesSection = () => (
 
       <div className="relative mx-auto h-[340px] w-full max-w-xs sm:h-[400px] sm:max-w-sm lg:mx-0 lg:max-w-lg lg:justify-self-end -translate-x-20 lg:-translate-x-8">
         <CardSwap delay={4000} pauseOnHover={true}>
-          {submissionCategories.map((category) => {
+          {SUBMISSION_CATEGORIES.map((category: any) => {
             const Icon = category.icon;
             return (
               <Card key={category.title}>
                 {/* ✨ 1. Main card container with group for hover states */}
                 <div className="group relative flex h-full flex-col items-center justify-center overflow-hidden rounded-xl border bg-card/80 p-6 text-center shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out hover:shadow-primary/20 md:p-8">
-                  {/* ✨ 2. Animated glow effect on hover */}
-                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary/20 via-transparent to-card opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  {/* Animated glow effect on hover */}
+                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   {/* Card Content (positioned above the glow) */}
                   <div className="relative z-10 flex h-full w-full flex-col items-center justify-center">

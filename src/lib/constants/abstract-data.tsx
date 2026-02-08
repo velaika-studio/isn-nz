@@ -8,9 +8,9 @@ import {
   Users,
 } from "lucide-react";
 import type {
-  FormatRequirement,
-  Guideline,
-  SubmissionCategory,
+  FormatRequirementType,
+  GuidelineType,
+  SubmissionCategoryType,
 } from "@/types/information";
 
 export const ABSTRACT_SUBMISSION_FORM_LINK =
@@ -20,7 +20,7 @@ export const GUIDELINES_DOC_PATH = "/files/isn-nz-brochure.pdf";
 /**
  * Categories for abstract submissions.
  */
-export const submissionCategories: SubmissionCategory[] = [
+export const SUBMISSION_CATEGORIES: SubmissionCategoryType[] = [
   {
     title: "Original Study",
     icon: BookOpen,
@@ -38,7 +38,7 @@ export const submissionCategories: SubmissionCategory[] = [
 /**
  * Formatting requirements for abstracts.
  */
-export const formatRequirements: FormatRequirement[] = [
+export const FORMAT_REQUIREMENTS: FormatRequirementType[] = [
   {
     element: "Type of Study",
     requirement: "Specify Original Study or Case Report",
@@ -99,7 +99,7 @@ export const formatRequirements: FormatRequirement[] = [
 /**
  * General submission guidelines.
  */
-export const guidelines: Guideline[] = [
+export const GUIDELINES: GuidelineType[] = [
   {
     icon: Mail,
     text: "Abstracts must be submitted ONLY through the Form provided on this website. Email/fax or any other means will NOT be accepted.",
@@ -137,7 +137,7 @@ export const guidelines: Guideline[] = [
   },
 ];
 
-// Submission process description
+
 export const SUBMISSION_PROCESS_STEPS = [
   {
     step: 1,

@@ -1,7 +1,7 @@
 import { Users } from "lucide-react";
-import type { TabConfig } from "@/types/ui";
+import type { TabConfigType } from "@/types/ui";
 
-export const TABS: TabConfig[] = [
+export const TABS: TabConfigType[] = [
   {
     id: "organizing",
     label: "Organizing Committee",

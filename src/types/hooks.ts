@@ -25,7 +25,7 @@ export interface UseCarouselControlsOptionsType {
 /**
  * Defines the callback functions for the useSwipeGestures hook.
  */
-export interface SwipeHandlers {
+export interface SwipeHandlersType {
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
 }

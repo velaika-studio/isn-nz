@@ -1,11 +1,11 @@
 import type { CarouselSlideType } from "@/types";
 
-export const carouselSlides: CarouselSlideType[] = [
+export const CAROUSEL_SLIDES: CarouselSlideType[] = [
   {
     id: 1,
     image: "/images/kidney.png",
     title: "NZ-ISNCON 2026 DEHRADUN",
-    subtitle: "30th ANNUAL CONFERENCE OF ISN-NZ",
+    subtitle: "30th Annual Conference OF ISN-NZ",
     date: "10-12 April 2026",
     venue: "Hotel Hyatt Centric, Dehradun",
     description:

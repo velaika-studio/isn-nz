@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { REGISTRATION_LINK } from "@/lib/constants/registrationData";
+import { REGISTRATION_LINK } from "@/lib/constants/registration-data";
 
 /**
  * Registration QR code display component

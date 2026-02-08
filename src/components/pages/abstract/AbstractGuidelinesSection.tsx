@@ -22,9 +22,9 @@ import {
 } from "@/components/ui/card";
 import {
   ABSTRACT_SUBMISSION_FORM_LINK,
-  guidelines,
+  GUIDELINES,
   SUBMISSION_PROCESS_STEPS,
-} from "@/lib/constants/abstractData";
+} from "@/lib/constants/abstract-data";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -40,7 +40,7 @@ export const AbstractGuidelinesSection = () => (
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.2 }}
-    className="w-full bg-gradient-to-bl from-primary/10 via-transparent to-primary/5 py-20 md:py-28"
+    className="w-full bg-gradient-to-b from-background via-primary/5 to-background py-20 md:py-28"
   >
     <div className="container mx-auto px-4">
       <div className="mb-12 text-center">
@@ -64,7 +64,7 @@ export const AbstractGuidelinesSection = () => (
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            {guidelines.map((item) => {
+            {GUIDELINES.map((item: any) => {
               const Icon = item.icon;
               return (
                 <div key={item.text} className="flex items-start gap-3">
@@ -80,7 +80,7 @@ export const AbstractGuidelinesSection = () => (
 
         {/* Right Column: Stipend Banner + Submission Instructions */}
         <div className="lg:col-span-2 space-y-6">
-          {/* Stipend Highlight Banner */}
+          {/* Stipend HighlightType Banner */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}

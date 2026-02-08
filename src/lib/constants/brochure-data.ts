@@ -9,13 +9,13 @@ import {
   Users,
   Video,
 } from "lucide-react";
-import type { ResourceItem } from "@/types/information";
-import type { ConferenceHighlight, OverviewItem } from "@/types/ui";
+import type { ResourceItemType } from "@/types/information";
+import type { ConferenceHighlightType, OverviewItemType } from "@/types/ui";
 
 /**
  * Key highlights of the scientific program.
  */
-export const conferenceHighlights: ConferenceHighlight[] = [
+export const CONFERENCE_HIGHLIGHTS: ConferenceHighlightType[] = [
   {
     icon: Video,
     title: "Case-Based Participative Learning",
@@ -39,7 +39,7 @@ export const conferenceHighlights: ConferenceHighlight[] = [
 /**
  * Quick overview facts about the conference.
  */
-export const overviewItems: OverviewItem[] = [
+export const OVERVIEW_ITEMS: OverviewItemType[] = [
   {
     icon: Clock,
     title: "Duration",
@@ -55,7 +55,7 @@ export const overviewItems: OverviewItem[] = [
 /**
  * Important links and resources for attendees.
  */
-export const resourceItems: ResourceItem[] = [
+export const RESOURCE_ITEMS: ResourceItemType[] = [
   {
     icon: Phone,
     title: "Contact Us",

@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ConferenceDetails } from "@/lib/constants/contact";
+import { CONFERENCE_DETAILS } from "@/lib/constants/contact-data";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -41,21 +41,26 @@ export const BrochurePageHeroSection = () => {
       animate="visible"
       className="relative w-full overflow-hidden py-24 text-center md:py-32"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-        <Image
-          src={IMAGE_PATH}
-          alt="Conference Brochure Background"
-          fill
-          className="object-contain opacity-20"
-          priority
-        />
+      {/* Background Image with Gradient Overlay */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+          <Image
+            src={IMAGE_PATH}
+            alt="Conference Brochure Background"
+            fill
+            className="object-contain opacity-20"
+            priority
+          />
+        </div>
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
       <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6 flex flex-col items-center text-center text-white">
+        {/* Breadcrumbs */}
         <motion.nav
           variants={itemVariants}
-          className="mb-8 flex items-center justify-center gap-2 text-sm text-gray-300"
+          className="mb-8 flex items-center justify-center gap-2 text-sm text-gray-200"
         >
           <Link
             href="/"
@@ -63,9 +68,10 @@ export const BrochurePageHeroSection = () => {
           >
             <Home className="size-4" /> Home
           </Link>
-          <ChevronRight className="size-4" />
+          <ChevronRight className="size-4 opacity-60" />
           <span className="font-medium text-white">Conference Brochure</span>
         </motion.nav>
+        {/* Organization Logos */}
         <motion.div
           variants={itemVariants}
           className="mb-6 flex flex-col items-center"
@@ -80,12 +86,15 @@ export const BrochurePageHeroSection = () => {
           </div>
         </motion.div>
 
+        {/* Title */}
         <motion.h1
           variants={itemVariants}
-          className="font-serif text-4xl font-bold tracking-tight md:text-6xl uppercase"
+          className="font-serif text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl uppercase"
         >
           NZ-ISNCON 2026
         </motion.h1>
+
+        {/* Subtitle */}
         <motion.h2
           variants={itemVariants}
           className="mt-2 text-xl font-medium text-primary md:text-2xl lg:text-3xl"
@@ -93,9 +102,10 @@ export const BrochurePageHeroSection = () => {
           Advancing Nephrology Through Innovation and Clinical Excellence
         </motion.h2>
 
+        {/* Description */}
         <motion.p
           variants={itemVariants}
-          className="mx-auto mt-6 max-w-3xl text-lg text-gray-300"
+          className="mx-auto mt-6 max-w-3xl text-lg text-gray-200"
         >
           A premier nephrology conference featuring comprehensive sessions on
           Clinical Nephrology, Dialysis Innovations, Kidney Transplantation, and
@@ -103,24 +113,24 @@ export const BrochurePageHeroSection = () => {
           faculty.
         </motion.p>
 
-        {/* ✨ 3. Updated event details and action buttons */}
+        {/* Event Details & Action Buttons */}
         <motion.div
           variants={itemVariants}
-          className="mt-10 w-full max-w-lg rounded-2xl border border-border/50 bg-background/5 p-6 backdrop-blur-sm shadow-2xl"
+          className="mt-10 w-full max-w-lg rounded-2xl border border-border/50 bg-black/20 p-6 backdrop-blur-sm shadow-2xl"
         >
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
             <div className="flex items-center gap-2">
               <Calendar className="size-4 text-primary" />
               <span className="font-semibold">
-                {ConferenceDetails.eventDetails.dates}
+                {CONFERENCE_DETAILS.WELCOME_EVENT_DETAILS.dates}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="size-4 text-primary" />
               <span className="font-semibold">
-                {ConferenceDetails.address.line2 +
+                {CONFERENCE_DETAILS.address.line2 +
                   ", " +
-                  ConferenceDetails.address.line3}
+                  CONFERENCE_DETAILS.address.line3}
               </span>
             </div>
           </div>
@@ -128,7 +138,7 @@ export const BrochurePageHeroSection = () => {
             <Button
               size="lg"
               asChild
-              className="rounded-xl shadow-lg shadow-primary/20"
+              className="rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90"
             >
               <Link href="/registration">
                 Register Now <ArrowUpRight className="ml-2 size-5" />
@@ -137,7 +147,7 @@ export const BrochurePageHeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="rounded-xl border-white/20 bg-transparent text-white hover:bg-white/10"
+              className="rounded-xl border-white/20 bg-white/5 text-white backdrop-blur-sm hover:bg-white/10 hover:text-white"
               asChild
             >
               <Link

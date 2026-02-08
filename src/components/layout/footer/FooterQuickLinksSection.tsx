@@ -1,4 +1,4 @@
-// components/layout/FooterQuickLinksSection.tsx
+
 
 import { motion } from "framer-motion";
 import { LinkIcon } from "lucide-react";

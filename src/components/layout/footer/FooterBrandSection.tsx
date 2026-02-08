@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ConferenceDetails } from "@/lib/constants/contact";
+import { CONFERENCE_DETAILS } from "@/lib/constants/contact-data";
 
 const fadeUpVariant = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
@@ -15,8 +15,8 @@ export const FooterBrandSection = () => (
     <div className="flex items-center gap-4">
       <div className="relative size-16 overflow-hidden">
         <Image
-          src={ConferenceDetails.logoSrc}
-          alt={ConferenceDetails.logoAlt}
+          src={CONFERENCE_DETAILS.logoSrc}
+          alt={CONFERENCE_DETAILS.logoAlt}
           fill
           className="object-contain"
         />
@@ -34,7 +34,7 @@ export const FooterBrandSection = () => (
 
     {/* Event Description */}
     <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-      The 30th Annual Conference of Indian Society of Nephrology - North Zone.
+      The 30th annual Conference of Indian Society of Nephrology - North Zone.
       Bridging Science, Innovation, and Clinical Practice.
     </p>
 

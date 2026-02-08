@@ -12,7 +12,7 @@ import { useEffect, useRef } from "react";
 
 import "./CircularGallery.css";
 
-type GL = Renderer["gl"];
+type GLType = Renderer["gl"];
 
 function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
   let timeout: number;
@@ -41,7 +41,7 @@ function getFontSize(font: string): number {
 }
 
 function createTextTexture(
-  gl: GL,
+  gl: GLType,
   text: string,
   font: string = "bold 30px monospace",
   color: string = "black",
@@ -71,8 +71,8 @@ function createTextTexture(
   return { texture, width: canvas.width, height: canvas.height };
 }
 
-interface TitleProps {
-  gl: GL;
+interface TitlePropsType {
+  gl: GLType;
   plane: Mesh;
   renderer: Renderer;
   text: string;
@@ -85,7 +85,7 @@ interface TitleProps {
 }
 
 class Title {
-  gl: GL;
+  gl: GLType;
   plane: Mesh;
   renderer: Renderer;
   text: string;
@@ -108,7 +108,7 @@ class Title {
     font = "bold 26px sans-serif",
     roleFont = "20px sans-serif",
     institutionFont = "17px sans-serif",
-  }: TitleProps) {
+  }: TitlePropsType) {
     autoBind(this);
     this.gl = gl;
     this.plane = plane;
@@ -124,7 +124,7 @@ class Title {
   }
 
   createMesh() {
-    // Create name mesh
+
     const {
       texture: nameTexture,
       width: nameWidth,
@@ -171,7 +171,7 @@ class Title {
     nameMesh.setParent(this.plane);
     this.meshes.push(nameMesh);
 
-    // Create role mesh if provided
+
     if (this.role) {
       currentYOffset -= nameHeightScaled * 0.8;
       const {
@@ -218,7 +218,7 @@ class Title {
       this.meshes.push(roleMesh);
     }
 
-    // Create institution mesh if provided
+
     if (this.institution) {
       currentYOffset -= this.role
         ? this.plane.scale.y * 0.09 * 0.7
@@ -274,29 +274,29 @@ class Title {
   }
 }
 
-interface ScreenSize {
+interface ScreenSizeType {
   width: number;
   height: number;
 }
 
-interface Viewport {
+interface ViewportType {
   width: number;
   height: number;
 }
 
-interface MediaProps {
+interface MediaPropsType {
   geometry: Plane;
-  gl: GL;
+  gl: GLType;
   image: string;
   index: number;
   length: number;
   renderer: Renderer;
   scene: Transform;
-  screen: ScreenSize;
+  screen: ScreenSizeType;
   text: string;
   role?: string;
   institution?: string;
-  viewport: Viewport;
+  viewport: ViewportType;
   bend: number;
   textColor: string;
   borderRadius?: number;
@@ -308,17 +308,17 @@ interface MediaProps {
 class Media {
   extra: number = 0;
   geometry: Plane;
-  gl: GL;
+  gl: GLType;
   image: string;
   index: number;
   length: number;
   renderer: Renderer;
   scene: Transform;
-  screen: ScreenSize;
+  screen: ScreenSizeType;
   text: string;
   role?: string;
   institution?: string;
-  viewport: Viewport;
+  viewport: ViewportType;
   bend: number;
   textColor: string;
   borderRadius: number;
@@ -356,7 +356,7 @@ class Media {
     font,
     roleFont,
     institutionFont,
-  }: MediaProps) {
+  }: MediaPropsType) {
     this.geometry = geometry;
     this.gl = gl;
     this.image = image;
@@ -530,8 +530,8 @@ class Media {
     screen,
     viewport,
   }: {
-    screen?: ScreenSize;
-    viewport?: Viewport;
+    screen?: ScreenSizeType;
+    viewport?: ViewportType;
   } = {}) {
     if (screen) this.screen = screen;
     if (viewport) {
@@ -559,7 +559,7 @@ class Media {
   }
 }
 
-interface AppConfig {
+interface AppConfigType {
   items?: {
     image: string;
     text: string;
@@ -588,7 +588,7 @@ class App {
   };
   onCheckDebounce: (...args: any[]) => void;
   renderer!: Renderer;
-  gl!: GL;
+  gl!: GLType;
   camera!: Camera;
   scene!: Transform;
   planeGeometry!: Plane;
@@ -624,7 +624,7 @@ class App {
       institutionFont = "17px Figtree",
       scrollSpeed = 2,
       scrollEase = 0.05,
-    }: AppConfig,
+    }: AppConfigType,
   ) {
     document.documentElement.classList.remove("no-js");
     this.container = container;
@@ -787,7 +787,7 @@ class App {
     const delta =
       wheelEvent.deltaY ||
       (wheelEvent as any).wheelDelta ||
-      (wheelEvent as any).detail;
+      (wheelEvent as any).DetailType;
     this.scroll.target +=
       (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
     this.onCheckDebounce();

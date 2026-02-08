@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  ConferenceDetails,
-  OrganizerContactData,
-} from "@/lib/constants/contact";
-import { venueDetails } from "@/lib/constants/venueDetails";
+  CONFERENCE_DETAILS,
+  ORGANIZER_CONTACT_DATA,
+} from "@/lib/constants/contact-data";
+import { VENUE_DETAILS } from "@/lib/constants/venue-details";
 
 /**
  * Displays detailed contact information with a redesigned, integrated UI.
@@ -22,7 +22,7 @@ export const ContactDetails = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-gradient-to-b from-primary/5 via-transparent to-transparent py-16 md:py-24"
+      className="w-full bg-gradient-to-b from-background via-primary/5 to-background py-16 md:py-24"
     >
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
         <Tabs defaultValue="secretariat" className="w-full">
@@ -36,7 +36,7 @@ export const ContactDetails = () => {
             <Card className="overflow-hidden py-0 border-border/50 bg-card/60 backdrop-blur-sm">
               <div className="relative h-64 w-full md:h-96">
                 <iframe
-                  src={venueDetails.mapEmbedUrl}
+                  src={VENUE_DETAILS.mapEmbedUrl}
                   className="h-full w-full"
                   style={{ border: 0 }}
                   allowFullScreen
@@ -49,10 +49,10 @@ export const ContactDetails = () => {
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <ContactInfoItem icon={MapPin} title="Address">
                     <address className="not-italic leading-relaxed">
-                      {ConferenceDetails.address.line1},{" "}
-                      {ConferenceDetails.address.line2},{" "}
-                      {ConferenceDetails.address.line3},{" "}
-                      {ConferenceDetails.address.line4}
+                      {CONFERENCE_DETAILS.address.line1},{" "}
+                      {CONFERENCE_DETAILS.address.line2},{" "}
+                      {CONFERENCE_DETAILS.address.line3},{" "}
+                      {CONFERENCE_DETAILS.address.line4}
                     </address>
                     <Button
                       variant="link"
@@ -61,7 +61,7 @@ export const ContactDetails = () => {
                       className="-ml-3 mt-1 h-auto p-0"
                     >
                       <a
-                        href={venueDetails.mapDirectionsUrl}
+                        href={VENUE_DETAILS.mapDirectionsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -72,18 +72,18 @@ export const ContactDetails = () => {
                   </ContactInfoItem>
                   <ContactInfoItem icon={Mail} title="Email">
                     <a
-                      href={ConferenceDetails.contact.emailHref}
+                      href={CONFERENCE_DETAILS.contact.emailHref}
                       className="hover:underline"
                     >
-                      {ConferenceDetails.contact.email}
+                      {CONFERENCE_DETAILS.contact.email}
                     </a>
                   </ContactInfoItem>
                   <ContactInfoItem icon={Phone} title="Phone">
                     <a
-                      href={ConferenceDetails.contact.phoneHref}
+                      href={CONFERENCE_DETAILS.contact.phoneHref}
                       className="hover:underline"
                     >
-                      {ConferenceDetails.contact.phone}
+                      {CONFERENCE_DETAILS.contact.phone}
                     </a>
                   </ContactInfoItem>
                   <ContactInfoItem icon={Clock} title="Office Hours">
@@ -99,15 +99,15 @@ export const ContactDetails = () => {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <OrganizationCard
                 title="Organized By"
-                data={OrganizerContactData.organizer}
+                data={ORGANIZER_CONTACT_DATA.organizer}
               />
               <OrganizationCard
                 title="Event Partner"
-                data={OrganizerContactData.eventPartner}
+                data={ORGANIZER_CONTACT_DATA.eventPartner}
               />
               <ManagerCard
-                title={OrganizerContactData.conferenceManager.title}
-                data={OrganizerContactData.conferenceManager.contact}
+                title={ORGANIZER_CONTACT_DATA.conferenceManager.title}
+                data={ORGANIZER_CONTACT_DATA.conferenceManager.contact}
               />
             </div>
           </TabsContent>
@@ -117,7 +117,6 @@ export const ContactDetails = () => {
   );
 };
 
-// ✨ Helper component for the Secretariat contact list
 const ContactInfoItem = ({
   icon: Icon,
   title,
@@ -138,7 +137,6 @@ const ContactInfoItem = ({
   </div>
 );
 
-// ✨ New, specific card for organizations
 const OrganizationCard = ({
   title,
   data,
@@ -163,7 +161,6 @@ const OrganizationCard = ({
   </Card>
 );
 
-// ✨ New, specific card for the conference manager
 const ManagerCard = ({
   title,
   data,

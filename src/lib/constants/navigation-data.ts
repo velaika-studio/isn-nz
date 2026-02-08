@@ -1,7 +1,7 @@
 import type { NavItemType } from "@/types";
 
 // Main navigation items
-export const mainNavItems: NavItemType[] = [
+export const MAIN_NAV_ITEMS: NavItemType[] = [
   { href: "/", label: "Home", featured: false },
   {
     href: "#",

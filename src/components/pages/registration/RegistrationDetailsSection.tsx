@@ -6,14 +6,13 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { conferenceDetails } from "@/lib/constants/registrationData";
+import { REGISTRATION_DETAILS } from "@/lib/constants/registration-data";
 
 /**
  * A section displaying key details about the conference in a unified info bar.
  */
 export const RegistrationDetailsSection = () => {
-  // Get only the first three items to display
-  const displayedDetails = conferenceDetails.slice(0, 3);
+  const displayedDetails = REGISTRATION_DETAILS.slice(0, 3);
 
   return (
     <motion.section
@@ -21,7 +20,7 @@ export const RegistrationDetailsSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5 }}
-      className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
+      className="relative w-full overflow-hidden py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background"
     >
       <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <motion.div
@@ -48,14 +47,14 @@ export const RegistrationDetailsSection = () => {
           <Card className="overflow-hidden border-border/50 bg-card/60 backdrop-blur-sm shadow-xl">
             <CardContent className="p-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-                {displayedDetails.map((detail, index) => {
-                  const Icon = detail.icon;
+                {displayedDetails.map((DetailType: any, index: number) => {
+                  const Icon = DetailType.icon;
                   const isLastItem = index === displayedDetails.length - 1;
                   const isLastInRowOnTablet = (index + 1) % 2 === 0;
 
                   return (
                     <motion.div
-                      key={detail.title}
+                      key={DetailType.title}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -68,10 +67,10 @@ export const RegistrationDetailsSection = () => {
                           <Icon className="relative size-7 text-primary" />
                         </div>
                         <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                          {detail.title}
+                          {DetailType.title}
                         </h3>
                         <p className="mt-2 text-xl font-bold text-foreground">
-                          {detail.content}
+                          {DetailType.content}
                         </p>
                       </div>
 

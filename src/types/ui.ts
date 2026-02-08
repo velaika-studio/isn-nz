@@ -9,13 +9,13 @@ export interface LayoutPropsType {
   children: ReactNode;
   /** Determines if the navigation bar is displayed. Defaults to `true`. */
   showNav?: boolean;
-  /** Determines if the footer is displayed. Defaults to `true`. */
+  /** Determines if the Footer is displayed. Defaults to `true`. */
   showFooter?: boolean;
 }
 
-export type ConferenceStatus = "countdown" | "ongoing" | "ended" | "loading";
+export type ConferenceStatusType = "countdown" | "ongoing" | "ended" | "loading";
 export interface ConferenceStateType {
-  status: ConferenceStatus;
+  status: ConferenceStatusType;
   timeText: string;
   daysUntilStart?: number;
 }
@@ -38,19 +38,19 @@ export interface CarouselProgressPropsType {
   duration?: number;
 }
 
-export interface ConferenceHighlight {
+export interface ConferenceHighlightType {
   icon: LucideIcon;
   title: string;
   description: string;
 }
 
-export interface OverviewItem {
+export interface OverviewItemType {
   icon: LucideIcon;
   title: string;
   description: string;
 }
 
-export type CommitteeType =
+export type CommitteeTypeType =
   | "patrons"
   | "advisors"
   | "organizing"
@@ -58,27 +58,27 @@ export type CommitteeType =
   | "international"
   | "national";
 
-export interface TabConfig {
-  id: CommitteeType;
+export interface TabConfigType {
+  id: CommitteeTypeType;
   label: string;
   icon: LucideIcon;
   description: string;
 }
 
-export interface CommitteeTabsProps {
-  activeTab: CommitteeType;
-  setActiveTab: (tab: CommitteeType) => void;
-  committeeDataMap: Record<CommitteeType, OrganizerPropsType[]>;
+export interface CommitteeTabsPropsType {
+  activeTab: CommitteeTypeType;
+  setActiveTab: (tab: CommitteeTypeType) => void;
+  committeeDataMap: Record<CommitteeTypeType, OrganizerPropsType[]>;
 }
 
-export interface Detail {
+export interface DetailType {
   icon: LucideIcon;
   title: string;
   content: string;
   subtitle: string;
 }
 
-export interface PricingOption {
+export interface PricingOptionType {
   category: string;
   earlyBird: string;
   regular: string;
@@ -87,13 +87,13 @@ export interface PricingOption {
   popular?: boolean;
 }
 
-export interface Highlight {
+export interface HighlightType {
   icon: LucideIcon;
   title: string;
   description: string;
 }
 
-export interface SponsorshipTier {
+export interface SponsorshipTierType {
   name: string;
   price: string;
   description: string;
@@ -101,18 +101,18 @@ export interface SponsorshipTier {
   featured?: boolean;
 }
 
-export interface Benefit {
+export interface BenefitType {
   name: string;
   description: string;
   icon: LucideIcon;
 }
 
 // Defines which benefits each tier gets.
-// The key is the benefit name, and the value is what to display in the table.
-export type TierBenefits = Record<string, string | boolean>;
+// The key is the BenefitType name, and the value is what to display in the table.
+export type TierBenefitsType = Record<string, string | boolean>;
 
-export interface SponsorshipPackage {
+export interface SponsorshipPackageType {
   name: string;
   price: string;
-  benefits: TierBenefits;
+  benefits: TierBenefitsType;
 }

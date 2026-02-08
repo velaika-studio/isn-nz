@@ -26,7 +26,7 @@ export const AbstractTemplateSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="w-full bg-gradient-to-tr from-primary/5 via-transparent to-primary/10 py-20 md:py-28"
+      className="w-full bg-gradient-to-b from-background via-primary/5 to-background py-20 md:py-28"
     >
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
@@ -40,7 +40,7 @@ export const AbstractTemplateSection = () => {
           </p>
         </div>
 
-        {/* Stipend Highlight Banner */}
+        {/* Stipend HighlightType Banner */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}

@@ -20,7 +20,7 @@ export const BrochureCtaSection = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      className="w-full py-16 md:py-24 bg-gradient-to-b from-primary/5 via-transparent to-transparent"
+      className="w-full py-16 md:py-24 bg-gradient-to-b from-background via-primary/5 to-background"
     >
       <div className="container mx-auto max-w-6xl px-4 md:px-6">
         {/* ✨ 1. The main CTA container with a glowing gradient border effect */}
