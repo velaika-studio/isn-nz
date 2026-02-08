@@ -138,7 +138,7 @@ export const BrochurePageHeroSection = () => {
             <Button
               size="lg"
               asChild
-              className="rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90"
+              className="bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90"
             >
               <Link href="/registration">
                 Register Now <ArrowUpRight className="ml-2 size-5" />
@@ -147,7 +147,7 @@ export const BrochurePageHeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="rounded-xl border-white/20 bg-white/5 text-white backdrop-blur-sm hover:bg-white/10 hover:text-white"
+              className="border-white/20 bg-white/5 text-white backdrop-blur-sm hover:bg-white/10 hover:text-white"
               asChild
             >
               <Link

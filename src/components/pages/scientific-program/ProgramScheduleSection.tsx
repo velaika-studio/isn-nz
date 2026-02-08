@@ -15,6 +15,7 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CONFERENCE_SCHEDULE } from "@/lib/constants/schedule-data";
+import { Button } from "@/components/ui/button";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -85,14 +86,15 @@ export const ProgramScheduleSection = () => {
         {/* Day Selection Tabs */}
         <div className="mx-auto mb-8 flex max-w-4xl flex-wrap justify-center gap-4">
           {CONFERENCE_SCHEDULE.map((day, index) => (
-            <button
+            <Button
               key={index}
               type="button"
+              variant={selectedDay === index ? "default" : "outline"}
               onClick={() => setSelectedDay(index)}
-              className={`flex items-center gap-2 rounded-lg border-2 px-6 py-3 font-semibold transition-all ${
+              className={`h-auto gap-2 rounded-xl px-6 py-3 font-semibold ${
                 selectedDay === index
-                  ? "border-primary bg-primary text-primary-foreground shadow-lg"
-                  : "border-muted bg-background hover:border-primary/50 hover:bg-primary/5"
+                  ? "shadow-lg"
+                  : "hover:border-primary/50 hover:bg-primary/5"
               }`}
             >
               <Calendar className="size-4" />
@@ -100,7 +102,7 @@ export const ProgramScheduleSection = () => {
                 <div className="text-sm">{day.day}</div>
                 <div className="text-xs opacity-80">{day.date}</div>
               </div>
-            </button>
+            </Button>
           ))}
         </div>
 

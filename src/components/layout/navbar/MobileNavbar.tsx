@@ -100,14 +100,14 @@ const MobileNavHeader = () => {
       <div className="px-6 pb-4">
         <div className="flex items-baseline gap-2 mb-1">
           <h2 className="text-lg font-bold">NZ-ISNCON</h2>
-          <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-primary text-primary-foreground">
+          <span className="text-xs font-bold px-2 py-0.5 rounded-lg bg-primary text-primary-foreground">
             2026
           </span>
         </div>
         <p className="text-sm text-muted-foreground mb-3">
           30th Annual Conference
         </p>
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/50 border border-border/40">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-accent/50 border border-border/40">
           <span className="text-xs">📅</span>
           <span className="text-xs font-medium">
             10-12 April 2026 • Dehradun
@@ -126,12 +126,13 @@ const MobileNavAccordion = ({ items }: { items: NavItemType[] }) => {
       {items.map((item, index) => (
         <div key={item.label}>
           {item.children ? (
-            <div className="rounded-lg overflow-hidden border border-border/40 bg-card">
-              <button
+            <div className="rounded-xl overflow-hidden border border-border/40 bg-card">
+              <Button
                 type="button"
+                variant="ghost"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className={cn(
-                  "flex w-full items-center justify-between px-4 py-3 text-left transition-colors",
+                  "w-full justify-between px-4 py-3 h-auto font-semibold rounded-none",
                   openIndex === index
                     ? "bg-accent text-foreground"
                     : "hover:bg-accent/50",
@@ -149,7 +150,7 @@ const MobileNavAccordion = ({ items }: { items: NavItemType[] }) => {
                     openIndex === index && "rotate-180",
                   )}
                 />
-              </button>
+              </Button>
 
               <AnimatePresence>
                 {openIndex === index && (
@@ -225,7 +226,7 @@ const MobileNavFooter = () => {
         <Button
           asChild
           className={cn(
-            "w-full h-11 rounded-lg font-semibold",
+            "w-full h-11 font-semibold",
             "bg-primary hover:bg-primary/90",
             "transition-colors",
           )}

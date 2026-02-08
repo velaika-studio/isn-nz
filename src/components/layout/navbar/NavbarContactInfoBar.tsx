@@ -34,8 +34,8 @@ export const ContactInfoBar = () => {
           ))}
 
           {/* Location info with enhanced styling */}
-          <div className="flex items-center gap-2.5 rounded-full bg-background/50 px-3 py-1.5 text-xs text-muted-foreground backdrop-blur-sm ring-1 ring-border/30 transition-all duration-200 hover:ring-primary/30">
-            <div className="flex size-6 items-center justify-center rounded-full bg-primary/10 transition-colors">
+          <div className="flex items-center gap-2.5 rounded-xl bg-background/50 px-3 py-1.5 text-xs text-muted-foreground backdrop-blur-sm ring-1 ring-border/30 transition-all duration-200 hover:ring-primary/30">
+            <div className="flex size-6 items-center justify-center rounded-xl bg-primary/10 transition-colors">
               <MapPin className="size-3.5 text-primary" />
             </div>
             <span className="font-semibold">

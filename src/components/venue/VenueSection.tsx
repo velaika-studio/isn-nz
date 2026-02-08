@@ -161,7 +161,7 @@ const VenueContent = () => {
             <Button
               asChild
               size="lg"
-              className="h-12 w-full gap-2 rounded-xl shadow-lg shadow-primary/20 sm:flex-1"
+              className="h-12 w-full gap-2 shadow-lg shadow-primary/20 sm:flex-1"
             >
               <Link
                 href={VENUE_DETAILS.websiteUrl}
@@ -177,7 +177,7 @@ const VenueContent = () => {
               asChild
               variant="outline"
               size="lg"
-              className="h-12 w-full gap-2 rounded-xl backdrop-blur-sm hover:bg-primary hover:text-white sm:flex-1"
+              className="h-12 w-full gap-2 backdrop-blur-sm hover:bg-primary hover:text-white sm:flex-1"
             >
               <Link href="#tourist-attractions">
                 <MapPinIcon className="size-4" />

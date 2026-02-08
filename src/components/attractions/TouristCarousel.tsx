@@ -122,7 +122,7 @@ const AttractionCard = ({
             {attraction.name}
           </h3>
         </div>
-        <div className="absolute top-4 left-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+        <div className="absolute top-4 left-4 flex items-center gap-2 rounded-xl border border-white/20 bg-black/30 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
           <MapPin className="size-3 text-primary" />
           {attraction.distance}
         </div>
@@ -142,7 +142,7 @@ const CarouselNavigation = ({ api }: { api: CarouselApi }) => (
       onClick={() => api?.scrollPrev()}
       variant="outline"
       size="icon"
-      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-card/80 backdrop-blur-sm hidden md:flex"
+      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-card/80 backdrop-blur-sm hidden md:flex"
     >
       <ChevronLeft className="h-4 w-4" />
     </Button>
@@ -150,7 +150,7 @@ const CarouselNavigation = ({ api }: { api: CarouselApi }) => (
       onClick={() => api?.scrollNext()}
       variant="outline"
       size="icon"
-      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-card/80 backdrop-blur-sm hidden md:flex"
+      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-card/80 backdrop-blur-sm hidden md:flex"
     >
       <ChevronRight className="h-4 w-4" />
     </Button>

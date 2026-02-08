@@ -63,7 +63,7 @@ export const RegistrationSection = () => {
           <CardContent className="flex justify-center pb-10 px-8">
             <Button
               size="lg"
-              className="h-12 w-full gap-2 rounded-xl shadow-lg shadow-primary/20"
+              className="h-12 w-full gap-2 shadow-lg shadow-primary/20"
               asChild
             >
               <Link

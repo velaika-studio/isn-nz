@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BANK_DETAILS } from "@/lib/constants/registration-data";
+import { Button } from "@/components/ui/button";
 
 /**
  * Payment QR code display component
@@ -56,22 +57,25 @@ const BankDetailsContent = () => {
   return (
     <div className="grid gap-3 sm:grid-cols-2">
       {details.map((DetailType: any) => (
-        <button
+        <Button
           key={DetailType.label}
           type="button"
-          onClick={() => handleCopyToClipboard(DetailType.value, DetailType.label)}
-          className="group flex flex-col items-start rounded-lg border border-border/50 bg-muted/30 p-3 text-left transition-all hover:border-primary/30 hover:bg-muted/50"
+          variant="ghost"
+          onClick={() =>
+            handleCopyToClipboard(DetailType.value, DetailType.label)
+          }
+          className="group flex h-auto w-full flex-col items-start rounded-xl border border-border/50 bg-muted/30 p-3 text-left transition-all hover:border-primary/30 hover:bg-muted/50"
         >
           <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
             {DetailType.label}
           </div>
-          <div className="mt-0.5 font-semibold text-foreground">
+          <div className="mt-0.5 w-full break-words font-semibold text-foreground">
             {DetailType.value}
           </div>
           <div className="mt-1 text-xs text-primary opacity-0 transition-opacity group-hover:opacity-100">
             {copiedField === DetailType.label ? "Copied!" : "Click to copy"}
           </div>
-        </button>
+        </Button>
       ))}
     </div>
   );

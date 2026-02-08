@@ -27,7 +27,6 @@ import {
 } from "@/lib/constants/welcome-message";
 import { cn } from "@/lib/utils";
 
-
 interface WelcomeMessageDataType {
   greeting: string;
   paragraphs: string[];
@@ -48,9 +47,10 @@ interface ResourceLinkDataType {
   disabled?: boolean;
 }
 const WELCOME_MESSAGE_CONTENT: WelcomeMessageDataType = WELCOME_MESSAGEData;
-const WELCOME_EVENT_DETAILS_CONTENT: WelcomeEventDetailsDataType = WELCOME_EVENT_DETAILSData;
-const WELCOME_RESOURCE_LINKS_CONTENT: ResourceLinkDataType[] = WELCOME_RESOURCE_LINKSData;
-
+const WELCOME_EVENT_DETAILS_CONTENT: WelcomeEventDetailsDataType =
+  WELCOME_EVENT_DETAILSData;
+const WELCOME_RESOURCE_LINKS_CONTENT: ResourceLinkDataType[] =
+  WELCOME_RESOURCE_LINKSData;
 
 const iconMap: Record<string, LucideIcon> = {
   Download,
@@ -62,7 +62,6 @@ const iconMap: Record<string, LucideIcon> = {
 };
 const getIconComponent = (iconName: string): LucideIcon =>
   iconMap[iconName] || FileText;
-
 
 export const WelcomeMessage = () => (
   <motion.section
@@ -87,8 +86,6 @@ export const WelcomeMessage = () => (
     </div>
   </motion.section>
 );
-
-
 
 const itemVariants = {
   visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
@@ -188,7 +185,9 @@ const EventInfoCard = React.memo(() => (
           className="object-cover opacity-30 transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 flex flex-col justify-center p-8 text-white">
-          <h3 className="text-3xl font-bold">{WELCOME_EVENT_DETAILS_CONTENT.title}</h3>
+          <h3 className="text-3xl font-bold">
+            {WELCOME_EVENT_DETAILS_CONTENT.title}
+          </h3>
           <div className="mt-6 space-y-4">
             <EventDetail
               icon={Calendar}
@@ -282,7 +281,7 @@ ResourcesCard.displayName = "ResourcesCard";
 const RegisterButton = React.memo(() => (
   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
     <Button
-      className="group w-full gap-2 rounded-xl py-7 text-lg font-bold shadow-lg shadow-primary/25"
+      className="group w-full gap-2 py-7 text-lg font-bold shadow-lg shadow-primary/25"
       asChild
       size="lg"
     >

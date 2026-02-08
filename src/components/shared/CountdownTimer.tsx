@@ -176,7 +176,7 @@ export const CountdownSection = () => {
         <Button
           asChild
           size="lg"
-          className="group gap-2 rounded-full px-8 py-6 text-base font-bold shadow-lg shadow-primary/25"
+          className="group gap-2 px-8 py-6 text-base font-bold shadow-lg shadow-primary/25"
         >
           <Link href="/registration">
             Register Now

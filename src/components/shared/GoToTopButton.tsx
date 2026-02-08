@@ -14,7 +14,6 @@ export const GoToTopButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-
       window.requestAnimationFrame(() => {
         setIsVisible(window.scrollY > 400);
       });
@@ -39,7 +38,7 @@ export const GoToTopButton = () => {
       aria-label="Go to top"
       title="Go to top"
       className={cn(
-        "fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full shadow-lg transition-all duration-300",
+        "fixed bottom-6 right-6 z-50 h-12 w-12 shadow-lg transition-all duration-300",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         "active:scale-95",
         isVisible

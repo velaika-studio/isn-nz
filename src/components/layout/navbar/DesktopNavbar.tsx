@@ -23,7 +23,7 @@ export const DesktopNavigation = ({ items }: { items: NavItemType[] }) => {
           asChild
           size="sm"
           className={cn(
-            "group relative overflow-hidden rounded-full px-7 py-2.5 h-auto",
+            "group relative overflow-hidden px-7 py-2.5 h-auto",
             "bg-gradient-to-r from-primary via-primary to-primary/90",
             "text-primary-foreground font-semibold",
             "shadow-lg shadow-primary/30 transition-all duration-300",

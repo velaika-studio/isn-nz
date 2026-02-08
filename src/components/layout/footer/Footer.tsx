@@ -45,8 +45,8 @@ export const Footer = () => {
 
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-1/3 right-0 size-[500px] rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute -bottom-1/3 left-0 size-[500px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute -top-1/3 right-0 size-[500px] rounded-3xl bg-primary/5 blur-3xl" />
+        <div className="absolute -bottom-1/3 left-0 size-[500px] rounded-3xl bg-primary/5 blur-3xl" />
       </div>
 
       {/* Subtle pattern overlay */}

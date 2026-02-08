@@ -122,13 +122,13 @@ export const HeroCarousel = () => {
                   {/* Info Pills */}
                   <div className="flex flex-wrap gap-4 pt-2">
                     {activeSlide.date && (
-                      <div className="flex items-center gap-2 rounded-full border border-border/50 bg-card/80 px-4 py-2 text-sm backdrop-blur-sm">
+                      <div className="flex items-center gap-2 rounded-xl border border-border/50 bg-card/80 px-4 py-2 text-sm backdrop-blur-sm">
                         <Calendar className="size-4 text-primary" />
                         <span className="font-medium">{activeSlide.date}</span>
                       </div>
                     )}
                     {activeSlide.venue && (
-                      <div className="flex items-center gap-2 rounded-full border border-border/50 bg-card/80 px-4 py-2 text-sm backdrop-blur-sm">
+                      <div className="flex items-center gap-2 rounded-xl border border-border/50 bg-card/80 px-4 py-2 text-sm backdrop-blur-sm">
                         <MapPin className="size-4 text-primary" />
                         <span className="font-medium">{activeSlide.venue}</span>
                       </div>
@@ -139,7 +139,7 @@ export const HeroCarousel = () => {
                   <div className="flex flex-wrap gap-4 pt-4">
                     <Button
                       size="lg"
-                      className="group gap-2 rounded-full px-8 shadow-lg"
+                      className="group gap-2 px-8 shadow-lg"
                       asChild
                     >
                       <Link href="/registration">
@@ -150,7 +150,7 @@ export const HeroCarousel = () => {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="rounded-full px-8 backdrop-blur-sm hover:bg-primary hover:text-white"
+                      className="px-8 backdrop-blur-sm hover:bg-primary hover:text-white"
                       asChild
                     >
                       <Link href="/conference-brochure">View Brochure</Link>
@@ -164,15 +164,17 @@ export const HeroCarousel = () => {
 
         {/* Navigation */}
         <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2">
-          <button
+          <Button
             onClick={() => paginate(-1)}
-            className="flex size-10 items-center justify-center rounded-full border border-border/50 bg-card/80 backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+            variant="outline"
+            size="icon"
+            className="size-10 bg-card/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
             aria-label="Previous slide"
           >
             <ChevronLeft className="size-5" />
-          </button>
+          </Button>
 
-          <div className="flex items-center gap-2 rounded-full border border-border/50 bg-card/80 px-4 py-2 backdrop-blur-sm">
+          <div className="flex items-center gap-2 rounded-xl border border-border/50 bg-card/80 px-4 py-2 backdrop-blur-sm">
             {CAROUSEL_SLIDES.map((_, i: number) => (
               <button
                 key={i}
@@ -188,13 +190,15 @@ export const HeroCarousel = () => {
             ))}
           </div>
 
-          <button
+          <Button
             onClick={() => paginate(1)}
-            className="flex size-10 items-center justify-center rounded-full border border-border/50 bg-card/80 backdrop-blur-sm transition-colors hover:bg-primary hover:text-primary-foreground"
+            variant="outline"
+            size="icon"
+            className="size-10 bg-card/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
             aria-label="Next slide"
           >
             <ChevronRight className="size-5" />
-          </button>
+          </Button>
         </div>
 
         {/* Progress Bar */}

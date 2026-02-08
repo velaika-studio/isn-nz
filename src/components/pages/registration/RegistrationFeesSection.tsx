@@ -13,6 +13,7 @@ import {
 import { cn } from "@/lib/utils";
 import { PaymentSection } from "./PaymentSection";
 import { RegistrationSection } from "./RegistrationSection";
+import { Button } from "@/components/ui/button";
 
 type PricingPeriod = "early" | "regular" | "spot";
 
@@ -119,17 +120,18 @@ export const RegistrationFeesSection = ({
 
         {/* Period Tabs */}
         <div className="mb-10 flex justify-center">
-          <div className="inline-flex rounded-full border border-border/50 bg-muted/30 p-1">
+          <div className="inline-flex rounded-xl border border-border/50 bg-muted/30 p-1">
             {pricingPeriods.map((period: any) => (
-              <button
+              <Button
                 key={period.id}
                 type="button"
+                variant="ghost"
                 onClick={() => setSelectedPeriod(period.id)}
                 className={cn(
-                  "relative rounded-full px-6 py-2.5 text-sm font-medium transition-all duration-200",
+                  "relative rounded-xl px-6 py-2.5 text-sm font-medium h-auto",
                   selectedPeriod === period.id
-                    ? "bg-primary text-primary-foreground shadow-md"
-                    : "text-muted-foreground hover:text-foreground",
+                    ? "bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
+                    : "text-muted-foreground hover:text-foreground hover:bg-transparent",
                 )}
               >
                 {period.title}
@@ -139,7 +141,7 @@ export const RegistrationFeesSection = ({
                     <span className="relative inline-flex size-3 rounded-full bg-accent" />
                   </span>
                 )}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
