@@ -10,37 +10,53 @@ import type {
  */
 export const SPONSORSHIP_TIERS: SponsorshipTierType[] = [
   {
-    name: "Silver Partner",
-    price: "To Be Announced",
-    description: "Details coming soon for essential visibility package.",
+    name: "Platinum Stall Sponsor",
+    price: "₹12 Lakhs",
+    description: "Maximum visibility and prime exhibition space.",
     benefits: [
-      "Logo on conference website (TBA)",
-      "Acknowledgement in proceedings (TBA)",
-      "One complimentary registration (TBA)",
+      "(4X2) Exhibition Stall at Prime Location",
+      "7 Complimentary Exhibitor Registrations (Lunch & Dinner Coupons Valid for all days)",
+      "Special Mention at Dinner and Lunch Venues",
+      "Special Mention on Screen During Session Break",
+    ],
+    featured: true,
+  },
+  {
+    name: "Gold Stall Sponsor",
+    price: "₹10 Lakhs",
+    description: "Premium exhibition presence and branding.",
+    benefits: [
+      "(4X2) Exhibition Stall at Prime Location",
+      "5 Complimentary Exhibitor Registrations (Lunch & Dinner Coupons Valid for all days)",
+      "Special Mention on Screen During Session Break",
+      "Branding Opportunity",
     ],
   },
   {
-    name: "Gold Partner",
-    price: "To Be Announced",
-    description: "Details coming soon for enhanced presence package.",
+    name: "Silver Stall Sponsor",
+    price: "₹7.5 Lakhs",
+    description: "Enhanced visibility and exhibition space.",
     benefits: [
-      "All Silver benefits included (TBA)",
-      "Logo on main stage banner (TBA)",
-      "Exhibition booth space (TBA)",
-      "Two complimentary registrations (TBA)",
+      "Exhibition Stall (3X2 M) at Prime Location",
+      "3 Complimentary Exhibitor Registrations (Lunch & Dinner Coupons Valid for all days)",
+      "Branding Opportunity",
     ],
   },
   {
-    name: "Platinum Partner",
-    price: "To Be Announced",
-    description: "Details coming soon for maximum exposure package.",
+    name: "Exhibitor Stall",
+    price: "₹3 Lakhs",
+    description: "Dedicated space to showcase your products.",
     benefits: [
-      "All Gold benefits included (TBA)",
-      "Keynote session branding (TBA)",
-      "Full-page ad in program (TBA)",
-      "Exhibition booth in prime location (TBA)",
-      "Four complimentary registrations (TBA)",
+      "1 Complimentary Exhibitor Registrations (Lunch & Dinner Coupons Valid for all days)",
+      "Exhibition Stall (2X2 M)",
+      "Branding Opportunity",
     ],
+  },
+  {
+    name: "Introductory Stall",
+    price: "₹2 Lakh",
+    description: "Essential exhibition presence for new partners.",
+    benefits: ["Exhibition Stall (2X2 M)", "Branding Opportunity"],
   },
 ];
 
@@ -49,38 +65,23 @@ export const SPONSORSHIP_TIERS: SponsorshipTierType[] = [
  */
 export const ALL_BENEFITS: BenefitType[] = [
   {
-    name: "Logo on Website",
-    description:
-      "Your company logo displayed on our official conference website. (TBA)",
-    icon: Tv,
-  },
-  {
-    name: "Exhibition Booth",
-    description:
-      "A dedicated booth space in the exhibition hall to showcase your products. (TBA)",
+    name: "Exhibition Stall",
+    description: "Dedicated exhibition space at the conference venue.",
     icon: Building,
   },
   {
-    name: "Ad in Program",
-    description:
-      "An advertisement featured in the official printed conference program. (TBA)",
-    icon: Megaphone,
-  },
-  {
-    name: "Stage Acknowledgement",
-    description:
-      "Verbal acknowledgement of your sponsorship from the main stage. (TBA)",
-    icon: Megaphone,
-  },
-  {
     name: "Complimentary Registrations",
-    description:
-      "Free passes for your team members to attend the conference. (TBA)",
+    description: "Free registrations for your team members.",
     icon: Users,
   },
   {
-    name: "Keynote Branding",
-    description: "Exclusive branding rights for a keynote session. (TBA)",
+    name: "Special Mentions",
+    description: "Acknowledgements at dinner/lunch and on screens.",
+    icon: Megaphone,
+  },
+  {
+    name: "Branding Opportunity",
+    description: "Visibility and branding throughout the event.",
     icon: Star,
   },
 ];
@@ -90,39 +91,53 @@ export const ALL_BENEFITS: BenefitType[] = [
  */
 export const SPONSORSHIP_PACKAGES: SponsorshipPackageType[] = [
   {
-    name: "Silver",
-    price: "To Be Announced",
+    name: "Platinum",
+    price: "₹12 Lakhs",
     benefits: {
-      "Logo on Website": "TBA",
-      "Exhibition Booth": "TBA",
-      "Ad in Program": "TBA",
-      "Stage Acknowledgement": "TBA",
-      "Complimentary Registrations": "TBA",
-      "Keynote Branding": "TBA",
+      "Exhibition Stall": "4X2 Prime",
+      "Complimentary Registrations": "7",
+      "Special Mentions": "Yes",
+      "Branding Opportunity": "Yes",
     },
   },
   {
     name: "Gold",
-    price: "To Be Announced",
+    price: "₹10 Lakhs",
     benefits: {
-      "Logo on Website": "TBA",
-      "Exhibition Booth": "TBA",
-      "Ad in Program": "TBA",
-      "Stage Acknowledgement": "TBA",
-      "Complimentary Registrations": "TBA",
-      "Keynote Branding": "TBA",
+      "Exhibition Stall": "4X2 Prime",
+      "Complimentary Registrations": "5",
+      "Special Mentions": "Yes",
+      "Branding Opportunity": "Yes",
     },
   },
   {
-    name: "Platinum",
-    price: "To Be Announced",
+    name: "Silver",
+    price: "₹7.5 Lakhs",
     benefits: {
-      "Logo on Website": "TBA",
-      "Exhibition Booth": "TBA",
-      "Ad in Program": "TBA",
-      "Stage Acknowledgement": "TBA",
-      "Complimentary Registrations": "TBA",
-      "Keynote Branding": "TBA",
+      "Exhibition Stall": "3X2 Prime",
+      "Complimentary Registrations": "3",
+      "Special Mentions": "No",
+      "Branding Opportunity": "Yes",
+    },
+  },
+  {
+    name: "Exhibitor",
+    price: "₹3 Lakhs",
+    benefits: {
+      "Exhibition Stall": "2X2",
+      "Complimentary Registrations": "1",
+      "Special Mentions": "No",
+      "Branding Opportunity": "Yes",
+    },
+  },
+  {
+    name: "Introductory",
+    price: "₹2 Lakh",
+    benefits: {
+      "Exhibition Stall": "2X2",
+      "Complimentary Registrations": "0",
+      "Special Mentions": "No",
+      "Branding Opportunity": "Yes",
     },
   },
 ];

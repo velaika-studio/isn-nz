@@ -60,29 +60,41 @@ export const SCIENTIFIC_COMMITTEE: Record<string, OrganizerPropsType> = {
 // ==================== ORGANIZING COMMITTEE ====================
 
 export const ORGANIZING_COMMITTEE: Record<string, OrganizerPropsType> = {
-  sanjayDCruz: {
-    name: "Dr. Sanjay D Cruz",
-    role: "Organizing Chairman (ISN-NZ)",
-    institution: "Indian Society of Nephrology - North Zone",
-    image: "https://avatar.iran.liara.run/public",
-  },
   rajaRamachandran: {
     name: "Dr. Raja Ramachandran",
-    role: "Organizing Secretary (ISN-NZ)",
-    institution: "Dept. of Nephrology, PGIMER, Chandigarh",
-    image: "https://avatar.iran.liara.run/public",
-  },
-  vikramSingh: {
-    name: "Dr. Vikram Singh",
-    role: "Organizing Chairman (DNA)",
-    institution: "Dehradun Nephrology Association",
-    image: "https://avatar.iran.liara.run/public",
+    role: "General Secretary (ISN-NZ)",
+    institution: "Indian Society of Nephrology - North Zone",
+    image: "/images/faculty/raja.png",
   },
   puneetArora: {
     name: "Dr. Puneet Arora",
     role: "Organizing Secretary (DNA)",
-    institution: "Dept. of Nephrology, Max Super Speciality Hospital Dehradun",
-    image: "https://avatar.iran.liara.run/public",
+    institution: "Dehradun Nephrology Association",
+    image: "/images/faculty/puneet.png",
+  },
+  sanjayDCruz: {
+    name: "Dr. Sanjay D Cruz",
+    role: "President (ISN-NZ)",
+    institution: "Indian Society of Nephrology - North Zone",
+    image: "/images/faculty/sanjay.png",
+  },
+  vikramSingh: {
+    name: "Dr. Vikram Singh",
+    role: "President (DNA)",
+    institution: "Dehradun Nephrology Association",
+    image: "/images/faculty/vikram.png",
+  },
+  kailashNathSingh: {
+    name: "Dr. Kailash Nath Singh",
+    role: "Vice-President (ISN-NZ)",
+    institution: "Indian Society of Nephrology - North Zone",
+    image: "/images/faculty/kailash.png",
+  },
+  pavitraManuDogra: {
+    name: "Dr. Pavitra Manu Dogra",
+    role: "Treasurer (ISN-NZ)",
+    institution: "Indian Society of Nephrology - North Zone",
+    image: "/images/faculty/pavitra.png",
   },
 };
 
