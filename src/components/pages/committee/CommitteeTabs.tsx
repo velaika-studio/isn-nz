@@ -89,7 +89,7 @@ const MemberCard = ({ member }: { member: OrganizerPropsType }) => {
       transition={{ duration: 0.5 }}
       className="h-full"
     >
-      <Card className=" py-0 flex h-full flex-col overflow-hidden border-border/50 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1.5">
+      <Card className="py-0 flex h-full flex-col overflow-hidden border-border/50 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1.5">
         <div className="aspect-square w-full overflow-hidden bg-muted/30">
           <img
             src={member.image || FALLBACK_AVATAR_URL}
