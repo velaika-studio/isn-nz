@@ -158,6 +158,20 @@ export const BrochurePageHeroSection = () => {
                 <Download className="mr-2 size-5" /> Download Brochure
               </Link>
             </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/20 bg-white/5 text-white backdrop-blur-sm hover:bg-white/10 hover:text-white"
+              asChild
+            >
+              <Link
+                href="/files/isn-trade-brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download className="mr-2 size-5" /> Trade Brochure
+              </Link>
+            </Button>
           </div>
         </motion.div>
       </div>

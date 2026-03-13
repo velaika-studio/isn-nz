@@ -68,7 +68,7 @@ export const ORGANIZING_COMMITTEE: Record<string, OrganizerPropsType> = {
   },
   puneetArora: {
     name: "Dr. Puneet Arora",
-    role: "Organizing Secretary (DNA)",
+    role: "General Secretary (DNA)",
     institution: "Dehradun Nephrology Association",
     image: "/images/faculty/puneet.png",
   },

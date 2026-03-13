@@ -84,7 +84,16 @@ export const RESOURCE_ITEMS: ResourceItemType[] = [
     title: "Conference Brochure",
     description:
       "Download the full brochure with event details and program schedule.",
-    href: "/files/isn-nz-2026-brochure.pdf",
+    href: "/files/isn-brochure.pdf",
+    linkText: "Download PDF",
+    isExternal: true,
+  },
+  {
+    icon: Download,
+    title: "Trade Brochure",
+    description:
+      "Download the trade brochure for exhibition and sponsorship details.",
+    href: "/files/isn-trade-brochure.pdf",
     linkText: "Download PDF",
     isExternal: true,
   },

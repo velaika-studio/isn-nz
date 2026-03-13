@@ -2,14 +2,20 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import DomeGallery from "@/components/ui/dome-gallery/DomeGallery";
 import { TABS } from "@/lib/constants/committee-data";
 import type { CommitteeTabsPropsType } from "@/types/ui";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import type { OrganizerPropsType } from "@/types/common";
 
 const FALLBACK_AVATAR_URL = "/images/avatar-fallback.png";
 
 /**
- * A component that displays committee members in the provided DomeGallery.
+ * A component that displays committee members in a card-based grid layout.
  */
 export const CommitteeTabs = ({
   activeTab,
@@ -17,13 +23,6 @@ export const CommitteeTabs = ({
   committeeDataMap,
 }: CommitteeTabsPropsType) => {
   const committeeData = committeeDataMap[activeTab];
-  const galleryItems = committeeData.map((member) => ({
-    src: member.image || FALLBACK_AVATAR_URL,
-    alt: member.name,
-    name: member.name,
-    role: member.role,
-    institution: member.institution,
-  }));
   const activeTabConfig = TABS.find((tab) => tab.id === activeTab)!;
 
   return (
@@ -34,7 +33,7 @@ export const CommitteeTabs = ({
       transition={{ duration: 0.5 }}
       className="w-full bg-background text-foreground"
     >
-      <div className="container mx-auto max-w-6xl px-4 md:px-6 py-16 md:py-24 text-center">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 py-16 md:py-24 text-center">
         <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
           Meet The Committee
         </h2>
@@ -61,34 +60,59 @@ export const CommitteeTabs = ({
           })}
         </div>
 
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-2xl mb-16 px-4">
           <h3 className="text-2xl font-bold">{activeTabConfig.label}</h3>
           <p className="mt-2 text-muted-foreground">
             {activeTabConfig.description}
           </p>
         </div>
-      </div>
-      <div className="relative -mt-16 h-[60vh] min-h-[500px] w-full xl:h-[90vh] bg-background overflow-hidden">
-        {/* Stronger fade overlays for better blending */}
-        <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-background via-background/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-background via-background/90 via-30% to-transparent z-10 pointer-events-none" />
 
-        <DomeGallery
-          images={galleryItems}
-          fit={0.65}
-          minRadius={300}
-          maxRadius={800}
-          segments={35}
-          dragSensitivity={20}
-          maxVerticalRotationDeg={5}
-          imageBorderRadius="20px"
-          openedImageBorderRadius="20px"
-          openedImageWidth="min(450px, 90vw)"
-          openedImageHeight="min(450px, 90vw)"
-          grayscale={true}
-          overlayBlurColor="transparent"
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 px-2 md:px-4">
+          {committeeData.map((member, index) => (
+            <MemberCard key={`${member.name}-${index}`} member={member} />
+          ))}
+        </div>
       </div>
     </motion.section>
+  );
+};
+
+/**
+ * ✨ A simple, elegant card for committee members.
+ */
+const MemberCard = ({ member }: { member: OrganizerPropsType }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="h-full"
+    >
+      <Card className=" py-0 flex h-full flex-col overflow-hidden border-border/50 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1.5">
+        <div className="aspect-square w-full overflow-hidden bg-muted/30">
+          <img
+            src={member.image || FALLBACK_AVATAR_URL}
+            alt={member.name}
+            className="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
+          />
+        </div>
+        <CardHeader className="flex flex-1 flex-col p-5 text-left">
+          <div className="space-y-1">
+            <CardTitle className="text-xl font-bold leading-snug text-foreground">
+              {member.name}
+            </CardTitle>
+            <CardDescription className="font-medium text-primary text-sm tracking-wide">
+              {member.role}
+            </CardDescription>
+          </div>
+          <div className="mt-4 border-t border-border/40 pt-4">
+            <p className="text-xs leading-relaxed text-muted-foreground line-clamp-2 italic">
+              {member.institution}
+            </p>
+          </div>
+        </CardHeader>
+      </Card>
+    </motion.div>
   );
 };
