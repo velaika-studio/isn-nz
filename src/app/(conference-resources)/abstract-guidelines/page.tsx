@@ -1,28 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Bell, FileText } from "lucide-react";
+import { AlertCircle, ArrowRight, FileText, Mail } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 
-/**
- * Abstract Guidelines page - Coming Soon
- */
+const ABSTRACT_SUBMIT_MAILTO = `mailto:isnnorthzone@gmail.com?subject=${encodeURIComponent("Abstract Submission - NZ-ISNCON 2026")}&body=${encodeURIComponent(
+  "Dear NZ-ISNCON 2026 Scientific Committee,\n\nPlease find my abstract submission below:\n\nType of Study: [Original Study / Case Report]\n\nTitle: \n\nAuthors: \n\nAffiliation: \n\nAbstract Body:\n\nKeywords: \n\nPresenting Author Email: \n\nThank you."
+)}`;
+
 export default function AbstractGuidelinesPage() {
   return (
     <Layout>
-      <div className="flex min-h-[70vh] flex-col items-center justify-center px-4 py-20">
-        {/* <AbstractPageHeroSection />
-        <AbstractCategoriesSection />
-        <AbstractFormatSection />
-        <AbstractGuidelinesSection />
-        <AbstractCtaSection /> */}
+      <div className="relative flex min-h-[70vh] flex-col items-center justify-center px-4 py-20">
+        {/* Background SVG */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <Image
+            src="/images/abstract-page.svg"
+            alt=""
+            fill
+            className="object-contain opacity-10"
+            priority
+          />
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="relative z-10 w-full max-w-2xl text-center"
         >
           {/* Icon */}
           <motion.div
@@ -34,48 +42,53 @@ export default function AbstractGuidelinesPage() {
             <FileText className="size-12 text-primary" />
           </motion.div>
 
-          {/* Badge */}
+          {/* Deadline Badge */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-medium text-accent-foreground"
+            className="mb-6 flex justify-center"
           >
-            <Bell className="size-4" />
-            Coming Soon
+            <div className="inline-flex items-center gap-2 rounded-full border border-red-400/40 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-600 dark:text-red-400">
+              <AlertCircle className="size-4" />
+              Deadline: 4th April 2026
+            </div>
           </motion.div>
 
           {/* Title */}
           <h1 className="mb-4 font-serif text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            Abstract Submission Guidelines
+            Abstract Submission
           </h1>
 
           {/* Description */}
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground">
-            We are currently finalizing the abstract submission guidelines for
-            NZ-ISNCON 2026. Please check back soon for detailed instructions on
-            how to submit your research work.
+          <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
+            Submit your research abstracts for NZ-ISNCON 2026 directly to our committee via email.
           </p>
 
-          {/* Info Cards */}
+          {/* Email Submit Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mx-auto mb-10 grid max-w-2xl gap-4 sm:grid-cols-2"
+            className="mx-auto mb-10 max-w-md"
           >
-            <div className="rounded-xl border border-border/50 bg-card/50 p-6 text-left backdrop-blur-sm">
-              <h3 className="mb-2 font-semibold text-foreground">
-                Submission Portal
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                The online abstract submission portal will be available shortly.
+            <div className="rounded-xl border-2 border-primary/20 bg-primary/5 p-6 text-left backdrop-blur-sm">
+              <div className="mb-3 flex items-center gap-2">
+                <Mail className="size-5 text-primary" />
+                <h3 className="font-semibold text-foreground">Submit Abstract via Email</h3>
+              </div>
+              <p className="mb-4 text-sm text-muted-foreground">
+                Click below to open a pre-filled email template with all required fields.
               </p>
-            </div>
-            <div className="rounded-xl border border-border/50 bg-card/50 p-6 text-left backdrop-blur-sm">
-              <h3 className="mb-2 font-semibold text-foreground">Categories</h3>
-              <p className="text-sm text-muted-foreground">
-                Abstract categories and topics will be announced soon.
+              <Button asChild className="w-full gap-2">
+                <a href={ABSTRACT_SUBMIT_MAILTO}>
+                  <Mail className="size-4" />
+                  Submit Abstract Now
+                </a>
+              </Button>
+              <p className="mt-3 text-center text-xs text-muted-foreground">
+                Sends to{" "}
+                <span className="font-medium text-foreground">isnnorthzone@gmail.com</span>
               </p>
             </div>
           </motion.div>
@@ -87,13 +100,13 @@ export default function AbstractGuidelinesPage() {
             transition={{ delay: 0.5 }}
             className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
-            <Button asChild size="lg" className="gap-2">
+            <Button asChild size="lg" variant="outline" className="gap-2">
               <Link href="/registration">
-                Register Now
+                Register for Conference
                 <ArrowRight className="size-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="ghost" size="lg">
               <Link href="/">Back to Home</Link>
             </Button>
           </motion.div>

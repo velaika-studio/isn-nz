@@ -112,7 +112,7 @@ export const GUIDELINES: GuidelineType[] = [
   },
   {
     icon: Calendar,
-    text: "Last date for abstract submission: 1st March, 2026",
+    text: "Last date for abstract submission: 4th April, 2026",
     colorClassName: "text-amber-500",
   },
   {

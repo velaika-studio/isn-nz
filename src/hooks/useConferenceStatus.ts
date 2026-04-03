@@ -34,8 +34,8 @@ export function useConferenceStatus(): ConferenceStateType {
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-    let timeText = `Starts in ${days}d ${hours}h`;
-    if (days < 1) timeText = `Starts in ${hours}h`;
+    let timeText = `${days}d ${hours}h`;
+    if (days < 1) timeText = `${hours}h`;
     if (hours < 1) timeText = "Starting soon";
 
     return { status: "countdown", timeText, daysUntilStart: days };
