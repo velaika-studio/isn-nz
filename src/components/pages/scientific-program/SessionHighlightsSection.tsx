@@ -22,7 +22,7 @@ const cardVariants = {
 /**
  * Displays session highlights organized by category.
  */
-export const SESSION_HIGHLIGHTSSection = () => {
+export const SessionHighlightsSection = () => {
   return (
     <motion.section
       variants={sectionVariants}
@@ -33,7 +33,7 @@ export const SESSION_HIGHLIGHTSSection = () => {
     >
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+          <h2 className="font-serif text-3xl font-bold tracking-tight md:text-4xl">
             Session Highlights
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">

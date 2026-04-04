@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, ChevronRight, Home, MapPin } from "lucide-react";
+import { Calendar, ChevronRight, Download, Home, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -34,7 +34,7 @@ export const ScientificProgramHeroSection = () => (
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
     </div>
 
-    <div className="container relative z-10 mx-auto px-4 text-center text-white">
+    <div className="container relative z-10 mx-auto max-w-6xl px-4 text-center text-white">
       {/* Breadcrumbs */}
       <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-200">
         <Link
@@ -53,7 +53,7 @@ export const ScientificProgramHeroSection = () => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="mb-6 text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl"
+        className="mb-6 font-serif text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
       >
         Scientific Program
       </motion.h1>
@@ -109,9 +109,12 @@ export const ScientificProgramHeroSection = () => (
           size="lg"
           variant="outline"
           asChild
-          className="border-white/20 bg-white/5 text-white backdrop-blur-sm hover:bg-white/10"
+          className="gap-2 border-white/20 bg-white/5 text-white backdrop-blur-sm hover:bg-white/10"
         >
-          <Link href="/abstract-guidelines">Submit Abstract</Link>
+          <Link href="/files/scientific-program.pdf" download="NZ-ISNCON-2026-Scientific-Programme.pdf">
+            <Download className="size-4" />
+            Download Programme
+          </Link>
         </Button>
       </motion.div>
     </div>

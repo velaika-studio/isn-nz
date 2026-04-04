@@ -150,7 +150,7 @@ export const HeroCarousel = () => {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="px-8 backdrop-blur-sm hover:bg-primary hover:text-white"
+                      className="px-8 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
                       asChild
                     >
                       <Link href="/conference-brochure">View Brochure</Link>

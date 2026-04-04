@@ -35,7 +35,7 @@ export const CommitteeHeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
       </div>
       <div className="container relative z-10 mx-auto max-w-6xl px-4 md:px-6 text-white">
-        <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-300">
+        <nav className="mb-6 flex items-center justify-center gap-2 text-sm text-gray-200">
           <Link
             href="/"
             className="flex items-center gap-1.5 transition-colors hover:text-primary"

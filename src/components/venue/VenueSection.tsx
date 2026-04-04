@@ -177,7 +177,7 @@ const VenueContent = () => {
               asChild
               variant="outline"
               size="lg"
-              className="h-12 w-full gap-2 backdrop-blur-sm hover:bg-primary hover:text-white sm:flex-1"
+              className="h-12 w-full gap-2 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground sm:flex-1"
             >
               <Link href="#tourist-attractions">
                 <MapPinIcon className="size-4" />
@@ -414,7 +414,7 @@ const HotelCard = ({ hotel }: { hotel: HotelType }) => {
               <Button
                 variant="outline"
                 size="sm"
-                className="shrink-0 hover:text-white"
+                className="shrink-0 hover:bg-primary hover:text-primary-foreground"
                 asChild
               >
                 <a href={`tel:${hotel.contact.phone}`} aria-label="Call hotel">
